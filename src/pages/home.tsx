@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import logoUrl from "../assets/zeronia-logo-white.svg";
 import "./home.css";
 
 const TAGLINE = "Coming Soon...";
@@ -27,7 +28,7 @@ export default function HomePage() {
     <main className="home">
       <img
         className="home__logo"
-        src="/assets/zeronia-logo-white.svg"
+        src={logoUrl}
         alt="Zeronia"
       />
       <p className="home__tagline">
