@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import logoUrl from "../assets/zeronia-logo-white.svg";
+import logoUrl from "../assets/logo/zeronia-logo-white.svg";
 import "./home.css";
 
 const TAGLINE = "Coming Soon...";
