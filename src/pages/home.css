@@ -1,54 +1,23 @@
-@font-face {
-  font-family: "Minecraft";
-  src: url("../assets/font/minecraft.otf") format("opentype");
-  font-display: swap;
-}
-
 .home {
-  min-height: 100vh;
+  /* TEMP: extra height so the page scrolls while there's no real content yet */
+  min-height: 250vh;
+  background: var(--color-bg);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  gap: 1.75rem;
-  padding: 2rem;
-  /* raise the content above true vertical center */
-  padding-bottom: 16vh;
-  background: #000000;
 }
 
-.home__logo {
-  width: min(45vw, 440px);
-  height: auto;
-}
-
-.home__tagline {
-  margin: 0;
-  min-height: 1.4em; /* reserve height so nothing shifts while typing */
-  display: inline-flex;
-  align-items: center;
+/* TEMP scroll-test markers */
+.home__scroll-test {
   font-family: "Minecraft", monospace;
-  font-size: clamp(1rem, 3vw, 1.75rem);
-  letter-spacing: 0.06em;
-  color: #ffffff;
+  color: var(--color-muted);
+  opacity: 0.4;
+  margin: 0;
+  padding-top: 30vh;
 }
 
-.home__caret {
-  display: inline-block;
-  width: 0.55em;
-  height: 1.05em;
-  margin-left: 0.12em;
-  background: #ffffff;
-  animation: home-caret-blink 1s steps(1, end) infinite;
-}
-
-@keyframes home-caret-blink {
-  0%,
-  50% {
-    opacity: 1;
-  }
-  50.01%,
-  100% {
-    opacity: 0;
-  }
+.home__scroll-test--bottom {
+  padding-top: 0;
+  padding-bottom: 4vh;
 }

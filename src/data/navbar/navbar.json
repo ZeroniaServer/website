@@ -1,0 +1,41 @@
+{
+  "pages": {
+    "/": ["grass"]
+  },
+  "buttons": [
+    { "name": "News", "link": "url", "route": "https://google.com", "type": "button" },
+    { "name": "Games", "link": "url", "route": "https://google.com", "type": "dropdown" },
+    { "name": "Team", "link": "url", "route": "https://google.com", "type": "button" },
+    { "name": "Social", "link": "url", "route": "https://google.com", "type": "button" }
+  ],
+  "dropdown": [
+    {
+      "header": "Released",
+      "items": [
+        { "name": "Rocket Riders", "link": "url", "route": "https://google.com" },
+        { "name": "Snowy Skirmish 2", "link": "url", "route": "https://google.com" },
+        { "name": "Crafty Cannoneers", "link": "url", "route": "https://google.com" },
+        { "name": "The Purple", "link": "url", "route": "https://google.com" },
+        { "name": "Fossil Frights", "link": "url", "route": "https://google.com" },
+        { "name": "Borderline", "link": "url", "route": "https://google.com" }
+      ]
+    },
+    {
+      "header": "Coming Soon",
+      "items": [
+        { "name": "Planetary Pirates", "link": "url", "route": "https://google.com" },
+        { "name": "Scatter Wars", "link": "url", "route": "https://google.com" },
+        { "name": "Battle Chunks", "link": "url", "route": "https://google.com" },
+        { "name": "Howl and Hoard", "link": "url", "route": "https://google.com" },
+        { "name": "Clumsy Cavemen", "link": "url", "route": "https://google.com" },
+        { "name": "Robo Buddy", "link": "url", "route": "https://google.com" }
+      ]
+    },
+    {
+      "header": "Discontinued",
+      "items": [
+        { "name": "Snowy Skirmish 1", "link": "url", "route": "https://google.com" }
+      ]
+    }
+  ]
+}

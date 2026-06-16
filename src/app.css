@@ -1,13 +1,46 @@
 :root {
+  --color-green: #3fb950;
+  --color-green-dark: #2a8a38;
+  --color-red: #e5484d;
+  --color-red-dark: #b53338;
+
+  --color-bg: #17171c;
+  --color-surface: #202028;
+  --color-text: #ffffff;
+  --color-muted: #b8b8c0;
+
+  /* --- Gray button palette (Minecraft-style bevel) --- */
+  --color-gray: #6f6f73;
+  --color-gray-hover: #818185;
+  --color-gray-dark: #4a4a4d;
+
+  --border-width: 3px;
+  --radius: 0;
+  --bevel-light: rgba(255, 255, 255, 0.28);
+  --bevel-dark: rgba(0, 0, 0, 0.45);
+  --bevel-size: 3px;
+
   color-scheme: dark;
   line-height: 1.5;
   font-weight: 400;
-  color: #ffffff;
-  background: #000000;
+  color: var(--color-text);
+  background: var(--color-bg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: "Minecraft";
+  src: url("./assets/font/minecraft.otf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Minecraft Ten";
+  src: url("./assets/font/minecraft-ten.ttf") format("truetype");
+  font-display: swap;
 }
 
 * {
@@ -23,8 +56,39 @@ body,
 
 body {
   min-height: 100vh;
+  background: var(--color-bg);
 }
 
 a {
   color: inherit;
+}
+
+/* --- Default site button: gray Minecraft-style pixel bevel --- */
+.mc-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: "Minecraft", monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+  background: var(--color-gray);
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+  box-shadow:
+    inset var(--bevel-size) var(--bevel-size) 0 var(--bevel-light),
+    inset calc(-1 * var(--bevel-size)) calc(-1 * var(--bevel-size)) 0 var(--bevel-dark);
+  transition: background 0.1s ease;
+}
+
+.mc-button:hover {
+  background: var(--color-gray-hover);
+}
+.mc-button:active {
+  background: var(--color-gray-dark);
+  box-shadow:
+    inset var(--bevel-size) var(--bevel-size) 0 var(--bevel-dark),
+    inset calc(-1 * var(--bevel-size)) calc(-1 * var(--bevel-size)) 0 var(--bevel-light);
 }
