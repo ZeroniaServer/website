@@ -1,6 +1,6 @@
 {
   "pages": {
-    "/": ["grass"]
+    "/": ["grass", "snow"]
   },
   "buttons": [
     { "name": "News", "link": "url", "route": "https://google.com", "type": "button" },

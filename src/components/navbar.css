@@ -72,9 +72,15 @@
   background: transparent;
   border: none;
   border-radius: var(--radius);
-  padding: 1rem 1.25rem 0; /* asymmetric: nudges the label down */
+  padding: 0 1.25rem;
   cursor: pointer;
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+  transition: transform 0.15s ease;
+}
+
+/* grass has a grass cap up top, so slide the label down onto the dug stone */
+.navbar--grass .navbar__btn--dug {
+  transform: translateY(0.5rem);
 }
 
 /* toggled from JS once the dig exposes stone under the label: engrave it in */
@@ -95,6 +101,16 @@
 .navbar__btn--dug .navbar__caret {
   filter: brightness(0) drop-shadow(0 1px 0 rgba(255, 255, 255, 0.18));
   opacity: 0.55;
+}
+
+/* light-surface variants (e.g. snow): dark idle labels for legibility */
+.navbar--darktext .navbar__btn {
+  color: rgba(0, 0, 0, 0.6);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+.navbar--darktext .navbar__caret {
+  filter: brightness(0) drop-shadow(0 1px 0 rgba(255, 255, 255, 0.25));
+  opacity: 0.6;
 }
 
 .navbar__panel {

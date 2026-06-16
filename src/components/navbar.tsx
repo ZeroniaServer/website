@@ -31,10 +31,11 @@ const PAGES = ((navData as { pages?: Record<string, string[]> }).pages ??
 
 const SCROLL_THRESHOLD = 24; // px scrolled before the bar drops a shadow
 
-// The bar background is a procedural pixel grid (ROWS rows of square cells; each
-// cell picks from a pool = a base colour with a lighter mix at mixChance). A
-// variant just swaps pools, dig depth/timing, and logo — behaviour is identical.
-// Add "sand" / "snow" to VARIANTS in the same shape.
+// The bar background is a procedural pixel grid of ROWS rows of square cells.
+// Each cell picks from a pool (a base colour with a lighter mix at mixChance).
+// A variant defines the idle `surface` colour and the hovered `dig` colour per
+// row, plus `digSequence` — groups of rows flipped in order during the dig.
+// Add another variant to VARIANTS in the same shape.
 const ROWS = 8;
 
 interface PoolDef {
@@ -43,39 +44,80 @@ interface PoolDef {
   mixChance: number;
 }
 
+const POOLS: Record<string, PoolDef> = {
+  grass: { base: "#48a72c", mix: "#57c136", mixChance: 0.4 },
+  dirt: { base: "#6b4a2c", mix: "#76512f", mixChance: 0.15 },
+  stone: { base: "#8c8c8c", mix: "#a6a6a6", mixChance: 0.05 },
+  snow: { base: "#e9f1fc", mix: "#cdd9ec", mixChance: 0.3 },
+  ice: { base: "#a6cdf2", mix: "#c9e6ff", mixChance: 0.3 },
+};
+
+function pickPool(p: PoolDef, r: number) {
+  return r < p.mixChance ? p.mix : p.base;
+}
+
 interface Variant {
   logo: string; // png filename in src/assets/logo
-  cap: PoolDef; // top rows (grass / snow / ...)
-  body: PoolDef; // middle rows (dirt / sand / ...)
-  dug: PoolDef; // exposed on hover (stone / ice / ...)
-  capRow: number; // fraction of row 1 that is cap colour
-  dugFrom: number; // topmost dug row (50/50 transition); rows below = full dug
-  dugRow: number; // fraction of the transition row that is dug
-  rowStep: number; // ms between rows during the dig
-  jitter: number; // ms random spread within a row
+  darkText?: boolean; // dark idle labels (for light surfaces like snow)
+  body: PoolDef; // dropdown strip's non-dug half
+  dug: PoolDef; // dropdown fill + strip's dug half
+  surface: (row: number, rs: number, rl: number) => string; // idle cell colour
+  dig: (row: number, rs: number, rl: number) => string; // hovered colour (dug rows)
+  digSequence: number[][]; // rows flipped per step, in animation order
+  rowStep: number; // ms between steps
+  jitter: number; // ms random spread within a step
   textDelay: number; // ms before the label engraves
 }
 
 const VARIANTS: Record<string, Variant> = {
   grass: {
-    logo: "logo.png",
-    cap: { base: "#48a72c", mix: "#57c136", mixChance: 0.4 },
-    body: { base: "#6b4a2c", mix: "#76512f", mixChance: 0.15 },
-    dug: { base: "#8c8c8c", mix: "#a6a6a6", mixChance: 0.05 },
-    capRow: 0.5,
-    dugFrom: 2,
-    dugRow: 0.5,
+    logo: "logo_grass.png",
+    body: POOLS.dirt,
+    dug: POOLS.stone,
+    surface: (row, rs, rl) =>
+      row === 0
+        ? pickPool(POOLS.grass, rs)
+        : row === 1
+          ? rl < 0.5
+            ? pickPool(POOLS.grass, rs)
+            : pickPool(POOLS.dirt, rs)
+          : pickPool(POOLS.dirt, rs),
+    dig: (row, rs, rl) =>
+      row === 2
+        ? rl < 0.5
+          ? pickPool(POOLS.stone, rs)
+          : pickPool(POOLS.dirt, rs)
+        : pickPool(POOLS.stone, rs),
+    digSequence: [[7], [6], [5], [4], [3], [2]], // bottom up
     rowStep: 40,
     jitter: 70,
     textDelay: 160,
   },
+  snow: {
+    logo: "logo_snow.png",
+    darkText: true,
+    body: POOLS.snow,
+    dug: POOLS.ice,
+    surface: (_row, rs) => pickPool(POOLS.snow, rs), // uniform snow
+    dig: (row, rs, rl) =>
+      // 1px snow edges (rows 0/7 never dug); 2nd rows are a 50% ice/snow blend
+      row === 1 || row === 6
+        ? rl < 0.5
+          ? pickPool(POOLS.ice, rs)
+          : pickPool(POOLS.snow, rs)
+        : pickPool(POOLS.ice, rs),
+    digSequence: [[3, 4], [2, 5], [1, 6]], // centre out
+    rowStep: 45,
+    jitter: 60,
+    textDelay: 80,
+  },
 };
 
-function pickVariant(): Variant {
+function pickVariantName(): string {
   const path = typeof window !== "undefined" ? window.location.pathname : "/";
   const names = PAGES[path] ?? PAGES["/"] ?? ["grass"];
   const name = names[Math.floor(Math.random() * names.length)];
-  return VARIANTS[name] ?? VARIANTS.grass;
+  return name in VARIANTS ? name : "grass";
 }
 
 // Logo png lookup so a variant can target any file in src/assets/logo by name.
@@ -88,10 +130,6 @@ const LOGOS = import.meta.glob("../assets/logo/*.png", {
 function resolveLogo(name: string): string {
   const hit = Object.entries(LOGOS).find(([path]) => path.endsWith(`/${name}`));
   return hit ? hit[1] : "";
-}
-
-function pickPool(p: PoolDef, r: number) {
-  return r < p.mixChance ? p.mix : p.base;
 }
 
 // A small tiling texture painted from a pool — fills the dropdown with the dug
@@ -108,22 +146,6 @@ function makeTexture(p: PoolDef): string {
       ctx.fillRect(x, y, 1, 1);
     }
   return `url(${canvas.toDataURL()})`;
-}
-
-// Idle colour (cap + body) and hovered colour (cap kept, lower rows dug out).
-function cellColors(v: Variant, row: number, rShade: number, rLayer: number) {
-  let normal: string;
-  if (row === 0) normal = pickPool(v.cap, rShade);
-  else if (row === 1)
-    normal = rLayer < v.capRow ? pickPool(v.cap, rShade) : pickPool(v.body, rShade);
-  else normal = pickPool(v.body, rShade);
-
-  let hover = normal;
-  if (row > v.dugFrom) hover = pickPool(v.dug, rShade);
-  else if (row === v.dugFrom)
-    hover = rLayer < v.dugRow ? pickPool(v.dug, rShade) : pickPool(v.body, rShade);
-
-  return { normal, hover };
 }
 
 interface Grid {
@@ -156,7 +178,8 @@ function follow(item: NavLink) {
 }
 
 export default function Navbar() {
-  const [variant] = useState(pickVariant);
+  const [variantName] = useState(pickVariantName);
+  const variant = VARIANTS[variantName];
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [grid, setGrid] = useState<Grid | null>(null);
@@ -187,25 +210,28 @@ export default function Navbar() {
       const { width, height } = bar.getBoundingClientRect();
       const cell = height / ROWS;
       const cols = Math.ceil(width / cell);
+      const dug = new Set(variant.digSequence.flat());
       const normal: string[] = [];
       const hover: string[] = [];
       for (let row = 0; row < ROWS; row++) {
         for (let col = 0; col < cols; col++) {
-          const c = cellColors(variant, row, Math.random(), Math.random());
-          normal.push(c.normal);
-          hover.push(c.hover);
+          const rs = Math.random();
+          const rl = Math.random();
+          const n = variant.surface(row, rs, rl);
+          normal.push(n);
+          hover.push(dug.has(row) ? variant.dig(row, rs, rl) : n);
         }
       }
       const strip: string[] = [];
       const stripDug: string[] = [];
       for (let col = 0; col < cols; col++) {
-        const rShade = Math.random();
+        const rs = Math.random();
         strip.push(
           Math.random() < 0.5
-            ? pickPool(variant.body, rShade)
-            : pickPool(variant.dug, rShade),
+            ? pickPool(variant.body, rs)
+            : pickPool(variant.dug, rs),
         );
-        stripDug.push(pickPool(variant.dug, rShade));
+        stripDug.push(pickPool(variant.dug, rs));
       }
       setGrid({ cols, cell, normal, hover, strip, stripDug });
     };
@@ -229,14 +255,13 @@ export default function Navbar() {
   const resetRange = (g: HTMLElement) => {
     if (!grid || !lastRange.current) return;
     const [c0, c1] = lastRange.current;
-    for (let row = variant.dugFrom; row < ROWS; row++)
+    for (const row of variant.digSequence.flat())
       for (let col = c0; col < c1; col++)
         setCell(g, row * grid.cols + col, grid.normal[row * grid.cols + col]);
     lastRange.current = null;
   };
 
-  // Dig away the body under a hovered button: dug pool flips in row by row from
-  // the bottom up, with a random spread inside each row.
+  // Dig out the body under a hovered button, one digSequence step at a time.
   const hoverButton = (btn: HTMLElement): [number, number] | null => {
     const g = gridRef.current;
     if (!g || !grid) return null;
@@ -249,16 +274,17 @@ export default function Navbar() {
     const c1 = Math.min(grid.cols, Math.ceil((r.right - gRect.left) / grid.cell));
     lastRange.current = [c0, c1];
 
-    for (let row = variant.dugFrom; row < ROWS; row++) {
-      const rowDelay = variant.rowStep * (ROWS - 1 - row); // bottom row first
-      for (let col = c0; col < c1; col++) {
-        const i = row * grid.cols + col;
-        const delay = rowDelay + Math.random() * variant.jitter;
-        timers.current.push(
-          window.setTimeout(() => setCell(g, i, grid.hover[i]), delay),
-        );
-      }
-    }
+    variant.digSequence.forEach((rows, step) => {
+      const stepDelay = step * variant.rowStep;
+      for (const row of rows)
+        for (let col = c0; col < c1; col++) {
+          const i = row * grid.cols + col;
+          const delay = stepDelay + Math.random() * variant.jitter;
+          timers.current.push(
+            window.setTimeout(() => setCell(g, i, grid.hover[i]), delay),
+          );
+        }
+    });
     return [c0, c1];
   };
 
@@ -292,29 +318,33 @@ export default function Navbar() {
     }
   };
 
-  // Fill the body back in (top of the dug region first) when leaving the bar.
+  // Fill the body back in (reverse of the dig order) when leaving the bar.
   const clearHover = () => {
     const g = gridRef.current;
     if (!g || !grid || !lastRange.current) return;
     clearTimers();
     const [c0, c1] = lastRange.current;
     lastRange.current = null;
-    for (let row = variant.dugFrom; row < ROWS; row++) {
-      const rowDelay = variant.rowStep * (row - variant.dugFrom); // top first
-      for (let col = c0; col < c1; col++) {
-        const i = row * grid.cols + col;
-        const delay = rowDelay + Math.random() * variant.jitter;
-        timers.current.push(
-          window.setTimeout(() => setCell(g, i, grid.normal[i]), delay),
-        );
-      }
-    }
+    const steps = variant.digSequence.length;
+    variant.digSequence.forEach((rows, step) => {
+      const stepDelay = (steps - 1 - step) * variant.rowStep;
+      for (const row of rows)
+        for (let col = c0; col < c1; col++) {
+          const i = row * grid.cols + col;
+          const delay = stepDelay + Math.random() * variant.jitter;
+          timers.current.push(
+            window.setTimeout(() => setCell(g, i, grid.normal[i]), delay),
+          );
+        }
+    });
   };
 
   const className = [
     "navbar",
+    `navbar--${variantName}`,
     scrolled && "navbar--scrolled",
     open && "navbar--open",
+    variant.darkText && "navbar--darktext",
   ]
     .filter(Boolean)
     .join(" ");
