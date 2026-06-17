@@ -3,8 +3,8 @@ import "./home.css";
 export default function HomePage() {
   return (
     <main className="home">
-      {/* TEMP: gives the page height so the navbar's scroll behaviour is testable */}
-      <p className="home__scroll-test">scroll down ↓</p>
+      {/* temp gives the page height so the navbar scroll behaviour is testable */}
+      <p className="home__scroll-test">Full site coming soon...</p>
     </main>
   );
 }
