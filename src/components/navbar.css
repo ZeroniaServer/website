@@ -114,6 +114,7 @@
 }
 
 .navbar__panel {
+  position: relative;
   max-height: 0;
   overflow: hidden;
   background-repeat: repeat;
@@ -123,6 +124,23 @@
 
 .navbar--open .navbar__panel {
   max-height: 60vh;
+}
+
+/* animated water for wave variants, behind the dropdown content */
+.navbar__waves {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  image-rendering: pixelated;
+  pointer-events: none;
+}
+
+.navbar__strip,
+.navbar__columns {
+  position: relative;
+  z-index: 1;
 }
 
 .navbar__strip {
