@@ -15,7 +15,9 @@ Basic React site for GitHub Pages.
 - `src/app.css` - global styles
 - `src/pages/home.tsx` - landing page
 - `src/components/navbar.tsx` - site navbar (data-driven)
+- `src/components/footer.tsx` - site footer (matches the nav variant)
 - `src/data/navbar/navbar.json` - shared navbar data (buttons, dropdown, per-page variants)
+- `src/data/footer/footer.json` - footer socials (links/columns reuse navbar.json)
 - `src/data/<page>/<section>/` - JSON that drives each page section
 - more to come...
 
@@ -50,6 +52,19 @@ variants like `"sand"` / `"snow"` there, then list them per page here.
 | --------- | ----------- | ------------------------------------------------ |
 | `header`  | string      | Optional section label (omit for the first group) |
 | `items[]` | NavLink[]   | Each has `name`, `link`, `route` (no `type`)     |
+
+### `src/data/footer/footer.json`
+
+The footer reuses `navbar.json` for its links and Released/Coming Soon/
+Discontinued columns — only the socials are defined here.
+
+`socials[]`:
+
+| Field  | Type   | Notes                                          |
+| ------ | ------ | ---------------------------------------------- |
+| `name` | string | Accessible label                               |
+| `icon` | string | png filename in `src/assets/socials`           |
+| `url`  | string | Link target (opens in a new tab)               |
 
 ## Development
 

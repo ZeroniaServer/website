@@ -6,7 +6,7 @@
     { "name": "News", "link": "url", "route": "https://google.com", "type": "button" },
     { "name": "Games", "link": "url", "route": "https://google.com", "type": "dropdown" },
     { "name": "Team", "link": "url", "route": "https://google.com", "type": "button" },
-    { "name": "Social", "link": "url", "route": "https://google.com", "type": "button" }
+    { "name": "Socials", "link": "url", "route": "https://google.com", "type": "button" }
   ],
   "dropdown": [
     {

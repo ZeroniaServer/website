@@ -169,9 +169,7 @@
   font-size: 1.1rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.55);
-  mix-blend-mode: multiply; /* engraved/inset look on the stone */
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.18);
+  color: var(--color-text);
   padding: 0.2rem 0.2rem 0.5rem;
 }
 

@@ -11,17 +11,17 @@ import "./navbar.css";
 
 type LinkKind = "url" | "scroll" | "page";
 
-interface NavLink {
+export interface NavLink {
   name: string;
   link: LinkKind;
   route: string;
 }
 
-interface NavButton extends NavLink {
+export interface NavButton extends NavLink {
   type?: "button" | "dropdown";
 }
 
-interface DropdownSection {
+export interface DropdownSection {
   header?: string;
   items: NavLink[];
 }
@@ -41,11 +41,11 @@ const SCROLL_THRESHOLD = 24; // px scrolled before the bar drops a shadow
 // Each cell picks a colour from a pool (a weighted list of colours). A variant
 // defines the idle `surface` colour and either a `dig` reveal (grass/snow) or a
 // `wave` tide animation (sand). Add another variant to VARIANTS the same way.
-const ROWS = 8;
+export const ROWS = 8;
 
-type Pool = { color: string; weight: number }[];
+export type Pool = { color: string; weight: number }[];
 
-const POOLS: Record<string, Pool> = {
+export const POOLS: Record<string, Pool> = {
   grass: [
     { color: "#48a72c", weight: 34 },
     { color: "#57c136", weight: 33 },
@@ -58,8 +58,8 @@ const POOLS: Record<string, Pool> = {
     { color: "#815a36ff", weight: 10 },
   ],
   stone: [
-    { color: "#8c8c8c", weight: 97 },
-    { color: "#a6a6a6", weight: 3 },
+    { color: "#8c8c8c", weight: 70 },
+    { color: "#888888ff", weight: 30 },
   ],
   snow: [
     { color: "#e9f1fc", weight: 84 },
@@ -74,12 +74,17 @@ const POOLS: Record<string, Pool> = {
     { color: "#edcb80ff", weight: 30 },
     { color: "#e1c37dff", weight: 70 },
   ],
+  water: [
+    { color: "#3f8fd0", weight: 60 },
+    { color: "#2f72b0", weight: 25 },
+    { color: "#5aa6e0", weight: 15 },
+  ],
 };
 
 // Blue shades for the sand tide, surface (light) → deep (dark).
-const WAVE_SHADES = ["#bfe6ff", "#86c6ef", "#479bd8", "#2f72b0"];
+export const WAVE_SHADES = ["#bfe6ff", "#86c6ef", "#479bd8", "#2f72b0"];
 
-function pick(pool: Pool, r: number): string {
+export function pick(pool: Pool, r: number): string {
   let t = r * pool.reduce((s, c) => s + c.weight, 0);
   for (const c of pool) if ((t -= c.weight) < 0) return c.color;
   return pool[pool.length - 1].color;
@@ -95,7 +100,7 @@ function hash2(x: number, y: number, seed: number): number {
   h = Math.imul(h ^ (h >>> 13), 1274126177);
   return ((h ^ (h >>> 16)) >>> 0) / 4294967296;
 }
-function noise(col: number, row: number, seed: number): number {
+export function noise(col: number, row: number, seed: number): number {
   const x = col / NOISE_X;
   const y = row / NOISE_Y;
   const x0 = Math.floor(x);
@@ -201,6 +206,9 @@ function pickVariantName(): string {
   return name in VARIANTS ? name : "grass";
 }
 
+// Chosen once on load and shared with the footer so they always match.
+export const VARIANT_NAME = pickVariantName();
+
 // Logo png lookup so a variant can target any file in src/assets/logo by name.
 const LOGOS = import.meta.glob("../assets/logo/*.png", {
   eager: true,
@@ -214,8 +222,8 @@ function resolveLogo(name: string): string {
 }
 
 // A small tiling texture painted from a pool — fills the dropdown.
-const TEX = 32; // texture tile size, in cells
-function makeTexture(p: Pool): string {
+export const TEX = 32; // texture tile size, in cells
+export function makeTexture(p: Pool): string {
   const canvas = document.createElement("canvas");
   canvas.width = canvas.height = TEX;
   const ctx = canvas.getContext("2d");
@@ -224,6 +232,23 @@ function makeTexture(p: Pool): string {
     for (let x = 0; x < TEX; x++) {
       ctx.fillStyle = pick(p, noise(x, y, 5));
       ctx.fillRect(x, y, 1, 1);
+    }
+  return `url(${canvas.toDataURL()})`;
+}
+
+// A variant's idle surface as a ROWS-tall texture (grass cap + dirt for grass,
+// uniform for snow/sand) — used for the footer's top "surface" strip.
+export function surfaceTexture(name: string): string {
+  const v = VARIANTS[name] ?? VARIANTS.grass;
+  const canvas = document.createElement("canvas");
+  canvas.width = TEX;
+  canvas.height = ROWS;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return "";
+  for (let row = 0; row < ROWS; row++)
+    for (let x = 0; x < TEX; x++) {
+      ctx.fillStyle = v.surface(row, noise(x, row, 11), noise(x, row, 23));
+      ctx.fillRect(x, row, 1, 1);
     }
   return `url(${canvas.toDataURL()})`;
 }
@@ -241,7 +266,7 @@ interface Grid {
 
 // Resolve a nav item's destination. External `url`s open in a new tab; `scroll`
 // and `page` are stubbed until those targets exist.
-function follow(item: NavLink) {
+export function follow(item: NavLink) {
   switch (item.link) {
     case "scroll":
       // TODO: scroll to the section named by `route`
@@ -258,7 +283,7 @@ function follow(item: NavLink) {
 }
 
 export default function Navbar() {
-  const [variantName] = useState(pickVariantName);
+  const [variantName] = useState(VARIANT_NAME);
   const variant = VARIANTS[variantName];
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
