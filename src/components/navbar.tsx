@@ -306,6 +306,7 @@ export default function Navbar() {
   gridDataRef.current = grid; // keep the loop reading the latest grid across resizes
 
   const wordmark = resolveLogo(variant.logo);
+  const brandIcon = resolveLogo("icon.png");
 
   useEffect(() => setDugTex(makeTexture(variant.dug)), [variant]);
 
@@ -632,6 +633,7 @@ export default function Navbar() {
         </div>
 
         <a className="navbar__brand" href="/" aria-label="Zeronia home">
+          <img className="navbar__icon" src={brandIcon} alt="" aria-hidden="true" />
           <img className="navbar__wordmark" src={wordmark} alt="Zeronia" />
         </a>
 

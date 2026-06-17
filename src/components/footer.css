@@ -128,9 +128,29 @@
   text-decoration: underline;
 }
 
-/* grass: links engrave dark into the stone on hover */
-.footer--grass .footer__link:hover {
-  color: rgba(0, 0, 0, 0.7);
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+.footer__legal {
+  position: relative;
+  z-index: 1;
+  margin: 2.25rem auto 0;
+  text-align: center;
+  font-family: "Minecraft", monospace;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+  opacity: 0.85;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+.footer__legal p {
+  margin: 0.2rem 0;
+}
+
+.footer__legal-link {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.footer__legal-link:hover {
   text-decoration: none;
 }

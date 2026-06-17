@@ -222,6 +222,22 @@ export default function Footer() {
             </div>
           ))}
         </div>
+
+        <div className="footer__legal">
+          <p>Copyright © Zeronia 2026. All rights reserved.</p>
+          <p>
+            Minecraft was created by Mojang. Zeronia is an official{" "}
+            <a
+              className="footer__legal-link"
+              href="https://www.minecraft.net/en-us/article/realms-page-content-creator"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Minecraft Java Realms Content Creator
+            </a>
+            , but not endorsed by or affiliated with Mojang.
+          </p>
+        </div>
       </div>
     </footer>
   );

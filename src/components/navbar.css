@@ -38,16 +38,24 @@
 .navbar__brand {
   display: inline-flex;
   align-items: center;
+  gap: 0.5rem;
   margin-left: 1.25rem;
   text-decoration: none;
   position: relative;
   z-index: 1;
 }
 
+.navbar__icon {
+  height: 2.4rem;
+  width: auto;
+  image-rendering: pixelated;
+  transform: translateY(4px);
+}
+
 .navbar__wordmark {
   height: 2.75rem;
   width: auto;
-  image-rendering: pixelated; /* low-res logo art */
+  image-rendering: pixelated;
   transform: translateY(4px);
 }
 
