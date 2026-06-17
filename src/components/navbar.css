@@ -1,0 +1,180 @@
+.navbar {
+  --nav-h: 64px; /* bar height; navbar.tsx divides this by ROWS into grid cells */
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: box-shadow 0.2s ease;
+}
+
+.navbar--scrolled {
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.4);
+}
+
+.navbar__bar {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  height: var(--nav-h);
+  overflow: hidden; /* clip the grid's final partial column */
+}
+
+/* procedural pixel grid; columns/rows sized inline from JS */
+.navbar__grid {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: grid;
+}
+
+.navbar__grid > div {
+  width: 100%;
+  height: 100%;
+}
+
+.navbar__brand {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 1.25rem;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+}
+
+.navbar__wordmark {
+  height: 2.75rem;
+  width: auto;
+  image-rendering: pixelated; /* low-res logo art */
+  transform: translateY(4px);
+}
+
+.navbar__links {
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  z-index: 1;
+  margin-right: 1.25rem;
+}
+
+.navbar__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  align-self: stretch;
+  font-family: "Minecraft Ten", "Minecraft", monospace;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0 1.25rem;
+  cursor: pointer;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+  transition: transform 0.15s ease;
+}
+
+/* grass has a grass cap up top, so slide the label down onto the dug stone */
+.navbar--grass .navbar__btn--dug {
+  transform: translateY(0.5rem);
+}
+
+/* toggled from JS once the dig exposes stone under the label: engrave it in */
+.navbar__btn--dug {
+  color: rgba(0, 0, 0, 0.55);
+  mix-blend-mode: multiply;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.navbar__caret {
+  width: 0.85rem;
+  height: 0.85rem;
+  image-rendering: pixelated;
+  filter: drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.5));
+}
+
+/* brightness(0) recolours the white arrow png to match the engraved label */
+.navbar__btn--dug .navbar__caret {
+  filter: brightness(0) drop-shadow(0 1px 0 rgba(255, 255, 255, 0.18));
+  opacity: 0.55;
+}
+
+/* light-surface variants (e.g. snow): dark idle labels for legibility */
+.navbar--darktext .navbar__btn {
+  color: rgba(0, 0, 0, 0.6);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+.navbar--darktext .navbar__caret {
+  filter: brightness(0) drop-shadow(0 1px 0 rgba(255, 255, 255, 0.25));
+  opacity: 0.6;
+}
+
+.navbar__panel {
+  position: relative;
+  max-height: 0;
+  overflow: hidden;
+  background-repeat: repeat;
+  image-rendering: pixelated;
+  transition: max-height 0.25s ease;
+}
+
+.navbar--open .navbar__panel {
+  max-height: 60vh;
+}
+
+/* animated water for wave variants, behind the dropdown content */
+.navbar__waves {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  image-rendering: pixelated;
+  pointer-events: none;
+}
+
+.navbar__strip,
+.navbar__columns {
+  position: relative;
+  z-index: 1;
+}
+
+.navbar__strip {
+  display: grid;
+  width: 100%;
+}
+
+.navbar__columns {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 1.25rem 2rem;
+  padding: 1.25rem;
+}
+
+.navbar__column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 9rem;
+}
+
+.navbar__col-header {
+  font-family: "Minecraft Ten", "Minecraft", monospace;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  padding: 0.2rem 0.2rem 0.5rem;
+}
+
+/* extends the shared .mc-button style */
+.navbar__menu-item {
+  justify-content: flex-start;
+  white-space: nowrap;
+}

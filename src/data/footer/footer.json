@@ -1,0 +1,9 @@
+{
+  "//": "Footer links + the Released/Coming Soon/Discontinued columns are pulled from navbar.json (edit those there). Only the socials live here. icon = png filename in src/assets/socials; color = button background; white = recolour the icon white (false keeps the png's own colours); url = link target.",
+  "socials": [
+    { "name": "Discord", "icon": "discord-icon.png", "color": "#5865f2", "white": true, "url": "https://discord.gg/X9bZgw7" },
+    { "name": "X", "icon": "x.png", "color": "#000000", "white": true, "url": "http://x.com/ZeroniaServer" },
+    { "name": "YouTube", "icon": "youtube.png", "color": "#ff0000", "white": true, "url": "https://www.youtube.com/@zeronia" },
+    { "name": "PlanetMC", "icon": "planet_minecraft.png", "color": "#2ba84a", "white": false, "url": "https://www.planetminecraft.com/member/zeroniaserver/" }
+  ]
+}
