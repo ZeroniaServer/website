@@ -1,0 +1,12 @@
+{
+  "//": "Home About section. background = weighted colour pool for the pixel field. body is an array of paragraphs.",
+  "background": [
+    { "color": "#313137", "weight": 55 },
+    { "color": "#2b2b31", "weight": 45 }
+  ],
+  "title": "About Zeronia",
+  "body": [
+    "Founded in 2017, we are a group of minigame developers for Minecraft: Java Edition. All of our custom multiplayer maps and games are made in vanilla Minecraft, and we are officially recognized as Minecraft Realms partners. On this website, you can check out and download our minigames to play with your friends!",
+    "Our team is passionate about creating unique and engaging multiplayer experiences that bring communities together through the power of Minecraft."
+  ]
+}

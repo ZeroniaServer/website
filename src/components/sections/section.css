@@ -1,0 +1,30 @@
+.section {
+  position: relative;
+  background-repeat: repeat;
+  image-rendering: pixelated;
+  scroll-margin-top: var(--nav-h, 64px);
+  color: var(--color-text);
+}
+
+.section__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 3.5rem;
+}
+
+.section__title {
+  margin: 0 0 1.75rem;
+  font-family: "Minecraft Ten", "Minecraft", monospace;
+  font-size: 1.6rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+.section__seam {
+  width: 100%;
+  background-repeat: repeat-x;
+  image-rendering: pixelated;
+}

@@ -1,0 +1,30 @@
+.about__header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.about__header .about__title {
+  margin: 0;
+}
+
+.about__icon {
+  height: 1.6rem;
+  width: auto;
+  image-rendering: pixelated;
+}
+
+.about__paragraph {
+  margin: 0 0 1rem;
+  max-width: 48rem;
+  font-family: "Minecraft", monospace;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #fff;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+.about__paragraph:last-child {
+  margin-bottom: 0;
+}

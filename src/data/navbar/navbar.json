@@ -1,40 +1,44 @@
 {
+  "//": "link: 'scroll' smooth-scrolls to a home section id (route = id), 'page' hash-navigates to a game page (route = /slug), 'url' opens externally. These items power both the navbar and the footer Links column.",
   "pages": {
-    "/": ["grass", "snow", "sand"]
+    "/": ["grass", "snow", "sand"],
+    "default": ["grass"],
+    "/snowy-skirmish-2": ["snow"],
+    "/crafty-cannoneers": ["sand"]
   },
   "buttons": [
-    { "name": "News", "link": "url", "route": "https://google.com", "type": "button" },
-    { "name": "Games", "link": "url", "route": "https://google.com", "type": "dropdown" },
-    { "name": "Team", "link": "url", "route": "https://google.com", "type": "button" },
-    { "name": "Socials", "link": "url", "route": "https://google.com", "type": "button" }
+    { "name": "News", "link": "scroll", "route": "news", "type": "button" },
+    { "name": "Games", "link": "scroll", "route": "released", "type": "dropdown" },
+    { "name": "Team", "link": "scroll", "route": "team", "type": "button" },
+    { "name": "Socials", "link": "scroll", "route": "site-footer", "type": "button" }
   ],
   "dropdown": [
     {
       "header": "Released",
       "items": [
-        { "name": "Rocket Riders", "link": "url", "route": "https://google.com" },
-        { "name": "Snowy Skirmish 2", "link": "url", "route": "https://google.com" },
-        { "name": "Crafty Cannoneers", "link": "url", "route": "https://google.com" },
-        { "name": "The Purple", "link": "url", "route": "https://google.com" },
-        { "name": "Fossil Frights", "link": "url", "route": "https://google.com" },
-        { "name": "Borderline", "link": "url", "route": "https://google.com" }
+        { "name": "Rocket Riders", "link": "page", "route": "/rocket-riders" },
+        { "name": "Snowy Skirmish 2", "link": "page", "route": "/snowy-skirmish-2" },
+        { "name": "Crafty Cannoneers", "link": "page", "route": "/crafty-cannoneers" },
+        { "name": "The Purple", "link": "page", "route": "/the-purple" },
+        { "name": "Fossil Frights", "link": "page", "route": "/fossil-frights" },
+        { "name": "Borderline", "link": "page", "route": "/borderline" }
       ]
     },
     {
       "header": "Coming Soon",
       "items": [
-        { "name": "Planetary Pirates", "link": "url", "route": "https://google.com" },
-        { "name": "Scatter Wars", "link": "url", "route": "https://google.com" },
-        { "name": "Battle Chunks", "link": "url", "route": "https://google.com" },
-        { "name": "Howl and Hoard", "link": "url", "route": "https://google.com" },
-        { "name": "Clumsy Cavemen", "link": "url", "route": "https://google.com" },
-        { "name": "Robo Buddy", "link": "url", "route": "https://google.com" }
+        { "name": "Planetary Pirates", "link": "page", "route": "/planetary-pirates" },
+        { "name": "Scatter Wars", "link": "page", "route": "/scatter-wars" },
+        { "name": "Battle Chunks", "link": "page", "route": "/battle-chunks" },
+        { "name": "Howl and Hoard", "link": "page", "route": "/howl-and-hoard" },
+        { "name": "Clumsy Cavemen", "link": "page", "route": "/clumsy-cavemen" },
+        { "name": "Robo Buddy", "link": "page", "route": "/robo-buddy" }
       ]
     },
     {
       "header": "Discontinued",
       "items": [
-        { "name": "Snowy Skirmish 1", "link": "url", "route": "https://google.com" }
+        { "name": "Snowy Skirmish 1", "link": "page", "route": "/snowy-skirmish-1" }
       ]
     }
   ]

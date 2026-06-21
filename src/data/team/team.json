@@ -1,0 +1,77 @@
+{
+  "//": "Home Team section. background = weighted colour pool for the pixel field. groups render in order; each member may carry an optional note (e.g. a translator's language).",
+  "background": [
+    { "color": "#3e3e45", "weight": 55 },
+    { "color": "#38383f", "weight": 45 }
+  ],
+  "groups": [
+    {
+      "role": "Founders",
+      "members": [{ "name": "Evtema3" }, { "name": "YZEROgame" }]
+    },
+    {
+      "role": "Developers",
+      "members": [
+        { "name": "Stuffy" },
+        { "name": "TheDorkOrc" },
+        { "name": "nightlibra" },
+        { "name": "JohnStar128" },
+        { "name": "Polysquarazoid" },
+        { "name": "RiverTiger76" },
+        { "name": "Mozzie4014" },
+        { "name": "Toul_" },
+        { "name": "Adamanti" },
+        { "name": "123maarten123" },
+        { "name": "_Prozan_" }
+      ]
+    },
+    {
+      "role": "Translators",
+      "members": [
+        { "name": "ZeroIceBear", "note": "Chinese" },
+        { "name": "beiyao", "note": "Chinese" },
+        { "name": "tai_zazanek", "note": "Japanese" },
+        { "name": "Shirowh_", "note": "Spanish" },
+        { "name": "Armero", "note": "Spanish" },
+        { "name": "Pingoda", "note": "Italian" },
+        { "name": "TheOnlyMann", "note": "Korean" },
+        { "name": "Yatloaf", "note": "German" },
+        { "name": "CapitaineMinus", "note": "French" },
+        { "name": "4953makcim", "note": "Russian" },
+        { "name": "YZEROgame", "note": "Dutch" },
+        { "name": "Ostensvig", "note": "Norwegian" }
+      ]
+    },
+    {
+      "role": "Builders",
+      "members": [
+        { "name": "Stuffy" },
+        { "name": "TheAI" },
+        { "name": "TheLastOreo" },
+        { "name": "Hydrintegral" },
+        { "name": "Carloski" },
+        { "name": "hugoatlas" },
+        { "name": "Bardonius" },
+        { "name": "TacoSquad" },
+        { "name": "TrekStone" },
+        { "name": "Endyblaze201" },
+        { "name": "Creepanator77" },
+        { "name": "policepig1" },
+        { "name": "Nettakrim" },
+        { "name": "JudyMarie258" },
+        { "name": "SaffronWizard" },
+        { "name": "eoneon" },
+        { "name": "Klariaon" },
+        { "name": "Louuuise" }
+      ]
+    },
+    {
+      "role": "Trailer Directors",
+      "members": [{ "name": "BlockyM_" }, { "name": "Polysquarazoid" }]
+    },
+    {
+      "role": "Discord Moderators",
+      "members": [{ "name": "Chronos22" }, { "name": "Kurusa" }, { "name": "Louuuise" }]
+    }
+  ]
+}

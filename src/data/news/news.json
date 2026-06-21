@@ -1,0 +1,39 @@
+{
+  "//": "Home News section. background = weighted colour pool for the pixel field. items render newest-first by date; the most recent is featured, the rest fill the grid (View more reveals 9 at a time). image = filename in src/assets/news.",
+  "background": [
+    { "color": "#3e3e45", "weight": 55 },
+    { "color": "#38383f", "weight": 45 }
+  ],
+  "items": [
+    {
+      "title": "Placeholder1 News",
+      "date": "2026-06-15",
+      "description": "The Zeronia website is currently under development, this is a placeholder news section to test the news system! But hey once you're here have you heard of our new game? Fossil Frights is currently in playtesting! Join our discord and try it yourself!",
+      "image": "news1.jpg"
+    },
+    {
+      "title": "Placeholder2 News",
+      "date": "2026-05-28",
+      "description": "Placeholder Description #2",
+      "image": "news2.jpg"
+    },
+    {
+      "title": "Placeholder3 News",
+      "date": "2026-05-10",
+      "description": "Placeholder Description #3",
+      "image": "news3.jpg"
+    },
+    {
+      "title": "Placeholder4 News",
+      "date": "2026-04-22",
+      "description": "Placeholder Description #4",
+      "image": "news4.jpg"
+    },
+    {
+      "title": "Placeholder5 News",
+      "date": "2026-04-05",
+      "description": "Placeholder Description #5",
+      "image": "news1.jpg"
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 .footer {
   image-rendering: pixelated;
   color: var(--color-text);
+  scroll-margin-top: var(--nav-h, 64px);
 }
 
 .footer__top {

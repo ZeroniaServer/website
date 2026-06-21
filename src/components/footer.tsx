@@ -88,7 +88,7 @@ export default function Footer() {
   const bodyRef = useRef<HTMLDivElement>(null);
   const waterRef = useRef<HTMLCanvasElement>(null);
 
-  // Animate the body water (sand variant only) — same banded tide as the navbar.
+  // Animate the body water (sand variant only) - same banded tide as the navbar.
   useEffect(() => {
     if (!IS_WATER) return;
     const body = bodyRef.current;
@@ -142,7 +142,7 @@ export default function Footer() {
   const className = ["footer", `footer--${VARIANT_NAME}`].join(" ");
 
   return (
-    <footer className={className}>
+    <footer className={className} id="site-footer">
       <div
         className="footer__top"
         style={{
