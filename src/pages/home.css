@@ -1,23 +1,9 @@
 .home {
-  /* TEMP: extra height so the page scrolls while there's no real content yet */
-  min-height: 250vh;
-  background: var(--color-bg);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
 }
 
-/* TEMP scroll-test markers */
-.home__scroll-test {
-  font-family: "Minecraft", monospace;
-  color: var(--color-muted);
-  opacity: 0.4;
-  margin: 0;
-  padding-top: 30vh;
-}
-
-.home__scroll-test--bottom {
-  padding-top: 0;
-  padding-bottom: 4vh;
+/* clear the fixed navbar at the top of the first section */
+.home > .section:first-child .section__inner {
+  padding-top: calc(var(--nav-h, 64px) + 2.5rem);
 }

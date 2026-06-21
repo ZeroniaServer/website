@@ -7,6 +7,7 @@ import {
 } from "react";
 import arrowUrl from "../assets/sprites/arrow_down.png";
 import navData from "../data/navbar/navbar.json";
+import { currentSlug, goToPage, scrollToId } from "../lib/router";
 import "./navbar.css";
 
 type LinkKind = "url" | "scroll" | "page";
@@ -26,7 +27,7 @@ export interface DropdownSection {
   items: NavLink[];
 }
 
-// Buttons and dropdown are global — shared across every page and variant.
+// Buttons and dropdown are global - shared across every page and variant.
 const buttons = navData.buttons as NavButton[];
 const dropdown = navData.dropdown as DropdownSection[];
 
@@ -90,7 +91,7 @@ export function pick(pool: Pool, r: number): string {
   return pool[pool.length - 1].color;
 }
 
-// Coherent value noise in [0,1) — neighbouring cells get similar values, so
+// Coherent value noise in [0,1) - neighbouring cells get similar values, so
 // colours land in short streaks instead of per-pixel noise. Sampled with a wide
 // horizontal scale (NOISE_X) and short vertical one (NOISE_Y) → linear sections.
 const NOISE_X = 4;
@@ -200,8 +201,9 @@ const VARIANTS: Record<string, Variant> = {
 };
 
 function pickVariantName(): string {
-  const path = typeof window !== "undefined" ? window.location.pathname : "/";
-  const names = PAGES[path] ?? PAGES["/"] ?? ["grass"];
+  const slug = typeof window !== "undefined" ? currentSlug() : "";
+  const key = slug ? `/${slug}` : "/";
+  const names = PAGES[key] ?? PAGES.default ?? PAGES["/"] ?? ["grass"];
   const name = names[Math.floor(Math.random() * names.length)];
   return name in VARIANTS ? name : "grass";
 }
@@ -221,7 +223,7 @@ function resolveLogo(name: string): string {
   return hit ? hit[1] : "";
 }
 
-// A small tiling texture painted from a pool — fills the dropdown.
+// A small tiling texture painted from a pool - fills the dropdown.
 export const TEX = 32; // texture tile size, in cells
 export function makeTexture(p: Pool): string {
   const canvas = document.createElement("canvas");
@@ -237,7 +239,7 @@ export function makeTexture(p: Pool): string {
 }
 
 // A variant's idle surface as a ROWS-tall texture (grass cap + dirt for grass,
-// uniform for snow/sand) — used for the footer's top "surface" strip.
+// uniform for snow/sand) - used for the footer's top "surface" strip.
 export function surfaceTexture(name: string): string {
   const v = VARIANTS[name] ?? VARIANTS.grass;
   const canvas = document.createElement("canvas");
@@ -264,16 +266,15 @@ interface Grid {
   stripDug: string[];
 }
 
-// Resolve a nav item's destination. External `url`s open in a new tab; `scroll`
-// and `page` are stubbed until those targets exist.
+// Resolve a nav item's destination. `scroll` smooth-scrolls to a home section
+// by id; `page` hash-navigates to a game page; `url` opens externally.
 export function follow(item: NavLink) {
   switch (item.link) {
     case "scroll":
-      // TODO: scroll to the section named by `route`
+      scrollToId(item.route);
       break;
     case "page":
-      // TODO: client-side navigate to `route` (e.g. "/games")
-      window.location.href = item.route;
+      goToPage(item.route);
       break;
     case "url":
     default:
@@ -306,6 +307,7 @@ export default function Navbar() {
   gridDataRef.current = grid; // keep the loop reading the latest grid across resizes
 
   const wordmark = resolveLogo(variant.logo);
+  const brandIcon = resolveLogo("icon.png");
 
   useEffect(() => setDugTex(makeTexture(variant.dug)), [variant]);
 
@@ -458,7 +460,7 @@ export default function Navbar() {
     w.amp * Math.sin(col * w.freq + t * w.speed) +
     0.5 * w.amp * Math.sin(col * w.freq * 2 - t * w.speed * 1.7);
 
-  const FALLOFF = 18; // wide, rounded bell — fine for the base to reach neighbours
+  const FALLOFF = 18; // wide, rounded bell - fine for the base to reach neighbours
 
   // Aim the wave at a button's column range (or null to recede). A single loop
   // eases a per-column water level toward the target bell. Moving between
@@ -575,7 +577,7 @@ export default function Navbar() {
     if (tgt || maxLevel > 0.01) {
       waveRAF.current = requestAnimationFrame(waveFrame);
     } else {
-      waveRAF.current = 0; // fully receded — bar is plain sand again, loop idles
+      waveRAF.current = 0; // fully receded - bar is plain sand again, loop idles
     }
   };
 
@@ -635,6 +637,7 @@ export default function Navbar() {
           <img className="navbar__wordmark" src={wordmark} alt="Zeronia" />
         </a>
 
+        <div className="navbar__right">
         <nav className="navbar__links">
           {buttons.map((item) => {
             const isDropdown = item.type === "dropdown";
@@ -659,6 +662,11 @@ export default function Navbar() {
             );
           })}
         </nav>
+
+        <a className="navbar__brand-icon" href="/" aria-label="Zeronia home">
+          <img className="navbar__icon" src={brandIcon} alt="" aria-hidden="true" />
+        </a>
+        </div>
       </div>
 
       <div

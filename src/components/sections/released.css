@@ -1,0 +1,82 @@
+.released__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.released__row {
+  position: relative;
+  height: 9rem;
+  overflow: hidden;
+  cursor: pointer;
+  outline: none;
+  border-width: var(--pixel);
+  border-style: solid;
+  transition: height 0.35s ease;
+}
+
+.released__row--open {
+  height: 26rem;
+}
+
+.released__media {
+  position: absolute;
+  inset: 0;
+}
+
+.released__media img,
+.released__media video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.released__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0.8rem 1.1rem;
+  background: linear-gradient(transparent 40%, rgba(0, 0, 0, 0.8));
+}
+
+.released__name {
+  font-family: "Minecraft Ten", "Minecraft", monospace;
+  font-size: 1.2rem;
+  letter-spacing: 0.02em;
+  color: #fff;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.6);
+}
+
+.released__logo {
+  width: auto;
+  height: 6rem;
+  align-self: flex-start;
+  image-rendering: pixelated;
+  filter: drop-shadow(3px 3px 0 rgba(0, 0, 0, 0.5));
+}
+
+.released__blurb {
+  margin: 0;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  font-family: "Minecraft", monospace;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #fff;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+  transition:
+    opacity 0.3s ease,
+    max-height 0.35s ease,
+    margin-top 0.35s ease;
+}
+
+.released__row--open .released__blurb {
+  max-height: 6rem;
+  opacity: 1;
+  margin-top: 0.45rem;
+}

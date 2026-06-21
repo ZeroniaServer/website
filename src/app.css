@@ -20,6 +20,9 @@
   --bevel-dark: rgba(0, 0, 0, 0.45);
   --bevel-size: 3px;
 
+  /* one "custom pixel" - the white frame width around images/cards */
+  --pixel: 4px;
+
   color-scheme: dark;
   line-height: 1.5;
   font-weight: 400;
