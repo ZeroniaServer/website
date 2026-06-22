@@ -2,69 +2,40 @@
 
 Basic React site for GitHub Pages.
 
-## Tech Stack
-
-- React
-- TypeScript
-- Vite
-
-## Structure
-
-- `index.html` - HTML entry
-- `src/app.tsx` - React DOM entry
-- `src/app.css` - global styles
-- `src/pages/home.tsx` - landing page
-- `src/components/navbar.tsx` - site navbar (data-driven)
-- `src/components/footer.tsx` - site footer (matches the nav variant)
-- `src/data/navbar/navbar.json` - shared navbar data (buttons, dropdown, per-page variants)
-- `src/data/footer/footer.json` - footer socials (links/columns reuse navbar.json)
-- `src/data/<page>/<section>/` - JSON that drives each page section
-- more to come...
-
 ## Data files
 
 Pages are data-driven from JSON under `src/data/<page>/<section>/`.
 
 ### `src/data/navbar/navbar.json`
 
-The navbar is global — `buttons` and `dropdown` are shared across every page and
-variant. Only the visual variant changes per page.
-
-`pages` — map of page path → variant pool, e.g. `{ "/": ["grass"] }`. On load,
-the current page's list is chosen from at random (list several to randomise,
-like `["grass", "sand", "snow"]` for the home page). Variant names map to the
-hardcoded `VARIANTS` registry in `src/components/navbar.tsx` (each defines its
-colour pools, dig animation, and logo png in `src/assets/logo`). Add new
-variants like `"sand"` / `"snow"` there, then list them per page here.
-
-`buttons[]` — the nav buttons, left to right:
+Global navbar with per page driven variations.
+`["grass", "sand", "snow"]`
 
 | Field   | Type                          | Notes                                                              |
 | ------- | ----------------------------- | ------------------------------------------------------------------ |
-| `name`  | string                        | Label shown on the button                                          |
-| `link`  | `url` \| `scroll` \| `page`   | Kind of destination                                                |
-| `route` | string                        | Destination: a URL, a scroll target, or a page path like `/games`  |
-| `type`  | `button` \| `dropdown`        | Defaults to `button`; only `dropdown` shows a menu                 |
+| `name`  | string                        | Button Label  |
+| `link`  | `url` \ `scroll` \ `page`   | Destination type                                             |
+| `route` | string                        | URL or scroll target  |
+| `type`  | `button` \ `dropdown`        |                 |
 
-`dropdown[]` — sections shown under a dropdown button (no nested dropdowns):
 
 | Field     | Type        | Notes                                            |
 | --------- | ----------- | ------------------------------------------------ |
-| `header`  | string      | Optional section label (omit for the first group) |
-| `items[]` | NavLink[]   | Each has `name`, `link`, `route` (no `type`)     |
+| `header`  | string      | Optional section label |
+| `items[]` | NavLink[]   | Supports `name`, `link`, `route`     |
 
 ### `src/data/footer/footer.json`
 
-The footer reuses `navbar.json` for its links and Released/Coming Soon/
-Discontinued columns — only the socials are defined here.
+Reuses `navbar.json` links and columns.
 
+Defines socials.
 `socials[]`:
 
 | Field  | Type   | Notes                                          |
 | ------ | ------ | ---------------------------------------------- |
-| `name` | string | Accessible label                               |
+| `name` | string |                |
 | `icon` | string | png filename in `src/assets/socials`           |
-| `url`  | string | Link target (opens in a new tab)               |
+| `url`  | string |   |
 
 ## Development
 
