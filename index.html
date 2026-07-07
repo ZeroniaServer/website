@@ -13,6 +13,26 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/src/assets/logo/favicon-16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/src/assets/logo/apple-touch-icon.png" />
     <title>Zeronia</title>
+    <script>
+      // Restore the real path from the 404.html redirect ("/?/slug") and
+      // upgrade legacy hash URLs ("#/slug"). Runs before the app bundle so
+      // the navbar variant is picked from the final path.
+      (function () {
+        var l = window.location;
+        if (l.search[1] === "/") {
+          var decoded = l.search
+            .slice(1)
+            .split("&")
+            .map(function (s) {
+              return s.replace(/~and~/g, "&");
+            })
+            .join("?");
+          window.history.replaceState(null, "", decoded + l.hash);
+        } else if (/^#\//.test(l.hash)) {
+          window.history.replaceState(null, "", "/" + l.hash.slice(2));
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
