@@ -8,8 +8,9 @@
     {
       "type": "hero",
       "media": {
-        "type": "image",
-        "src": "hero/media.jpg"
+        "type": "video",
+        "src": "hero/media.webm",
+        "thumbnail": "hero/media.jpg"
       },
       "description": "Fossil Frights is a compressive 10-day challenge where you play as a museum security guard working 5-minute night shifts to complete various tasks around the museum.",
       "version": "26.2",

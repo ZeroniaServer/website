@@ -64,7 +64,6 @@
   image-rendering: pixelated;
 }
 
-/* A passive progress indicator for where you are among the categories. */
 .htp__rail-scrollbar {
   position: relative;
   width: 0.5rem;
@@ -126,7 +125,6 @@
     flex-wrap: wrap;
   }
 
-  /* A vertical drag track doesn't translate to a wrapped icon row. */
   .htp__rail-scrollbar {
     display: none;
   }

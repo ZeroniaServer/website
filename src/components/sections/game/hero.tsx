@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { gameAsset } from "../../../lib/games";
 import { buttonStyle, frameStyle } from "../frame";
 import arrowUrl from "../../../assets/sprites/arrow_down.png";
@@ -17,7 +18,7 @@ interface Server {
 interface HeroProps {
   slug: string;
   gameName: string;
-  media?: { type: "image" | "video"; src: string };
+  media?: { type: "image" | "video"; src: string; thumbnail?: string };
   logo?: string;
   color?: string;
   description?: string;
@@ -47,7 +48,16 @@ export default function Hero({
   versionsId,
 }: HeroProps) {
   const mediaSrc = media?.src ? gameAsset(slug, media.src) : "";
+  const thumbnailSrc = media?.thumbnail ? gameAsset(slug, media.thumbnail) : "";
   const logoSrc = logo ? gameAsset(slug, logo) : "";
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const replay = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.currentTime = 0;
+    video.play();
+  };
 
   const scrollToVersions = () =>
     versionsId &&
@@ -58,7 +68,16 @@ export default function Hero({
       {mediaSrc && (
         <div className="hero__media pixel-frame" style={frameStyle(color)}>
           {media?.type === "video" ? (
-            <video className="hero__bg" src={mediaSrc} autoPlay muted loop playsInline />
+            <video
+              ref={videoRef}
+              className="hero__bg"
+              src={mediaSrc}
+              poster={thumbnailSrc || undefined}
+              autoPlay
+              muted
+              playsInline
+              onClick={replay}
+            />
           ) : (
             <img className="hero__bg" src={mediaSrc} alt={gameName} />
           )}

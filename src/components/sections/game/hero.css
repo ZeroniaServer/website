@@ -20,6 +20,10 @@
   object-fit: cover;
 }
 
+video.hero__bg {
+  cursor: pointer;
+}
+
 /* Logo source files vary wildly in both resolution and aspect ratio (a tiny
    wide banner vs. a large square badge). width/height here define a fixed
    bounding box (up to 75% wide, 55% tall of the hero media); object-fit
