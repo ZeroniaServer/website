@@ -1,5 +1,4 @@
 {
-  "//": "Home Games section. background = weighted colour pool for the pixel field. Each game is an accordion row that expands on hover to reveal its media + description and links to its page (route, hash path). media.type is 'image' or 'video'; src = filename in src/assets/released. logo is optional: a title-logo image shown instead of the name text. color is the frame colour (beveled light on top/left, dark on bottom/right); defaults to white.",
   "background": [
     {
       "color": "#313137",
@@ -62,8 +61,9 @@
       "logo": "fossil-frights-logo.png",
       "color": "#e8b84b",
       "media": {
-        "type": "image",
-        "src": "fossil-frights.jpg"
+        "type": "video",
+        "src": "fossil-frights.webm",
+        "thumbnail": "fossil-frights.jpg"
       }
     },
     {

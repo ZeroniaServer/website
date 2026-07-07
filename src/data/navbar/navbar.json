@@ -1,5 +1,4 @@
 {
-  "//": "link: 'scroll' smooth-scrolls to a home section id (route = id), 'page' hash-navigates to a game page (route = /slug), 'url' opens externally. These items power both the navbar and the footer Links column.",
   "pages": {
     "/": ["grass", "snow", "sand", "jungle"],
     "default": ["grass"]

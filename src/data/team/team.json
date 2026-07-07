@@ -1,5 +1,4 @@
 {
-  "//": "Home Team section. background = weighted colour pool for the pixel field. groups render in order; each member may carry an optional note (e.g. a translator's language).",
   "background": [
     { "color": "#3e3e45", "weight": 55 },
     { "color": "#38383f", "weight": 45 }

@@ -9,6 +9,7 @@ import "./released.css";
 interface Media {
   type: "image" | "video";
   src: string;
+  thumbnail?: string;
 }
 
 interface Game {
@@ -69,8 +70,8 @@ export default function Released() {
                     videos.current[i] = el;
                   }}
                   src={assetUrl(game.media.src)}
+                  poster={game.media.thumbnail ? assetUrl(game.media.thumbnail) : undefined}
                   muted
-                  loop
                   playsInline
                   preload="metadata"
                 />
