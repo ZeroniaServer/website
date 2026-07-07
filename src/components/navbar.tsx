@@ -8,6 +8,7 @@ import {
 import arrowUrl from "../assets/sprites/arrow_down.png";
 import navData from "../data/navbar/navbar.json";
 import { currentSlug, goToPage, scrollToId } from "../lib/router";
+import { getGame } from "../lib/games";
 import "./navbar.css";
 
 type LinkKind = "url" | "scroll" | "page";
@@ -202,8 +203,16 @@ const VARIANTS: Record<string, Variant> = {
 
 function pickVariantName(): string {
   const slug = typeof window !== "undefined" ? currentSlug() : "";
+  // A game's own JSON is the source of truth for its navbar variant; the
+  // navbar.json pages map only covers home and games without a JSON file.
+  const gameVariant = slug ? getGame(slug)?.navbarVariant : undefined;
+  const fromGame = gameVariant
+    ? Array.isArray(gameVariant)
+      ? gameVariant
+      : [gameVariant]
+    : undefined;
   const key = slug ? `/${slug}` : "/";
-  const names = PAGES[key] ?? PAGES.default ?? PAGES["/"] ?? ["grass"];
+  const names = fromGame ?? PAGES[key] ?? PAGES.default ?? PAGES["/"] ?? ["grass"];
   const name = names[Math.floor(Math.random() * names.length)];
   return name in VARIANTS ? name : "grass";
 }

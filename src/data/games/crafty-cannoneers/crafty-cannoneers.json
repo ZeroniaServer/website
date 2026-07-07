@@ -1,0 +1,214 @@
+{
+  "name": "CraftyCannoneers",
+  "aliases": [],
+  "navbarVariant": "sand",
+  "sections": [
+    {
+      "type": "hero",
+      "media": {
+        "type": "image",
+        "src": "hero/media.jpg"
+      },
+      "description": "Placeholder",
+      "version": "26.2",
+      "download": {
+        "color": ""
+      },
+      "servers": [
+        {
+          "name": "CubeKrowd",
+          "url": ""
+        },
+        {
+          "name": "StickyPiston",
+          "url": ""
+        },
+        {
+          "name": "MapVerse",
+          "url": ""
+        },
+        {
+          "name": "Realms",
+          "url": ""
+        }
+      ],
+      "credits": [
+        {
+          "player": "YZEROgame",
+          "roles": [
+            "Developer",
+            "Modeler",
+            "Sound Designer"
+          ]
+        },
+        {
+          "player": "Evtema3",
+          "roles": [
+            "Developer",
+            "Texture Artist"
+          ]
+        },
+        {
+          "player": "Stuffy",
+          "roles": [
+            "Builder",
+            "Texture Artist"
+          ]
+        },
+        {
+          "player": "Carloski",
+          "roles": [
+            "Logo Designer",
+            "Builder"
+          ]
+        },
+        {
+          "player": "Klariaon",
+          "roles": [
+            "Builder"
+          ]
+        },
+        {
+          "player": "BlockyM_",
+          "roles": [
+            "Trailer Director"
+          ]
+        },
+        {
+          "player": "ZeroIceBear",
+          "roles": [
+            "Translator (Chinese)"
+          ]
+        },
+        {
+          "player": "beiyao",
+          "roles": [
+            "Translator (Chinese)"
+          ]
+        },
+        {
+          "player": "tai_zazanek",
+          "roles": [
+            "Translator (Japanese)"
+          ]
+        },
+        {
+          "player": "Shirowh_",
+          "roles": [
+            "Translator (Spanish)"
+          ]
+        },
+        {
+          "player": "Armero",
+          "roles": [
+            "Translator (Spanish)"
+          ]
+        },
+        {
+          "player": "Pingoda",
+          "roles": [
+            "Translator (Italian)"
+          ]
+        },
+        {
+          "player": "TheOnlyMann",
+          "roles": [
+            "Translator (Korean)"
+          ]
+        },
+        {
+          "player": "Yatloaf",
+          "roles": [
+            "Translator (German)"
+          ]
+        },
+        {
+          "player": "CapitaineMinus",
+          "roles": [
+            "Translator (French)"
+          ]
+        },
+        {
+          "player": "4953makcim",
+          "roles": [
+            "Translator (Russian)"
+          ]
+        },
+        {
+          "player": "YZEROgame",
+          "roles": [
+            "Translator (Dutch)"
+          ]
+        },
+        {
+          "player": "Ostensvig",
+          "roles": [
+            "Translator (Norwegian)"
+          ]
+        }
+      ],
+      "creditsLink": "",
+      "logo": "hero/logo.png"
+    },
+    {
+      "type": "trailer",
+      "title": "Trailer",
+      "videos": [
+        {
+          "title": "",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "type": "how-to-play",
+      "title": "How to Play",
+      "categories": [
+        {
+          "name": "Placeholder",
+          "icon": "icons/placeholder.png",
+          "body": "Placeholder"
+        }
+      ]
+    },
+    {
+      "type": "gallery",
+      "title": "Gallery",
+      "images": [
+        {
+          "src": "",
+          "caption": "Placeholder"
+        }
+      ]
+    },
+    {
+      "type": "additional-info",
+      "title": "Additional Info",
+      "body": "Placeholder"
+    },
+    {
+      "type": "versions",
+      "title": "Versions",
+      "versions": [
+        {
+          "name": "Placeholder",
+          "version": "26.2",
+          "gameVersion": "",
+          "url": "",
+          "type": "dp"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "FAQ",
+      "faqs": [
+        {
+          "question": "Placeholder",
+          "answer": "Placeholder",
+          "pinned": false
+        }
+      ]
+    }
+  ]
+}

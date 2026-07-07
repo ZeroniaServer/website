@@ -1,0 +1,188 @@
+{
+  "name": "FossilFrights",
+  "aliases": [
+    "ff"
+  ],
+  "navbarVariant": "grass",
+  "sections": [
+    {
+      "type": "hero",
+      "media": {
+        "type": "image",
+        "src": "hero/media.jpg"
+      },
+      "description": "Fossil Frights is a compressive 10-day challenge where you play as a museum security guard working 5-minute night shifts to complete various tasks around the museum.",
+      "version": "26.2",
+      "download": {
+        "color": ""
+      },
+      "servers": [],
+      "credits": [
+        {
+          "player": "Polysquarazoid",
+          "roles": [
+            "Game Designer",
+            "Music",
+            "Art",
+            "Trailer",
+            "Plugin Dev"
+          ]
+        },
+        {
+          "player": "RiverTiger76",
+          "roles": [
+            "Lead Builder",
+            "Art"
+          ]
+        },
+        {
+          "player": "TheDorkOrc",
+          "roles": [
+            "Datapack",
+            "Art"
+          ]
+        },
+        {
+          "player": "Endyblaze201",
+          "roles": [
+            "Builder",
+            "Geologist"
+          ]
+        },
+        {
+          "player": "Stuffy",
+          "roles": [
+            "Datapack",
+            "Builder",
+            "Translations"
+          ]
+        },
+        {
+          "player": "Evtema3",
+          "roles": [
+            "Datapack",
+            "Music",
+            "Production Manager"
+          ]
+        },
+        {
+          "player": "Creepanator77",
+          "roles": [
+            "Builder"
+          ]
+        },
+        {
+          "player": "Mozzie4014",
+          "roles": [
+            "Datapack"
+          ]
+        },
+        {
+          "player": "Nightlibra",
+          "roles": [
+            "Datapack"
+          ]
+        }
+      ],
+      "creditsLink": "",
+      "logo": "hero/logo.png"
+    },
+    {
+      "type": "trailer",
+      "videos": [
+        {
+          "url": "https://youtu.be/McQPKYIATR0"
+        }
+      ]
+    },
+    {
+      "type": "how-to-play",
+      "title": "How to Play",
+      "intro": "Fossil Frights is a game where you play as a night shift security guard trying to survive as many shifts as possible, completing tasks, each one a little harder than the last.\n\nTo begin, press Start, grab the task books from the bookshelf, and complete them before the night shift runs out. When your tasks are done, return to the start room and press Next Day.",
+      "categories": [
+        {
+          "name": "Shifts",
+          "icon": "icons/shifts.png",
+          "body": "Each day is one 5-minute shift. If the timer runs out before your tasks are done, the run ends.\n\nThe game gets harder the further you make it, introducing harder tasks and hazards. Day 10 is the final day with a little extra challenge to spice things up. Clear Day 10 to beat the game."
+        },
+        {
+          "name": "Tasks",
+          "icon": "icons/task_easy.png",
+          "body": "There are three main task types.\n\nEasy Tasks\n\nUsually these are simple jobs like going somewhere or pressing a button.\n\nMedium Tasks\n\nThese usually need an item. Most of the time that means using your Storage Key, going into the basement, grabbing what you need, and bringing it to the correct location to complete the task.\n\nHard Tasks\n\nThese are puzzles. They are slower, weirder, and usually not obvious the first time. Read the task book carefully and expect to learn them over multiple runs."
+        },
+        {
+          "name": "Hazards",
+          "icon": "icons/hazards.png",
+          "body": "Some days can trigger hazards during the shift. They do not always happen right away, so you need to stay ready. They don't need to be turned off... but I would recommend it. Hazards include:\n\n- Lights Out\n- Floor is Lava\n- Flood\n- Curse\n- Security Gates\n\nEach one has a reset somewhere in the museum basement."
+        },
+        {
+          "name": "Cubekoin",
+          "icon": "icons/cubekoin.png",
+          "body": "Cubekoins are a small currency item you earn each time you complete a shift.\n\nThey can be used in a few places around the museum, including paying an armadillo to operate a crane, getting a crab to polish your key, or even just buying some beverages to power you up. Cubekoin is especially great for beating that bothersome Day 10. And when you finally beat the game, they're even more crucial for speedruns."
+        },
+        {
+          "name": "Map Knowledge",
+          "icon": "icons/map_knowledge.png",
+          "body": "The task books help, but they can only point you so far. A lot of progress in Fossil Frights comes from just knowing where things are. It's recommended to explore between shifts, read the signs, and hold your dynamic map, which updates as you walk around.\n\nThe more you play, the more the museum starts to make sense: learning the layout, the shortcuts, and even memorizing the task names."
+        },
+        {
+          "name": "Fossil Heists",
+          "icon": "icons/fossil_heists.png",
+          "body": "Heists is a two-team gamemode where thieves try to steal enough loot to win before time runs out, while the guards try to stop them with a set of... uhm... unique weapons. Heists is played in the same museum, and learning the base gamemode really helps you know where things are. However, it also introduces a whole new set of loot to learn!"
+        },
+        {
+          "name": "Lobby Games",
+          "icon": "icons/lobby_games.png",
+          "body": "The lobby has a few extra games to play if you're waiting in line: the short bee parkour near the front of the lobby, the longer temple run race at the side, and the multiplayer leaf-wielding ant fight at the back."
+        }
+      ]
+    },
+    {
+      "type": "dynamic-map",
+      "title": "Museum Map"
+    },
+    {
+      "type": "task-browser",
+      "title": "Task Browser"
+    },
+    {
+      "type": "versions",
+      "title": "Versions",
+      "versions": [
+        {
+          "name": "FossilFrights",
+          "version": "26.2",
+          "gameVersion": "26.2",
+          "url": "",
+          "type": "dp"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "FAQ",
+      "faqs": [
+        {
+          "question": "What is CubeKoin used for?",
+          "answer": "Cubekoin has various uses including buying potions at the vending machine, and a few miscellaneous secrets like the wishing well, sculkadillo crane operator, key polishing crab and the talking skulls sarcophagus.",
+          "pinned": true
+        },
+        {
+          "question": "Where do I get items?",
+          "answer": "Mostly in the basement. Find a lock and click it with the key, and this will provide the corresponding item. The task book often specifies which you need, and if it doesn't say a location to find it, start with the basement.",
+          "pinned": false
+        },
+        {
+          "question": "How do I play Fossil Heists?",
+          "answer": "The Fossil Frights game has a few game modes. Enter the settings room and press the button labeled \"Fossil Heists\" (or type /heists) to play. 2 or more players are required to start the game.",
+          "pinned": false
+        },
+        {
+          "question": "How do I play with friends?",
+          "answer": "Fossil Frights supports several different ways to play with friends:\n\n1. The invite terminal, or /invite, to invite an online player to a duos game.\n2. Party Mode, which keeps the doors open for players to come and go freely, recommended for experienced players or large groups on call.\n3. Heists mode, a 2 team thief vs guards gamemode!",
+          "pinned": false
+        }
+      ]
+    }
+  ]
+}

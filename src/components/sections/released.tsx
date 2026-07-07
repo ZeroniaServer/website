@@ -3,6 +3,7 @@ import { type Pool } from "../navbar";
 import { goToPage } from "../../lib/router";
 import releasedData from "../../data/released/released.json";
 import Section from "./section";
+import { frameStyle } from "./frame";
 import "./released.css";
 
 interface Media {
@@ -29,26 +30,6 @@ const ASSETS = import.meta.glob("../../assets/released/*", {
 const assetUrl = (name: string) =>
   Object.entries(ASSETS).find(([p]) => p.endsWith(`/${name}`))?.[1] ?? "";
 
-function shade(hex: string, amt: number): string {
-  const h = hex.replace("#", "");
-  const ch = (i: number) => parseInt(h.slice(i, i + 2), 16);
-  const mix = (c: number) => (amt >= 0 ? c + (255 - c) * amt : c * (1 + amt));
-  const hx = (c: number) =>
-    Math.max(0, Math.min(255, Math.round(mix(c)))).toString(16).padStart(2, "0");
-  return `#${hx(ch(0))}${hx(ch(2))}${hx(ch(4))}`;
-}
-
-function frameStyle(color = "#ffffff") {
-  const light = shade(color, 0.4);
-  const dark = shade(color, -0.4);
-  return {
-    borderTopColor: light,
-    borderLeftColor: light,
-    borderRightColor: dark,
-    borderBottomColor: dark,
-  };
-}
-
 export default function Released() {
   const games = releasedData.games as unknown as Game[];
   const [active, setActive] = useState<number | null>(null);
@@ -71,7 +52,7 @@ export default function Released() {
       <div className="released__list" onMouseLeave={() => setActive(null)}>
         {games.map((game, i) => (
           <div
-            className={`released__row${active === i ? " released__row--open" : ""}`}
+            className={`released__row pixel-frame${active === i ? " released__row--open" : ""}`}
             key={game.name}
             role="link"
             tabIndex={0}

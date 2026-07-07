@@ -1,0 +1,10 @@
+.game-missing {
+  margin: 0;
+  padding: 1.5rem;
+  font-family: "Minecraft", monospace;
+  font-size: 1rem;
+  text-align: center;
+  color: var(--color-muted);
+  background: rgba(0, 0, 0, 0.35);
+  border: var(--pixel) dashed var(--color-gray-dark);
+}

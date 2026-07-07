@@ -5,13 +5,9 @@
 }
 
 .released__row {
-  position: relative;
   height: 9rem;
-  overflow: hidden;
   cursor: pointer;
   outline: none;
-  border-width: var(--pixel);
-  border-style: solid;
   transition: height 0.35s ease;
 }
 

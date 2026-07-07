@@ -1,3 +1,18 @@
+.game {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* clear the fixed navbar at the top of the first section */
+.game > .section:first-child .section__inner {
+  padding-top: calc(var(--nav-h, 64px) + 2.5rem);
+}
+
+.game > .section:last-child {
+  flex: 1;
+}
+
 .game-page {
   min-height: 100vh;
   display: flex;

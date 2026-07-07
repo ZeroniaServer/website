@@ -1,0 +1,157 @@
+{
+  "name": "RocketRiders",
+  "aliases": [],
+  "navbarVariant": "grass",
+  "sections": [
+    {
+      "type": "hero",
+      "media": {
+        "type": "image",
+        "src": "hero/media.jpg"
+      },
+      "description": "Placeholder",
+      "version": "26.2",
+      "download": {
+        "color": ""
+      },
+      "servers": [
+        {
+          "name": "CubeKrowd",
+          "url": ""
+        },
+        {
+          "name": "StickyPiston",
+          "url": ""
+        },
+        {
+          "name": "MapVerse",
+          "url": ""
+        }
+      ],
+      "credits": [
+        {
+          "player": "Evtema3",
+          "roles": [
+            "Developer"
+          ]
+        },
+        {
+          "player": "YZEROgame",
+          "roles": [
+            "Developer"
+          ]
+        },
+        {
+          "player": "Chronos22",
+          "roles": [
+            "Missile Builder"
+          ]
+        },
+        {
+          "player": "DorkOrc",
+          "roles": [
+            "Developer"
+          ]
+        },
+        {
+          "player": "Bardonius",
+          "roles": [
+            "Lobby Builder"
+          ]
+        },
+        {
+          "player": "hugoatlas",
+          "roles": [
+            "Lobby Builder"
+          ]
+        },
+        {
+          "player": "TrekStone",
+          "roles": [
+            "Lobby Builder"
+          ]
+        },
+        {
+          "player": "Toul_",
+          "roles": [
+            "Server Support"
+          ]
+        },
+        {
+          "player": "JohnStar128",
+          "roles": [
+            "Server Support"
+          ]
+        },
+        {
+          "player": "BlockyM_",
+          "roles": [
+            "Trailer Director"
+          ]
+        }
+      ],
+      "creditsLink": "https://zeroniaserver.github.io/RocketRidersWiki/credits/",
+      "logo": "hero/logo.png"
+    },
+    {
+      "type": "trailer",
+      "title": "Trailer",
+      "videos": [
+        {
+          "title": "",
+          "url": "https://www.youtube.com/watch?v=RJijpwx4bqU"
+        }
+      ]
+    },
+    {
+      "type": "how-to-play",
+      "title": "How to Play",
+      "categories": [
+        {
+          "name": "Placeholder",
+          "icon": "icons/placeholder.png",
+          "body": "Placeholder"
+        }
+      ]
+    },
+    {
+      "type": "gallery",
+      "title": "Gallery",
+      "images": [
+        {
+          "src": "",
+          "caption": "Placeholder"
+        }
+      ]
+    },
+    {
+      "type": "additional-info",
+      "title": "Additional Info",
+      "body": "Placeholder"
+    },
+    {
+      "type": "versions",
+      "title": "Versions",
+      "versions": [
+        {
+          "name": "Placeholder",
+          "version": "26.2",
+          "gameVersion": "",
+          "url": "",
+          "type": "dp"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "FAQ",
+      "faqs": [
+        {
+          "question": "Placeholder",
+          "answer": "Placeholder",
+          "pinned": false
+        }
+      ]
+    }
+  ]
+}

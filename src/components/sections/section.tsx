@@ -45,6 +45,11 @@ export const DEEPSLATE: Pool = [
   { color: "#2b2b31", weight: 45 },
 ];
 
+export const DEEPSLATE_LIGHT: Pool = [
+  { color: "#3e3e45", weight: 55 },
+  { color: "#38383f", weight: 45 },
+];
+
 interface SectionProps {
   id: string;
   pool: Pool;
