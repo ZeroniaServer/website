@@ -9,7 +9,7 @@
         "type": "image",
         "src": "hero/media.jpg"
       },
-      "description": "Placeholder",
+      "description": "Rocket Riders is a reimagination of SethBling and Cubehamster's Missile Wars, featuring all new missiles, utility items, custom achievements, challenging gamemodes and modifiers, and tons more ways to customize your gameplay!",
       "version": "26.2",
       "download": {
         "color": ""
@@ -17,7 +17,7 @@
       "servers": [
         {
           "name": "CubeKrowd",
-          "url": ""
+          "url": "https://cubekrowd.net/"
         },
         {
           "name": "StickyPiston",
@@ -25,7 +25,7 @@
         },
         {
           "name": "MapVerse",
-          "url": ""
+          "url": "https://mapverse.net/map/rocket-riders"
         }
       ],
       "credits": [
@@ -48,7 +48,7 @@
           ]
         },
         {
-          "player": "DorkOrc",
+          "player": "TheDorkOrc",
           "roles": [
             "Developer"
           ]
@@ -108,9 +108,29 @@
       "title": "How to Play",
       "categories": [
         {
-          "name": "Placeholder",
-          "icon": "icons/placeholder.png",
-          "body": "Placeholder"
+          "name": "Introduction",
+          "icon": "icons/introduction.png",
+          "body": "Rocket Riders is a reimagination of SethBling and Cubehamster's Missile Wars, featuring all new missiles, utility items, custom achievements, challenging gamemodes and modifiers, and tons more ways to customize your gameplay!"
+        },
+        {
+          "name": "Missiles",
+          "icon": "icons/missiles.png",
+          "body": "The map includes 20 all new, community-made missiles ranging in speed and explosive power. Ride missiles across to the enemy base and explode their nether portals* to win the game!\n\n* Some gamemodes (for instance, Capture the Flag, Chase, and Crusade) have different winning criteria."
+        },
+        {
+          "name": "Powerups",
+          "icon": "icons/powerups.png",
+          "body": "In addition to the Shield and Fireball from Missile Wars, new utility items like the Vortex (floating sky-mine), Canopy (leaf platform), Nova Rocket (explosive firework crossbow), and Obsidian Shield allow for complex and unique gameplay strategies!"
+        },
+        {
+          "name": "Gamemodes",
+          "icon": "icons/gamemodes.png",
+          "body": "Rocket Riders also features 7 new gamemodes and 22 game modifiers which bring new gameplay objectives and challenges to the table so the game always stays exciting!"
+        },
+        {
+          "name": "Settings",
+          "icon": "icons/settings.png",
+          "body": "The Modification Room in the center of the Lobby allows you to select active items, base decorations, game modifiers, game rules, and more, giving you the ability to fully customize your gameplay!"
         }
       ]
     },
