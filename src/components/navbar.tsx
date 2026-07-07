@@ -76,6 +76,15 @@ export const POOLS: Record<string, Pool> = {
     { color: "#edcb80ff", weight: 30 },
     { color: "#e1c37dff", weight: 70 },
   ],
+  jungleDirt: [
+    { color: "#b06a35ff", weight: 75 },
+    { color: "#a46230ff", weight: 15 },
+    { color: "#985a2cff", weight: 10 },
+  ],
+  nightMud: [
+    { color: "#291f14ff", weight: 70 },
+    { color: "#241a0eff", weight: 30 },
+  ],
   water: [
     { color: "#3f8fd0", weight: 60 },
     { color: "#2f72b0", weight: 25 },
@@ -159,6 +168,29 @@ const VARIANTS: Record<string, Variant> = {
           ? pick(POOLS.stone, rs)
           : pick(POOLS.dirt, rs)
         : pick(POOLS.stone, rs),
+    digSequence: [[7], [6], [5], [4], [3], [2]], // bottom up
+    rowStep: 40,
+    jitter: 70,
+    textDelay: 160,
+  },
+  jungle: {
+    logo: "logo_grass.png",
+    body: POOLS.jungleDirt,
+    dug: POOLS.nightMud,
+    surface: (row, rs, rl) =>
+      row === 0
+        ? pick(POOLS.grass, rs)
+        : row === 1
+          ? rl < 0.5
+            ? pick(POOLS.grass, rs)
+            : pick(POOLS.jungleDirt, rs)
+          : pick(POOLS.jungleDirt, rs),
+    dig: (row, rs, rl) =>
+      row === 2
+        ? rl < 0.5
+          ? pick(POOLS.nightMud, rs)
+          : pick(POOLS.jungleDirt, rs)
+        : pick(POOLS.nightMud, rs),
     digSequence: [[7], [6], [5], [4], [3], [2]], // bottom up
     rowStep: 40,
     jitter: 70,
