@@ -12,6 +12,34 @@ interface Category {
 const idFor = (name: string, i: number) =>
   `htp-${i}-${name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "")}`;
 
+// choose most colour icon colour for bar colour
+function dominantColor(img: HTMLImageElement): string | null {
+  const size = Math.min(img.naturalWidth || 16, 64);
+  if (!size) return null;
+  const canvas = document.createElement("canvas");
+  canvas.width = size;
+  canvas.height = size;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return null;
+  ctx.imageSmoothingEnabled = false;
+  ctx.drawImage(img, 0, 0, size, size, 0, 0, size, size);
+  const { data } = ctx.getImageData(0, 0, size, size);
+  const counts = new Map<string, number>();
+  for (let i = 0; i < data.length; i += 4) {
+    if (data[i + 3] < 200) continue; // skip transparent pixels
+    const key = `${data[i]},${data[i + 1]},${data[i + 2]}`;
+    counts.set(key, (counts.get(key) ?? 0) + 1);
+  }
+  let best: string | null = null;
+  let bestCount = 0;
+  for (const [key, count] of counts)
+    if (count > bestCount) {
+      best = key;
+      bestCount = count;
+    }
+  return best ? `rgb(${best})` : null;
+}
+
 export default function HowToPlay({
   slug,
   intro = "",
@@ -22,6 +50,7 @@ export default function HowToPlay({
   categories?: Category[];
 }) {
   const [active, setActive] = useState(0);
+  const [dominant, setDominant] = useState<Record<number, string>>({});
   const layoutRef = useRef<HTMLDivElement>(null);
   const railRef = useRef<HTMLElement>(null);
   const bodyRef = useRef<HTMLDivElement>(null);
@@ -85,6 +114,26 @@ export default function HowToPlay({
 
   useEffect(() => () => window.clearTimeout(suppressTimer.current), []);
 
+  // Sample each icon's dominant color once, so the scroll thumb can match
+  // whichever category is active instead of always being green.
+  useEffect(() => {
+    let cancelled = false;
+    categories.forEach((c, i) => {
+      const url = c.icon ? gameAsset(slug, c.icon) : "";
+      if (!url) return;
+      const img = new Image();
+      img.onload = () => {
+        if (cancelled) return;
+        const color = dominantColor(img);
+        if (color) setDominant((d) => (d[i] === color ? d : { ...d, [i]: color }));
+      };
+      img.src = url;
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [categories, slug]);
+
   if (categories.length === 0 && !intro) return null;
 
   // Align the target category's heading with the vertical center of the
@@ -125,7 +174,14 @@ export default function HowToPlay({
       <div className="htp__layout" ref={layoutRef}>
         <nav className="htp__rail" aria-label="How to play categories" ref={railRef}>
           <div className="htp__rail-scrollbar" aria-hidden="true">
-            <div className="htp__rail-thumb" style={{ height: `${thumbPercent}%`, top: `${thumbTop}%` }} />
+            <div
+              className="htp__rail-thumb"
+              style={{
+                height: `${thumbPercent}%`,
+                top: `${thumbTop}%`,
+                background: dominant[active],
+              }}
+            />
           </div>
           <div className="htp__rail-icons">
             {categories.map((c, i) => {
