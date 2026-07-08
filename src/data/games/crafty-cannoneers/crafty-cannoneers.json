@@ -176,8 +176,20 @@
       "title": "Gallery",
       "images": [
         {
-          "src": "",
-          "caption": "Placeholder"
+          "src": "gallery/cc1.jpg",
+          "caption": "Caption needed"
+        },
+        {
+          "src": "gallery/cc2.jpg",
+          "caption": "Caption needed"
+        },
+        {
+          "src": "gallery/cc3.jpg",
+          "caption": "Caption needed"
+        },
+        {
+          "src": "gallery/cc4.jpg",
+          "caption": "Caption needed"
         }
       ]
     },

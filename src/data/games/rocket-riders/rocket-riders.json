@@ -139,8 +139,20 @@
       "title": "Gallery",
       "images": [
         {
-          "src": "",
-          "caption": "Placeholder"
+          "src": "gallery/rr1.jpg",
+          "caption": "Caption needed"
+        },
+        {
+          "src": "gallery/rr2.jpg",
+          "caption": "Caption needed"
+        },
+        {
+          "src": "gallery/rr3.jpg",
+          "caption": "Caption needed"
+        },
+        {
+          "src": "gallery/rr4.jpg",
+          "caption": "Caption needed"
         }
       ]
     },

@@ -153,8 +153,20 @@
       "title": "Gallery",
       "images": [
         {
-          "src": "",
-          "caption": "Placeholder"
+          "src": "gallery/purple1.jpg",
+          "caption": "Caption needed"
+        },
+        {
+          "src": "gallery/purple2.jpg",
+          "caption": "Caption needed"
+        },
+        {
+          "src": "gallery/purple3.jpg",
+          "caption": "Caption needed"
+        },
+        {
+          "src": "gallery/purple4.jpg",
+          "caption": "Caption needed"
         }
       ]
     },
