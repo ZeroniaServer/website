@@ -187,8 +187,16 @@
       "title": "Gallery",
       "images": [
         {
-          "src": "",
-          "caption": "Placeholder"
+          "src": "gallery/ss2_1.jpg",
+          "caption": "Lobby"
+        },
+        {
+          "src": "gallery/ss2_2.jpg",
+          "caption": "Game Overview"
+        },
+        {
+          "src": "gallery/ss2_3.jpg",
+          "caption": "Gameplay"
         }
       ]
     },
