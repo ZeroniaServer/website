@@ -1,0 +1,101 @@
+.dmap {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.dmap__panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 0;
+}
+
+/* flex-grow set to each frame's aspect ratio so they share the row width
+   and end up the same height once aspect-ratio resolves each one */
+.dmap__panel--map {
+  flex: 0.639 1 0;
+}
+
+.dmap__panel--photo {
+  flex: 1.778 1 0;
+}
+
+.dmap__frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 46 / 72;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+/* only the top-left 46x72 corner of the source png has real content */
+.dmap__crop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% * 128 / 46);
+  height: auto;
+  image-rendering: pixelated;
+  transition: filter 0.15s ease;
+}
+
+.dmap__frame--photo {
+  aspect-ratio: 16 / 9;
+}
+
+.dmap__photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.15s ease;
+}
+
+.dmap__photo--loading {
+  filter: blur(10px);
+  transform: scale(1.05);
+}
+
+.dmap__arrows {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.dmap__arrow {
+  all: unset;
+  display: flex;
+  padding: 0.4rem;
+  cursor: pointer;
+}
+
+.dmap__arrow img {
+  width: 0.8rem;
+  image-rendering: pixelated;
+}
+
+.dmap__arrow:first-child img {
+  transform: rotate(90deg);
+}
+
+.dmap__arrow:last-child img {
+  transform: rotate(-90deg);
+}
+
+.dmap__floor-label {
+  min-width: 8rem;
+  font-family: "Minecraft", monospace;
+  font-size: 0.95rem;
+  text-align: center;
+  color: var(--color-text);
+}
+
+@media (max-width: 40rem) {
+  .dmap {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

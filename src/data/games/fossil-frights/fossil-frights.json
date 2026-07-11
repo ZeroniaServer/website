@@ -23,16 +23,18 @@
           "player": "Polysquarazoid",
           "roles": [
             "Game Designer",
-            "Music",
+            "Datapack",
+            "Plugin Dev",
             "Art",
             "Trailer",
-            "Plugin Dev"
+            "Music"
           ]
         },
         {
           "player": "RiverTiger76",
           "roles": [
             "Lead Builder",
+            "Datapack",
             "Art"
           ]
         },
@@ -62,6 +64,7 @@
           "player": "Evtema3",
           "roles": [
             "Datapack",
+            "Shaders",
             "Music",
             "Production Manager"
           ]
@@ -139,8 +142,7 @@
       ]
     },
     {
-      "type": "dynamic-map",
-      "title": "Museum Map"
+      "type": "dynamic-map"
     },
     {
       "type": "versions",

@@ -6,6 +6,7 @@ import Gallery from "./gallery";
 import AdditionalInfo from "./additional-info";
 import Versions from "./versions";
 import Faq from "./faq";
+import DynamicMap from "./dynamic-map";
 
 // Maps a section "type" from a game JSON to its component. New custom
 // sections only need a file here plus an entry in this map.
@@ -17,4 +18,5 @@ export const SECTIONS: Record<string, ComponentType<any>> = {
   "additional-info": AdditionalInfo,
   versions: Versions,
   faq: Faq,
+  "dynamic-map": DynamicMap,
 };
