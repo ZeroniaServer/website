@@ -1,7 +1,8 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { gameAsset } from "../../../lib/games";
 import { buttonStyle, frameStyle } from "../frame";
 import arrowUrl from "../../../assets/sprites/arrow_down.png";
+import globeUrl from "../../../assets/sprites/globe.png";
 import "./hero.css";
 
 interface Credit {
@@ -33,6 +34,9 @@ interface HeroProps {
 const headUrl = (name: string) =>
   `https://mc-heads.net/avatar/${encodeURIComponent(name)}/96`;
 
+const isTranslator = (c: Credit) =>
+  c.roles.length > 0 && c.roles.every((r) => r.toLowerCase().startsWith("translator"));
+
 export default function Hero({
   slug,
   gameName,
@@ -51,6 +55,20 @@ export default function Hero({
   const thumbnailSrc = media?.thumbnail ? gameAsset(slug, media.thumbnail) : "";
   const logoSrc = logo ? gameAsset(slug, logo) : "";
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [showTranslators, setShowTranslators] = useState(false);
+
+  const mainCredits = credits.filter((c) => !isTranslator(c));
+  const translatorCredits = credits.filter(isTranslator);
+
+  const renderCredit = (c: Credit) => (
+    <li key={c.player} className="hero__credit" tabIndex={0}>
+      <img src={headUrl(c.player)} alt={c.player} loading="lazy" width={40} height={40} />
+      <span className="hero__credit-tip pixel-frame">
+        <strong>{c.player}</strong>
+        {c.roles.join(", ")}
+      </span>
+    </li>
+  );
 
   const replay = () => {
     const video = videoRef.current;
@@ -91,21 +109,21 @@ export default function Hero({
         </div>
         {credits.length > 0 && (
           <ul className="hero__credits">
-            {credits.map((c) => (
-              <li key={c.player} className="hero__credit" tabIndex={0}>
-                <img
-                  src={headUrl(c.player)}
-                  alt={c.player}
-                  loading="lazy"
-                  width={40}
-                  height={40}
-                />
-                <span className="hero__credit-tip pixel-frame">
-                  <strong>{c.player}</strong>
-                  {c.roles.join(", ")}
-                </span>
+            {mainCredits.map(renderCredit)}
+            {!showTranslators && translatorCredits.length > 0 && (
+              <li className="hero__credit hero__credit--globe" tabIndex={0}>
+                <button
+                  type="button"
+                  className="hero__globe-btn"
+                  aria-label="Show Translators"
+                  onClick={() => setShowTranslators(true)}
+                >
+                  <img src={globeUrl} alt="" width={40} height={40} />
+                </button>
+                <span className="hero__credit-tip pixel-frame">Show Translators</span>
               </li>
-            ))}
+            )}
+            {showTranslators && translatorCredits.map(renderCredit)}
           </ul>
         )}
       </div>

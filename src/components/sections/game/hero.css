@@ -140,6 +140,13 @@ video.hero__bg {
   filter: none;
 }
 
+.hero__globe-btn {
+  all: unset;
+  display: block;
+  line-height: 0;
+  cursor: pointer;
+}
+
 .hero__credit-tip {
   position: absolute;
   bottom: calc(100% + 0.6rem);
