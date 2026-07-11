@@ -1,5 +1,5 @@
 {
-  "name": "FossilFrights",
+  "name": "Fossil Frights",
   "aliases": [
     "ff"
   ],
@@ -109,17 +109,17 @@
         {
           "name": "Tasks",
           "icon": "icons/task_easy.png",
-          "body": "There are three main task types.\n\nEasy Tasks\n\nUsually these are simple jobs like going somewhere or pressing a button.\n\nMedium Tasks\n\nThese usually need an item. Most of the time that means using your Storage Key, going into the basement, grabbing what you need, and bringing it to the correct location to complete the task.\n\nHard Tasks\n\nThese are puzzles. They are slower, weirder, and usually not obvious the first time. Read the task book carefully and expect to learn them over multiple runs."
+          "body": "There are three main task types.\n\n[icon:icons/task_easy.png] Easy Tasks\n\nUsually these are simple jobs like going somewhere or pressing a button.\n\n[icon:icons/task_medium.png] Medium Tasks\n\nThese usually need an item. Most of the time that means using your Storage Key, going into the basement, grabbing what you need, and bringing it to the correct location to complete the task.\n\n[icon:icons/task_hard.png] Hard Tasks\n\nThese are puzzles. They are slower, weirder, and usually not obvious the first time. Read the [icon:icons/task_easy.png] task book carefully and expect to learn them over multiple runs."
         },
         {
           "name": "Hazards",
           "icon": "icons/hazards.png",
-          "body": "Some days can trigger hazards during the shift. They do not always happen right away, so you need to stay ready. They don't need to be turned off... but I would recommend it. Hazards include:\n\n- Lights Out\n- Floor is Lava\n- Flood\n- Curse\n- Security Gates\n\nEach one has a reset somewhere in the museum basement."
+          "body": "Some days can trigger hazards during the shift. They do not always happen right away, so you need to stay ready. They don't need to be turned off... but I would recommend it. Hazards include:\n\n- [icon:icons/lights.png] Lights Out\n- [icon:icons/lava.png] Floor is Lava\n- [icon:icons/floods.png] Flood\n- [icon:icons/curse.png] Curse\n- [icon:icons/security.png] Security Gates\n\nEach one has a reset somewhere in the museum basement."
         },
         {
-          "name": "Cubekoin",
-          "icon": "icons/cubekoin.png",
-          "body": "Cubekoins are a small currency item you earn each time you complete a shift.\n\nThey can be used in a few places around the museum, including paying an armadillo to operate a crane, getting a crab to polish your key, or even just buying some beverages to power you up. Cubekoin is especially great for beating that bothersome Day 10. And when you finally beat the game, they're even more crucial for speedruns."
+          "name": "Dino Coin",
+          "icon": "icons/dino_coin.png",
+          "body": "Dino Coins are a small currency item you earn each time you complete a shift.\n\nThey can be used in a few places around the museum, including paying an armadillo to operate a crane, getting a crab to polish your key, or even just buying some beverages to power you up. Dino Coin is especially great for beating that bothersome Day 10. And when you finally beat the game, they're even more crucial for speedruns."
         },
         {
           "name": "Map Knowledge",
@@ -151,7 +151,7 @@
       "title": "Versions",
       "versions": [
         {
-          "name": "FossilFrights",
+          "name": "Fossil Frights",
           "version": "26.2",
           "gameVersion": "26.2",
           "url": "",
@@ -164,13 +164,13 @@
       "title": "FAQ",
       "faqs": [
         {
-          "question": "What is CubeKoin used for?",
-          "answer": "Cubekoin has various uses including buying potions at the vending machine, and a few miscellaneous secrets like the wishing well, sculkadillo crane operator, key polishing crab and the talking skulls sarcophagus.",
+          "question": "What is Dino Coin used for?",
+          "answer": "Dino Coin has various uses including buying potions at the vending machine, and a few miscellaneous secrets like the wishing well, sculkadillo crane operator, key polishing crab and the talking skulls sarcophagus.",
           "pinned": true
         },
         {
           "question": "Where do I get items?",
-          "answer": "Mostly in the basement. Find a lock and click it with the key, and this will provide the corresponding item. The task book often specifies which you need, and if it doesn't say a location to find it, start with the basement.",
+          "answer": "Mostly in the basement. Find a lock and click it with the key, and this will provide the corresponding item. The [icon:icons/task_easy.png] task book often specifies which you need, and if it doesn't say a location to find it, start with the basement.",
           "pinned": false
         },
         {
