@@ -11,6 +11,8 @@ import {
 } from "./museum-map-data";
 import "./dynamic-map.css";
 
+const PIN_MS = 2000;
+
 // smallest box wins, some rooms nest inside others
 const roomAt = (rooms: MapRoom[], x: number, y: number): MapRoom | null => {
   let best: MapRoom | null = null;
@@ -30,8 +32,14 @@ const roomAt = (rooms: MapRoom[], x: number, y: number): MapRoom | null => {
 export default function DynamicMap({ slug }: { slug: string }) {
   const [floorIndex, setFloorIndex] = useState(0);
   const [hovered, setHovered] = useState<MapRoom | null>(null);
+  const [pinnedIndex, setPinnedIndex] = useState(0);
+  const [pinned, setPinned] = useState<MapRoom | null>(null);
   const [loaded, setLoaded] = useState<Set<string>>(new Set());
+  const [inView, setInView] = useState(false);
+  const [hintDismissed, setHintDismissed] = useState(false);
   const mapRef = useRef<HTMLDivElement>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const pinTimer = useRef<number | undefined>(undefined);
 
   const floor = MUSEUM_MAP_FLOORS[floorIndex];
   const asset = (relPath: string) => gameAsset(slug, relPath);
@@ -55,9 +63,33 @@ export default function DynamicMap({ slug }: { slug: string }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slug]);
 
+  // show the hover hint once, only while the section is on screen
+  useEffect(() => {
+    const el = rootRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting), {
+      threshold: 0.4,
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => () => window.clearTimeout(pinTimer.current), []);
+
   const changeFloor = (delta: number) => {
     setFloorIndex((i) => (i + delta + MUSEUM_MAP_FLOORS.length) % MUSEUM_MAP_FLOORS.length);
     setHovered(null);
+    setPinned(null);
+    setPinnedIndex(0);
+  };
+
+  const cycleRoom = (delta: number) => {
+    const rooms = floor.rooms;
+    const next = (pinnedIndex + delta + rooms.length) % rooms.length;
+    setPinnedIndex(next);
+    setPinned(rooms[next]);
+    window.clearTimeout(pinTimer.current);
+    pinTimer.current = window.setTimeout(() => setPinned(null), PIN_MS);
   };
 
   const onMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -68,14 +100,17 @@ export default function DynamicMap({ slug }: { slug: string }) {
     setHovered(roomAt(floor.rooms, x, y));
   };
 
-  const mapSrc = asset(`museum_map/${hovered ? hovered.file : floor.file}`);
+  const active = hovered ?? pinned;
+  const mapSrc = asset(`museum_map/${active ? active.file : floor.file}`);
 
-  const previewRoom = hovered ?? floor.rooms[0];
+  const previewRoom = active ?? floor.rooms[0];
   const previewSrc = asset(`images/${previewRoom.image}`);
   const previewSharp = loaded.has(previewSrc);
 
+  const showHint = inView && !hintDismissed;
+
   return (
-    <div className="dmap">
+    <div className="dmap" ref={rootRef}>
       <div className="dmap__panel dmap__panel--map">
         <div className="dmap__arrows">
           <button
@@ -93,6 +128,7 @@ export default function DynamicMap({ slug }: { slug: string }) {
         <div
           className="dmap__frame"
           ref={mapRef}
+          onMouseEnter={() => setHintDismissed(true)}
           onMouseMove={onMouseMove}
           onMouseLeave={() => setHovered(null)}
         >
@@ -100,13 +136,27 @@ export default function DynamicMap({ slug }: { slug: string }) {
         </div>
       </div>
       <div className="dmap__panel dmap__panel--photo">
-        <span className="dmap__floor-label">{previewRoom.name}</span>
+        <div className="dmap__arrows">
+          <button className="dmap__arrow" aria-label="Previous room" onClick={() => cycleRoom(-1)}>
+            <img src={arrowUrl} alt="" />
+          </button>
+          <span className="dmap__floor-label">{previewRoom.name}</span>
+          <button className="dmap__arrow" aria-label="Next room" onClick={() => cycleRoom(1)}>
+            <img src={arrowUrl} alt="" />
+          </button>
+        </div>
         <div className="dmap__frame dmap__frame--photo pixel-frame" style={frameStyle()}>
           <img
             className={`dmap__photo${previewSharp ? "" : " dmap__photo--loading"}`}
             src={previewSrc}
             alt={previewRoom.name}
           />
+          {showHint && (
+            <div className="dmap__hint">
+              <img className="dmap__hint-arrow" src={arrowUrl} alt="" />
+              Hover over map
+            </div>
+          )}
         </div>
       </div>
     </div>
