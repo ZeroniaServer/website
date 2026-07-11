@@ -112,7 +112,7 @@
         {
           "name": "Tasks",
           "icon": "icons/task_easy.png",
-          "body": "There are three main task types.\n\n[icon:icons/task_easy.png] Easy Tasks\n\nUsually these are simple jobs like going somewhere or pressing a button.\n\n[icon:icons/task_medium.png] Medium Tasks\n\nThese usually need an item. Most of the time that means using your Storage Key, going into the basement, grabbing what you need, and bringing it to the correct location to complete the task.\n\n[icon:icons/task_hard.png] Hard Tasks\n\nThese are puzzles. They are slower, weirder, and usually not obvious the first time. Read the [icon:icons/task_easy.png] task book carefully and expect to learn them over multiple runs."
+          "body": "There are three main task types.\n\n[icon:icons/task_easy.png] Easy Tasks\n\nUsually these are simple jobs like going somewhere or pressing a button.\n\n[icon:icons/task_medium.png] Medium Tasks\n\nThese usually need an item. Most of the time that means using your Storage Key, going into the basement, grabbing what you need, and bringing it to the correct location to complete the task.\n\n[icon:icons/task_hard.png] Hard Tasks\n\nThese are puzzles. They are slower, weirder, and usually not obvious the first time. Read the task book carefully and expect to learn them over multiple runs."
         },
         {
           "name": "Hazards",
@@ -160,7 +160,7 @@
         },
         {
           "question": "Where do I get items?",
-          "answer": "Mostly in the basement. Find a lock and click it with the key, and this will provide the corresponding item. The [icon:icons/task_easy.png] task book often specifies which you need, and if it doesn't say a location to find it, start with the basement.",
+          "answer": "Mostly in the basement. Find a lock and click it with the key, and this will provide the corresponding item. The task book often specifies which you need, and if it doesn't say a location to find it, start with the basement.",
           "pinned": false
         },
         {
@@ -171,6 +171,11 @@
         {
           "question": "How do I play with friends?",
           "answer": "Fossil Frights supports several different ways to play with friends:\n\n1. The invite terminal, or /invite, to invite an online player to a duos game.\n2. Party Mode, which keeps the doors open for players to come and go freely, recommended for experienced players or large groups on call.\n3. Heists mode, a 2 team thief vs guards gamemode!",
+          "pinned": false
+        },
+        {
+          "question": "Why are lights out / water everywhere / lava in the basement?",
+          "answer": "You're experiencing a hazard! They can happen randomly during your shift and add an extra layer of challenge. The only way to get rid of them is to find the off switch in the basement.",
           "pinned": false
         }
       ]
