@@ -1,6 +1,8 @@
 {
   "name": "Snowy Skirmish 2: Avalanche",
-  "aliases": [],
+  "aliases": [
+    "ss"
+  ],
   "navbarVariant": "snow",
   "sections": [
     {

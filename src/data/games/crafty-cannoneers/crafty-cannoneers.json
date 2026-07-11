@@ -1,6 +1,8 @@
 {
   "name": "CraftyCannoneers",
-  "aliases": [],
+  "aliases": [
+    "cc"
+  ],
   "navbarVariant": "sand",
   "sections": [
     {
