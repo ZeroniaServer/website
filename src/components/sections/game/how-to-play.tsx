@@ -55,14 +55,10 @@ export default function HowToPlay({
   const railRef = useRef<HTMLElement>(null);
   const bodyRef = useRef<HTMLDivElement>(null);
   const iconRefs = useRef<(HTMLButtonElement | null)[]>([]);
-  // A click scrolls the target category to the TOP of the viewport, but the
-  // observer's trigger band sits mid-viewport, so it would otherwise "correct"
-  // the highlight to a neighboring category while the scroll is still
-  // animating. Suppress it for the duration of that scroll.
   const suppressObserver = useRef(false);
   const suppressTimer = useRef<number | undefined>(undefined);
 
-  // Keep the current category highlighted as the reader scrolls past it.
+  // keep the current category highlighted
   useEffect(() => {
     const blocks = bodyRef.current?.querySelectorAll(".htp__category");
     if (!blocks?.length) return;
@@ -78,10 +74,7 @@ export default function HowToPlay({
     return () => observer.disconnect();
   }, [categories.length]);
 
-  // Keep the rail vertically centered in the viewport while its section is in
-  // view, clamped so it never floats above the top or below the bottom of
-  // the how-to-play content. A CSS transition on the rail smooths out the
-  // per-frame jumps between scroll positions.
+  //  keep the rail vertically centered in the viewport
   useEffect(() => {
     let raf = 0;
     const update = () => {
@@ -114,8 +107,7 @@ export default function HowToPlay({
 
   useEffect(() => () => window.clearTimeout(suppressTimer.current), []);
 
-  // Sample each icon's dominant color once, so the scroll thumb can match
-  // whichever category is active instead of always being green.
+  // choose thumb colour based on dominant item colour
   useEffect(() => {
     let cancelled = false;
     categories.forEach((c, i) => {
@@ -136,9 +128,13 @@ export default function HowToPlay({
 
   if (categories.length === 0 && !intro) return null;
 
-  // Align the target category's heading with the vertical center of the
-  // icon that was clicked, rather than always jumping the section to the
-  // top of the page.
+  if (categories.length === 0)
+    return (
+      <div className="htp">
+        <Paragraphs className="htp__intro" text={intro} slug={slug} />
+      </div>
+    );
+
   const scrollToIndex = (i: number) => {
     setActive(i);
     suppressObserver.current = true;
