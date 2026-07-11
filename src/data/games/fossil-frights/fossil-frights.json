@@ -143,21 +143,9 @@
       "title": "Museum Map"
     },
     {
-      "type": "task-browser",
-      "title": "Task Browser"
-    },
-    {
       "type": "versions",
       "title": "Versions",
-      "versions": [
-        {
-          "name": "Fossil Frights",
-          "version": "26.2",
-          "gameVersion": "26.2",
-          "url": "",
-          "type": "dp"
-        }
-      ]
+      "versions": []
     },
     {
       "type": "faq",

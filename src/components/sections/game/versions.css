@@ -108,8 +108,12 @@
 
 .versions__empty {
   margin: 0;
-  padding: 0.8rem;
+  font-family: "Minecraft", monospace;
   color: var(--color-muted);
+}
+
+.versions__table .versions__empty {
+  padding: 0.8rem;
 }
 
 .versions__pager {
