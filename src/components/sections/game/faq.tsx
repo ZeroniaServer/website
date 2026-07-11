@@ -11,7 +11,7 @@ interface FaqEntry {
 
 const PAGE_SIZE = 8;
 
-function AnswerPanel({ open, text }: { open: boolean; text: string }) {
+function AnswerPanel({ open, text, slug }: { open: boolean; text: string; slug: string }) {
   const innerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
 
@@ -26,13 +26,21 @@ function AnswerPanel({ open, text }: { open: boolean; text: string }) {
   return (
     <div className="faq__answer-wrap" style={{ height }}>
       <div className="faq__answer" ref={innerRef}>
-        <Paragraphs text={text} />
+        <Paragraphs text={text} slug={slug} />
       </div>
     </div>
   );
 }
 
-export default function Faq({ title, faqs = [] }: { title?: string; faqs?: FaqEntry[] }) {
+export default function Faq({
+  slug,
+  title,
+  faqs = [],
+}: {
+  slug: string;
+  title?: string;
+  faqs?: FaqEntry[];
+}) {
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(0);
   const [open, setOpen] = useState<Record<string, boolean>>({});
@@ -103,7 +111,7 @@ export default function Faq({ title, faqs = [] }: { title?: string; faqs?: FaqEn
               <span className="faq__question-text">{f.question}</span>
               <span className="faq__toggle" aria-hidden="true" />
             </button>
-            <AnswerPanel open={!!open[f.question]} text={f.answer} />
+            <AnswerPanel open={!!open[f.question]} text={f.answer} slug={slug} />
           </div>
         ))}
         {visible.length === 0 && <p className="faq__empty">No matching questions</p>}

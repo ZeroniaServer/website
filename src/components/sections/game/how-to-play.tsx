@@ -170,7 +170,7 @@ export default function HowToPlay({
 
   return (
     <div className="htp">
-      {intro && <Paragraphs className="htp__intro" text={intro} />}
+      {intro && <Paragraphs className="htp__intro" text={intro} slug={slug} />}
       <div className="htp__layout" ref={layoutRef}>
         <nav className="htp__rail" aria-label="How to play categories" ref={railRef}>
           <div className="htp__rail-scrollbar" aria-hidden="true">
@@ -211,7 +211,7 @@ export default function HowToPlay({
                   {icon && <img className="htp__heading-icon" src={icon} alt="" />}
                   {c.name}
                 </h3>
-                <Paragraphs text={c.body} />
+                <Paragraphs text={c.body} slug={slug} />
               </div>
             );
           })}
