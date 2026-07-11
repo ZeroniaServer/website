@@ -1,5 +1,5 @@
 {
-  "name": "RocketRiders",
+  "name": "Rocket Riders",
   "aliases": [],
   "navbarVariant": "grass",
   "sections": [
@@ -21,7 +21,7 @@
         },
         {
           "name": "StickyPiston",
-          "url": ""
+          "url": "https://trial.stickypiston.co/map/rocketriders"
         },
         {
           "name": "MapVerse",
@@ -140,26 +140,26 @@
       "images": [
         {
           "src": "gallery/rr1.jpg",
-          "caption": "Caption needed"
+          "caption": "Game Lobby"
         },
         {
           "src": "gallery/rr2.jpg",
-          "caption": "Caption needed"
+          "caption": "Settings Modification Room"
         },
         {
           "src": "gallery/rr3.jpg",
-          "caption": "Caption needed"
+          "caption": "Powerups Gamemode"
         },
         {
           "src": "gallery/rr4.jpg",
-          "caption": "Caption needed"
+          "caption": "Regular Gamemode"
         }
       ]
     },
     {
       "type": "additional-info",
       "title": "Additional Info",
-      "body": "Placeholder"
+      "body": "This map was made over the course of 8+ years.\n\nWe couldn't have done it without the help of so many members of the community who tested features, reported bugs, submitted missiles, shared feedback, advised development, constructed our Lobby, hosted servers, and more over the years.\n\nThank you, and we hope you all enjoy playing Rocket Riders as much as we've enjoyed making it!\n\n- Zeronia Development Team"
     },
     {
       "type": "versions",
