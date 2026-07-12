@@ -106,6 +106,12 @@
   font-size: 0.85rem;
 }
 
+.versions__dl--latest {
+  --btn-bg: var(--color-green-dark);
+  --btn-bg-hover: var(--color-green);
+  --btn-bg-active: var(--color-green-dark);
+}
+
 .versions__empty {
   margin: 0;
   font-family: "Minecraft", monospace;

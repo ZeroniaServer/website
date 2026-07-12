@@ -66,11 +66,18 @@
       "title": "Versions",
       "versions": [
         {
-          "name": "Placeholder",
-          "version": "",
+          "name": "borderline-v1.1.6.zip",
+          "version": "1.1.6",
           "gameVersion": "1.21.11",
-          "url": "",
-          "type": "dp"
+          "url": "https://downloads.zeronia.org/maps/borderline/borderline-v1.1.6.zip",
+          "type": "map"
+        },
+        {
+          "name": "borderline-pack-v1.1.6.zip",
+          "version": "1.1.6",
+          "gameVersion": "1.21.11",
+          "url": "https://downloads.zeronia.org/resource-packs/borderline/borderline-pack-v1.1.6.zip",
+          "type": "resourcepack"
         }
       ]
     },

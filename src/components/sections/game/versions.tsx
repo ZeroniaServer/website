@@ -36,6 +36,16 @@ export default function Versions({
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(0);
 
+  const latestVersion = useMemo(
+    () =>
+      versions.length === 0
+        ? null
+        : versions.reduce((latest, v) =>
+            v.version.localeCompare(latest, undefined, { numeric: true }) > 0 ? v.version : latest,
+          versions[0].version),
+    [versions],
+  );
+
   const types = useMemo(
     () => [...new Set(versions.map((v) => v.type).filter(Boolean))],
     [versions],
@@ -84,7 +94,12 @@ export default function Versions({
         <div className="versions versions--mobile">
           <p className="versions__mobile-label">Download Latest Release ({latest.version})</p>
           {latest.url ? (
-            <a className="mc-button versions__dl" href={latest.url} target="_blank" rel="noreferrer">
+            <a
+              className="mc-button versions__dl versions__dl--latest"
+              href={latest.url}
+              target="_blank"
+              rel="noreferrer"
+            >
               {latest.name}
             </a>
           ) : (
@@ -164,7 +179,12 @@ export default function Versions({
             <span>{v.type && <span className="versions__type">{v.type}</span>}</span>
             <span className="versions__action">
               {v.url ? (
-                <a className="mc-button versions__dl" href={v.url} target="_blank" rel="noreferrer">
+                <a
+                  className={`mc-button versions__dl${v.version === latestVersion ? " versions__dl--latest" : ""}`}
+                  href={v.url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   Download
                 </a>
               ) : (
