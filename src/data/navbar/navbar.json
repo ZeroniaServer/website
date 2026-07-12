@@ -1,10 +1,7 @@
 {
-  "//": "link: 'scroll' smooth-scrolls to a home section id (route = id), 'page' hash-navigates to a game page (route = /slug), 'url' opens externally. These items power both the navbar and the footer Links column.",
   "pages": {
-    "/": ["grass", "snow", "sand"],
-    "default": ["grass"],
-    "/snowy-skirmish-2": ["snow"],
-    "/crafty-cannoneers": ["sand"]
+    "/": ["grass", "snow", "sand", "jungle"],
+    "default": ["grass"]
   },
   "buttons": [
     { "name": "News", "link": "scroll", "route": "news", "type": "button" },

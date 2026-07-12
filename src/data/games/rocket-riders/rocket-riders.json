@@ -1,0 +1,202 @@
+{
+  "name": "Rocket Riders",
+  "aliases": [
+    "rr"
+  ],
+  "navbarVariant": "grass",
+  "sections": [
+    {
+      "type": "hero",
+      "media": {
+        "type": "image",
+        "src": "hero/media.jpg"
+      },
+      "description": "Rocket Riders is a reimagination of SethBling and Cubehamster's Missile Wars, featuring all new missiles, utility items, custom achievements, challenging gamemodes and modifiers, and tons more ways to customize your gameplay!",
+      "version": "26.2",
+      "download": {
+        "color": ""
+      },
+      "servers": [
+        {
+          "name": "CubeKrowd",
+          "url": "https://cubekrowd.net/"
+        },
+        {
+          "name": "StickyPiston",
+          "url": "https://trial.stickypiston.co/map/rocketriders"
+        },
+        {
+          "name": "MapVerse",
+          "url": "https://mapverse.net/map/rocket-riders"
+        },
+        {
+          "name": "PlanetMinecraft",
+          "url": "https://www.planetminecraft.com/project/rocket-riders/"
+        }
+      ],
+      "credits": [
+        {
+          "player": "Evtema3",
+          "roles": [
+            "Developer"
+          ]
+        },
+        {
+          "player": "YZEROgame",
+          "roles": [
+            "Developer"
+          ]
+        },
+        {
+          "player": "Chronos22",
+          "roles": [
+            "Missile Builder"
+          ]
+        },
+        {
+          "player": "TheDorkOrc",
+          "roles": [
+            "Developer"
+          ]
+        },
+        {
+          "player": "Bardonius",
+          "roles": [
+            "Lobby Builder"
+          ]
+        },
+        {
+          "player": "hugoatlas",
+          "roles": [
+            "Lobby Builder"
+          ]
+        },
+        {
+          "player": "TrekStone",
+          "roles": [
+            "Lobby Builder"
+          ]
+        },
+        {
+          "player": "Toul_",
+          "roles": [
+            "Server Support"
+          ]
+        },
+        {
+          "player": "JohnStar128",
+          "roles": [
+            "Server Support"
+          ]
+        },
+        {
+          "player": "BlockyM_",
+          "roles": [
+            "Trailer Director"
+          ]
+        }
+      ],
+      "creditsLink": "https://zeroniaserver.github.io/RocketRidersWiki/credits/",
+      "logo": "hero/logo.png"
+    },
+    {
+      "type": "trailer",
+      "title": "Trailer",
+      "videos": [
+        {
+          "title": "",
+          "url": "https://www.youtube.com/watch?v=RJijpwx4bqU"
+        }
+      ]
+    },
+    {
+      "type": "how-to-play",
+      "title": "How to Play",
+      "categories": [
+        {
+          "name": "Introduction",
+          "icon": "icons/introduction.png",
+          "body": "Rocket Riders is a reimagination of SethBling and Cubehamster's Missile Wars, featuring all new missiles, utility items, custom achievements, challenging gamemodes and modifiers, and tons more ways to customize your gameplay!"
+        },
+        {
+          "name": "Missiles",
+          "icon": "icons/missiles.png",
+          "body": "The map includes 20 all new, community-made missiles ranging in speed and explosive power. Ride missiles across to the enemy base and explode their nether portals* to win the game!\n\n* Some gamemodes (for instance, Capture the Flag, Chase, and Crusade) have different winning criteria."
+        },
+        {
+          "name": "Powerups",
+          "icon": "icons/powerups.png",
+          "body": "In addition to the Shield and Fireball from Missile Wars, new utility items like the Vortex (floating sky-mine), Canopy (leaf platform), Nova Rocket (explosive firework crossbow), and Obsidian Shield allow for complex and unique gameplay strategies!"
+        },
+        {
+          "name": "Gamemodes",
+          "icon": "icons/gamemodes.png",
+          "body": "Rocket Riders also features 7 new gamemodes and 22 game modifiers which bring new gameplay objectives and challenges to the table so the game always stays exciting!"
+        },
+        {
+          "name": "Settings",
+          "icon": "icons/settings.png",
+          "body": "The Modification Room in the center of the Lobby allows you to select active items, base decorations, game modifiers, game rules, and more, giving you the ability to fully customize your gameplay!"
+        }
+      ]
+    },
+    {
+      "type": "gallery",
+      "title": "Gallery",
+      "images": [
+        {
+          "src": "gallery/rr1.jpg",
+          "caption": "Game Lobby"
+        },
+        {
+          "src": "gallery/rr2.jpg",
+          "caption": "Settings Modification Room"
+        },
+        {
+          "src": "gallery/rr3.jpg",
+          "caption": "Powerups Gamemode"
+        },
+        {
+          "src": "gallery/rr4.jpg",
+          "caption": "Regular Gamemode"
+        }
+      ]
+    },
+    {
+      "type": "additional-info",
+      "title": "Additional Info",
+      "body": "This map was made over the course of 8+ years.\n\nWe couldn't have done it without the help of so many members of the community who tested features, reported bugs, submitted missiles, shared feedback, advised development, constructed our Lobby, hosted servers, and more over the years.\n\nThank you, and we hope you all enjoy playing Rocket Riders as much as we've enjoyed making it!\n\n- Zeronia Development Team"
+    },
+    {
+      "type": "versions",
+      "title": "Versions",
+      "versions": [
+        {
+          "name": "rocket-riders-v1.3.3.zip",
+          "version": "1.3.3",
+          "gameVersion": "26.2",
+          "url": "https://downloads.zeronia.org/maps/rocket-riders/rocket-riders-v1.3.3.zip",
+          "type": "map"
+        },
+        {
+          "name": "rocket-riders-pack-v1.3.3.zip",
+          "version": "1.3.3",
+          "gameVersion": "26.2",
+          "url": "https://downloads.zeronia.org/resource-packs/rocket-riders/rocket-riders-pack-v1.3.3.zip",
+          "type": "resourcepack"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "FAQ",
+      "faqs": [
+        {
+          "question": "Placeholder",
+          "answer": "Placeholder",
+          "pinned": false
+        }
+      ]
+    }
+  ]
+}

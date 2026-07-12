@@ -41,7 +41,9 @@ export default function News() {
     [],
   );
   const [featured, ...rest] = items;
-  const [visible, setVisible] = useState(INITIAL);
+  const [visible, setVisible] = useState(() =>
+    window.matchMedia("(max-width: 40rem)").matches ? 2 : INITIAL,
+  );
   const [active, setActive] = useState<NewsItem | null>(null);
 
   useEffect(() => {

@@ -1,0 +1,96 @@
+{
+  "name": "Borderline",
+  "aliases": [],
+  "navbarVariant": "grass",
+  "sections": [
+    {
+      "type": "hero",
+      "media": {
+        "type": "image",
+        "src": "hero/media.jpg"
+      },
+      "description": "Placeholder",
+      "version": "1.21.11",
+      "download": {
+        "color": ""
+      },
+      "servers": [
+        {
+          "name": "PlanetMinecraft",
+          "url": "https://www.planetminecraft.com/project/borderline-5194286/"
+        },
+        {
+          "name": "StickyPiston",
+          "url": "https://trial.stickypiston.co/map/borderline"
+        }
+      ],
+      "credits": [
+        {
+          "player": "YZEROgame",
+          "roles": [
+            "Developer"
+          ]
+        },
+        {
+          "player": "Evtema3",
+          "roles": [
+            "Developer"
+          ]
+        }
+      ],
+      "creditsLink": "",
+      "logo": ""
+    },
+    {
+      "type": "how-to-play",
+      "title": "How to Play",
+      "intro": "In each round of this hectic game, you must navigate a checkerboard-style grid and reach the world border (surrounding one randomly selected tile) before all the other tiles vanish at a quickening pace. Along the way, you can pick up special powerups (see below) to either help your chances of surviving or hurt your opponents'. Can you be the last one standing, and how long can you last before you're stuck beyond limits?\n\nPowerups:\n\nSlap Fish: Knocks back opponents (consumed upon use)\n\nEnder Pearl: Throw to teleport.\n\nSmoke Bomb: Gives speed and invisibility for 3 seconds.\n\nJump Boost: Raises jump height for 10 seconds.\n\nExtra Life: Adds 1 extra life (players have 3 by default).\n\nUnleash the Beast: Spawns a Zoglin.\n\nBlindness Arrow: Inflicts temporary blindness on the target.\n\nExploding Tile: Makes tile explode upon contact.\n\nLifting Tile: Lifts tile 2 blocks up upon contact.\n\nFalling Tile: Makes tile fall upon contact.\n\nPortal Tile: Turns tile into a portal. If other portals exist, stand in one portal to teleport to another randomly. Expires after 3 uses (in/out).\n\nNote: Tile powerups may be used more than once on any tile to increase effects."
+    },
+    {
+      "type": "gallery",
+      "title": "Gallery",
+      "images": [
+        {
+          "src": "gallery/borderline.jpg",
+          "caption": "Game Map"
+        }
+      ]
+    },
+    {
+      "type": "additional-info",
+      "title": "Additional Info",
+      "body": "Made for the 2021 MCMaps Summer Game Jam (Theme: “Beyond Limits”)\n\nNOTE: Borderline won't play well on vanilla clients unless/until Mojang fixes MC-248304, a bug which has broken world border collision since Minecraft 1.18.1. We highly recommend you play with the Lithium mod, and we apologize for any inconvenience."
+    },
+    {
+      "type": "versions",
+      "title": "Versions",
+      "versions": [
+        {
+          "name": "borderline-v1.1.6.zip",
+          "version": "1.1.6",
+          "gameVersion": "1.21.11",
+          "url": "https://downloads.zeronia.org/maps/borderline/borderline-v1.1.6.zip",
+          "type": "map"
+        },
+        {
+          "name": "borderline-pack-v1.1.6.zip",
+          "version": "1.1.6",
+          "gameVersion": "1.21.11",
+          "url": "https://downloads.zeronia.org/resource-packs/borderline/borderline-pack-v1.1.6.zip",
+          "type": "resourcepack"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "FAQ",
+      "faqs": [
+        {
+          "question": "Placeholder",
+          "answer": "Placeholder",
+          "pinned": false
+        }
+      ]
+    }
+  ]
+}

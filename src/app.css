@@ -75,11 +75,12 @@ a {
   font-size: 0.95rem;
   letter-spacing: 0.02em;
   color: var(--color-text);
-  background: var(--color-gray);
+  background: var(--btn-bg, var(--color-gray));
   border: none;
   border-radius: var(--radius);
   padding: 0.5rem 0.9rem;
   cursor: pointer;
+  text-decoration: none;
   box-shadow:
     inset var(--bevel-size) var(--bevel-size) 0 var(--bevel-light),
     inset calc(-1 * var(--bevel-size)) calc(-1 * var(--bevel-size)) 0 var(--bevel-dark);
@@ -87,11 +88,45 @@ a {
 }
 
 .mc-button:hover {
-  background: var(--color-gray-hover);
+  background: var(--btn-bg-hover, var(--color-gray-hover));
 }
 .mc-button:active {
-  background: var(--color-gray-dark);
+  background: var(--btn-bg-active, var(--color-gray-dark));
   box-shadow:
     inset var(--bevel-size) var(--bevel-size) 0 var(--bevel-dark),
     inset calc(-1 * var(--bevel-size)) calc(-1 * var(--bevel-size)) 0 var(--bevel-light);
+}
+
+.mc-button--disabled {
+  opacity: 0.5;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* --- Beveled frame with square pixel corners (no border miter diagonals) --- */
+.pixel-frame {
+  position: relative;
+  border: var(--pixel) solid;
+  border-color: var(--frame-light, #ffffff) var(--frame-dark, #999999)
+    var(--frame-dark, #999999) var(--frame-light, #ffffff);
+}
+
+.pixel-frame::before,
+.pixel-frame::after {
+  content: "";
+  position: absolute;
+  width: var(--pixel);
+  height: var(--pixel);
+  background: var(--frame-light, #ffffff);
+  pointer-events: none;
+}
+
+.pixel-frame::before {
+  top: calc(-1 * var(--pixel));
+  right: calc(-1 * var(--pixel));
+}
+
+.pixel-frame::after {
+  bottom: calc(-1 * var(--pixel));
+  left: calc(-1 * var(--pixel));
 }

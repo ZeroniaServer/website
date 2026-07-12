@@ -37,12 +37,14 @@ const BODY_POOL: Record<string, Pool> = {
   grass: POOLS.stone,
   snow: POOLS.ice,
   sand: POOLS.sand, // sand bed; water is drawn over it
+  jungle: POOLS.nightMud,
 };
 // 1-cell seam between the two materials: a 50/50 mix (sand stays full sand).
 const SEAM: Record<string, [Pool, Pool]> = {
   grass: [POOLS.dirt, POOLS.stone],
   snow: [POOLS.ice, POOLS.snow],
   sand: [POOLS.sand, POOLS.sand],
+  jungle: [POOLS.jungleDirt, POOLS.nightMud],
 };
 const IS_WATER = VARIANT_NAME === "sand";
 const CELL = 8; // px per texture pixel, matching the navbar grid

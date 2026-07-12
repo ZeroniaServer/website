@@ -1,5 +1,4 @@
 {
-  "//": "Home About section. background = weighted colour pool for the pixel field. body is an array of paragraphs.",
   "background": [
     { "color": "#313137", "weight": 55 },
     { "color": "#2b2b31", "weight": 45 }

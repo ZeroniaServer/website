@@ -1,10 +1,23 @@
 import { useEffect, useState } from "react";
+import { resolveSlug } from "./games";
 
-// Hash routing (static build, relative base): home is the empty hash, a game
-// page is "#/<slug>".
+// Path routing: home is "/", a game page is "/<slug>". Aliases resolve to
+// their canonical slug so the whole app only ever sees canonical slugs.
+function rawSlug(): string {
+  const segment = window.location.pathname.split("/").filter(Boolean)[0] ?? "";
+  return decodeURIComponent(segment);
+}
+
 export function currentSlug(): string {
-  const m = window.location.hash.match(/^#\/(.+)$/);
-  return m ? decodeURIComponent(m[1]) : "";
+  return resolveSlug(rawSlug());
+}
+
+// Canonicalize alias URLs and trailing slashes once on load.
+{
+  const canonical = currentSlug();
+  const path = canonical ? `/${canonical}` : "/";
+  if (window.location.pathname !== path)
+    window.history.replaceState(null, "", path);
 }
 
 export function useRoute(): string {
@@ -14,17 +27,17 @@ export function useRoute(): string {
       setSlug(currentSlug());
       window.scrollTo(0, 0);
     };
-    window.addEventListener("hashchange", onChange);
-    return () => window.removeEventListener("hashchange", onChange);
+    window.addEventListener("popstate", onChange);
+    return () => window.removeEventListener("popstate", onChange);
   }, []);
   return slug;
 }
 
-// Reload so the navbar/footer recompute their per-page variant from the hash.
+// Full page load so the navbar/footer recompute their per-page variant.
 export function goToPage(route: string) {
-  if (currentSlug() === route.replace(/^\//, "")) return;
-  window.location.hash = route;
-  window.location.reload();
+  const slug = resolveSlug(route.replace(/^\//, ""));
+  if (currentSlug() === slug) return;
+  window.location.href = slug ? `/${slug}` : "/";
 }
 
 // On a game page the section won't exist, so stash the target and return home.
@@ -35,8 +48,7 @@ export function scrollToId(id: string) {
     return;
   }
   sessionStorage.setItem("pendingScroll", id);
-  if (window.location.hash) window.location.hash = "";
-  else window.dispatchEvent(new HashChangeEvent("hashchange"));
+  window.location.href = "/";
 }
 
 export function consumePendingScroll() {

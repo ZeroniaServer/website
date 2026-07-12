@@ -1,0 +1,30 @@
+.trailer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 1.25rem;
+}
+
+.trailer__item {
+  margin: 0;
+}
+
+.trailer__label {
+  margin-bottom: 0.5rem;
+  font-family: "Minecraft", monospace;
+  font-size: 1rem;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+}
+
+.trailer__frame {
+  aspect-ratio: 16 / 9;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.trailer__frame iframe,
+.trailer__embed,
+.trailer__embed iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+}

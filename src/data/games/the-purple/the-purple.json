@@ -1,0 +1,194 @@
+{
+  "name": "The Purple",
+  "aliases": [],
+  "navbarVariant": "grass",
+  "sections": [
+    {
+      "type": "hero",
+      "media": {
+        "type": "image",
+        "src": "hero/media.jpg"
+      },
+      "description": "The Purple is a fresh take on the classic game of tag. Explore alien landscapes, collect unique artifacts, and avoid The Purple infection! In a unique twist, players are never truly eliminated. Spectators can affect the gameplay, and sometimes even rejoin the game. With many maps, settings, advancements, and more, there is always something new to discover.",
+      "version": "26.2",
+      "download": {
+        "color": ""
+      },
+      "servers": [
+        {
+          "name": "StickyPiston",
+          "url": "https://trial.stickypiston.co/map/purple"
+        },
+        {
+          "name": "Realms",
+          "url": ""
+        },
+        {
+          "name": "PlanetMinecraft",
+          "url": "https://www.planetminecraft.com/project/the-purple-6526015/"
+        }
+      ],
+      "credits": [
+        {
+          "player": "Stuffy",
+          "roles": [
+            "Builder"
+          ]
+        },
+        {
+          "player": "nightlibra",
+          "roles": [
+            "Developer"
+          ]
+        },
+        {
+          "player": "Raster_",
+          "roles": [
+            "Musician"
+          ]
+        },
+        {
+          "player": "ZeroIceBear",
+          "roles": [
+            "Translator (Chinese)"
+          ]
+        },
+        {
+          "player": "beiyao",
+          "roles": [
+            "Translator (Chinese)"
+          ]
+        },
+        {
+          "player": "tai_zazanek",
+          "roles": [
+            "Translator (Japanese)"
+          ]
+        },
+        {
+          "player": "Shirowh_",
+          "roles": [
+            "Translator (Spanish)"
+          ]
+        },
+        {
+          "player": "Armero",
+          "roles": [
+            "Translator (Spanish)"
+          ]
+        },
+        {
+          "player": "Pingoda",
+          "roles": [
+            "Translator (Italian)"
+          ]
+        },
+        {
+          "player": "TheOnlyMann",
+          "roles": [
+            "Translator (Korean)"
+          ]
+        },
+        {
+          "player": "Yatloaf",
+          "roles": [
+            "Translator (German)"
+          ]
+        },
+        {
+          "player": "CapitaineMinus",
+          "roles": [
+            "Translator (French)"
+          ]
+        },
+        {
+          "player": "4953makcim",
+          "roles": [
+            "Translator (Russian)"
+          ]
+        },
+        {
+          "player": "YZEROgame",
+          "roles": [
+            "Translator (Dutch)"
+          ]
+        },
+        {
+          "player": "Ostensvig",
+          "roles": [
+            "Translator (Norwegian)"
+          ]
+        }
+      ],
+      "creditsLink": "",
+      "logo": "hero/logo.png"
+    },
+    {
+      "type": "trailer",
+      "title": "Trailer",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=CBzQuCIlSoQ&t=1s"
+        }
+      ]
+    },
+    {
+      "type": "gallery",
+      "title": "Gallery",
+      "images": [
+        {
+          "src": "gallery/purple1.jpg",
+          "caption": "Fishing scene by lake"
+        },
+        {
+          "src": "gallery/purple2.jpg",
+          "caption": "Finding gears?"
+        },
+        {
+          "src": "gallery/purple3.jpg",
+          "caption": "stuffy pls help idk"
+        },
+        {
+          "src": "gallery/purple4.jpg",
+          "caption": "The infect spreads!"
+        }
+      ]
+    },
+    {
+      "type": "additional-info",
+      "title": "Powerups",
+      "body": "Totem of Undying: Hold this in your mainhand or offhand to survive infection!\n\nAntidote: Drink this to cure yourself!\n\nShrink 'Shroom: Eat this to shrink yourself down and gain extra speed!\n\nInstant Chorus Fruit: Consume this to teleport away to a random destination around the arena. Great for quick escapes!\n\nEnder Pearl: Throw this to teleport away to somewhere safe. Great for quick escapes!\n\nWind Charge: Throw this to blast players backwards. May also be used to transfer The Purple!\n\nGlow Horn: Blow this to reveal all players.\n\nTrident: Throw this to deal damage from long range. May be used to transfer infection!\n\nPrison Key: Hit someone to imprison them.\n\nSmoke Bomb: Throw this to create a cloud of smoke.\n\nRevival Elixir: Splash this on a dead player to revive them!\n\nFreeze Timer: Click this to freeze time for 5 seconds.\n\nTracking Compass: Click this to track the nearest player. (Maximum 4 uses.)\n\nSafety Vest: Wear this to block one hit.\n\nRock: Throw this to knock a player back.\n\nDecoy: Use this to spawn a decoy of yourself."
+    },
+    {
+      "type": "versions",
+      "title": "Versions",
+      "versions": [
+        {
+          "name": "the-purple-v1.0.10.zip",
+          "version": "1.0.10",
+          "gameVersion": "26.2",
+          "url": "https://downloads.zeronia.org/maps/the-purple/the-purple-v1.0.10.zip",
+          "type": "map"
+        },
+        {
+          "name": "the-purple-pack-v1.0.10.zip",
+          "version": "1.0.10",
+          "gameVersion": "26.2",
+          "url": "https://downloads.zeronia.org/resource-packs/the-purple/the-purple-pack-v1.0.10.zip",
+          "type": "resourcepack"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "FAQ",
+      "faqs": [
+        {
+          "question": "Placeholder",
+          "answer": "Placeholder",
+          "pinned": false
+        }
+      ]
+    }
+  ]
+}

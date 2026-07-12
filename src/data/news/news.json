@@ -1,5 +1,4 @@
 {
-  "//": "Home News section. background = weighted colour pool for the pixel field. items render newest-first by date; the most recent is featured, the rest fill the grid (View more reveals 9 at a time). image = filename in src/assets/news.",
   "background": [
     { "color": "#3e3e45", "weight": 55 },
     { "color": "#38383f", "weight": 45 }

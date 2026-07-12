@@ -98,8 +98,10 @@
   transition: transform 0.15s ease;
 }
 
-/* grass has a grass cap up top, so slide the label down onto the dug stone */
-.navbar--grass .navbar__btn--dug {
+/* grass/jungle both have a grass cap up top, so slide the label down onto
+   the dug ground beneath it */
+.navbar--grass .navbar__btn--dug,
+.navbar--jungle .navbar__btn--dug {
   transform: translateY(0.5rem);
 }
 
@@ -108,6 +110,14 @@
   color: rgba(0, 0, 0, 0.55);
   mix-blend-mode: multiply;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+/* jungle's dug ground is dark night mud, not light stone - the engraved dark
+   text trick would be unreadable, so keep the label white instead */
+.navbar--jungle .navbar__btn--dug {
+  color: var(--color-text);
+  mix-blend-mode: normal;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
 }
 
 .navbar__caret {
@@ -121,6 +131,12 @@
 .navbar__btn--dug .navbar__caret {
   filter: brightness(0) drop-shadow(0 1px 0 rgba(255, 255, 255, 0.18));
   opacity: 0.55;
+}
+
+/* jungle keeps the label white, so the caret stays its normal white too */
+.navbar--jungle .navbar__btn--dug .navbar__caret {
+  filter: drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.5));
+  opacity: 1;
 }
 
 /* light-surface variants (e.g. snow): dark idle labels for legibility */
@@ -197,4 +213,35 @@
 .navbar__menu-item {
   justify-content: flex-start;
   white-space: nowrap;
+}
+
+@media (max-width: 40rem) {
+  .navbar__brand,
+  .navbar__brand-icon {
+    display: none;
+  }
+
+  .navbar__bar {
+    justify-content: center;
+  }
+
+  .navbar__btn {
+    font-size: 0.85rem;
+    padding: 0 0.6rem;
+    gap: 0.25rem;
+  }
+
+  .navbar__columns {
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .navbar__column {
+    min-width: 0;
+  }
+
+  /* only show Released on mobile */
+  .navbar__column:not([data-header="Released"]) {
+    display: none;
+  }
 }

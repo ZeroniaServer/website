@@ -1,0 +1,153 @@
+.versions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  font-family: "Minecraft", monospace;
+}
+
+.versions__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.versions__controls input,
+.versions__controls select {
+  padding: 0.45rem 0.7rem;
+  font-family: "Minecraft", monospace;
+  font-size: 0.9rem;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: var(--border-width) solid var(--color-gray-dark);
+  border-radius: var(--radius);
+  outline: none;
+}
+
+.versions__controls select {
+  appearance: none;
+  padding-right: 1.8rem;
+  background-image: url("../../../assets/sprites/arrow_down.png");
+  background-repeat: no-repeat;
+  background-position: right 0.6rem center;
+  background-size: 0.55rem;
+  cursor: pointer;
+}
+
+.versions__search {
+  flex: 1;
+  min-width: 10rem;
+}
+
+.versions__table {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.versions__sort {
+  width: 0.8rem;
+  margin-left: 0.3rem;
+  vertical-align: middle;
+  image-rendering: pixelated;
+}
+
+.versions__sort--asc {
+  transform: rotate(180deg);
+}
+
+.versions__row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 0.8fr 8rem;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.8rem;
+  font-size: 0.9rem;
+}
+
+.versions__row + .versions__row {
+  border-top: 2px solid rgba(255, 255, 255, 0.08);
+}
+
+.versions__row--head {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.versions__head {
+  padding: 0;
+  font-family: "Minecraft", monospace;
+  font-size: 0.9rem;
+  text-align: left;
+  color: var(--color-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.versions__head:hover {
+  color: var(--color-text);
+}
+
+.versions__name {
+  overflow-wrap: anywhere;
+}
+
+.versions__type {
+  padding: 0.1rem 0.45rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.versions__action {
+  justify-self: end;
+}
+
+.versions__action a {
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.versions__dl--latest {
+  --btn-bg: var(--color-green-dark);
+  --btn-bg-hover: var(--color-green);
+  --btn-bg-active: var(--color-green-dark);
+}
+
+.versions__empty {
+  margin: 0;
+  font-family: "Minecraft", monospace;
+  color: var(--color-muted);
+}
+
+.versions__table .versions__empty {
+  padding: 0.8rem;
+}
+
+.versions__pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  font-size: 0.9rem;
+}
+
+.versions__pager button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.versions--mobile {
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+
+.versions__mobile-label {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.versions__mobile-note {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}

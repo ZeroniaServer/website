@@ -1,0 +1,109 @@
+{
+  "name": "Placeholder",
+  "aliases": [],
+  "navbarVariant": "",
+  "sections": [
+    {
+      "type": "hero",
+      "media": {
+        "type": "image",
+        "src": "hero/media.jpg"
+      },
+      "logo": "hero/logo.png",
+      "color": "",
+      "description": "Placeholder",
+      "version": "Placeholder",
+      "download": {
+        "color": ""
+      },
+      "servers": [
+        {
+          "name": "CubeKrowd",
+          "url": ""
+        },
+        {
+          "name": "Realms",
+          "url": ""
+        },
+        {
+          "name": "StickyPiston",
+          "url": ""
+        },
+        {
+          "name": "MapVerse",
+          "url": ""
+        }
+      ],
+      "credits": [
+        {
+          "player": "Placeholder",
+          "roles": [
+            "Placeholder"
+          ]
+        }
+      ],
+      "creditsLink": ""
+    },
+    {
+      "type": "trailer",
+      "title": "Trailer",
+      "videos": [
+        {
+          "title": "",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "type": "how-to-play",
+      "title": "How to Play",
+      "categories": [
+        {
+          "name": "Placeholder",
+          "icon": "icons/placeholder.png",
+          "body": "Placeholder"
+        }
+      ],
+      "intro": "Placeholder"
+    },
+    {
+      "type": "gallery",
+      "title": "Gallery",
+      "images": [
+        {
+          "src": "",
+          "caption": "Placeholder"
+        }
+      ]
+    },
+    {
+      "type": "additional-info",
+      "title": "Additional Info",
+      "body": "Placeholder"
+    },
+    {
+      "type": "versions",
+      "title": "Versions",
+      "versions": [
+        {
+          "name": "Placeholder",
+          "version": "",
+          "gameVersion": "",
+          "url": "",
+          "type": "dp"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "FAQ",
+      "faqs": [
+        {
+          "question": "Placeholder",
+          "answer": "Placeholder",
+          "pinned": false
+        }
+      ]
+    }
+  ]
+}

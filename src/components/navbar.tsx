@@ -8,6 +8,7 @@ import {
 import arrowUrl from "../assets/sprites/arrow_down.png";
 import navData from "../data/navbar/navbar.json";
 import { currentSlug, goToPage, scrollToId } from "../lib/router";
+import { getGame } from "../lib/games";
 import "./navbar.css";
 
 type LinkKind = "url" | "scroll" | "page";
@@ -74,6 +75,15 @@ export const POOLS: Record<string, Pool> = {
   sand: [
     { color: "#edcb80ff", weight: 30 },
     { color: "#e1c37dff", weight: 70 },
+  ],
+  jungleDirt: [
+    { color: "#b06a35ff", weight: 75 },
+    { color: "#a46230ff", weight: 15 },
+    { color: "#985a2cff", weight: 10 },
+  ],
+  nightMud: [
+    { color: "#291f14ff", weight: 70 },
+    { color: "#241a0eff", weight: 30 },
   ],
   water: [
     { color: "#3f8fd0", weight: 60 },
@@ -163,6 +173,29 @@ const VARIANTS: Record<string, Variant> = {
     jitter: 70,
     textDelay: 160,
   },
+  jungle: {
+    logo: "logo_grass.png",
+    body: POOLS.jungleDirt,
+    dug: POOLS.nightMud,
+    surface: (row, rs, rl) =>
+      row === 0
+        ? pick(POOLS.grass, rs)
+        : row === 1
+          ? rl < 0.5
+            ? pick(POOLS.grass, rs)
+            : pick(POOLS.jungleDirt, rs)
+          : pick(POOLS.jungleDirt, rs),
+    dig: (row, rs, rl) =>
+      row === 2
+        ? rl < 0.5
+          ? pick(POOLS.nightMud, rs)
+          : pick(POOLS.jungleDirt, rs)
+        : pick(POOLS.nightMud, rs),
+    digSequence: [[7], [6], [5], [4], [3], [2]], // bottom up
+    rowStep: 40,
+    jitter: 70,
+    textDelay: 160,
+  },
   snow: {
     logo: "logo_snow.png",
     darkText: true,
@@ -202,8 +235,16 @@ const VARIANTS: Record<string, Variant> = {
 
 function pickVariantName(): string {
   const slug = typeof window !== "undefined" ? currentSlug() : "";
+  // A game's own JSON is the source of truth for its navbar variant; the
+  // navbar.json pages map only covers home and games without a JSON file.
+  const gameVariant = slug ? getGame(slug)?.navbarVariant : undefined;
+  const fromGame = gameVariant
+    ? Array.isArray(gameVariant)
+      ? gameVariant
+      : [gameVariant]
+    : undefined;
   const key = slug ? `/${slug}` : "/";
-  const names = PAGES[key] ?? PAGES.default ?? PAGES["/"] ?? ["grass"];
+  const names = fromGame ?? PAGES[key] ?? PAGES.default ?? PAGES["/"] ?? ["grass"];
   const name = names[Math.floor(Math.random() * names.length)];
   return name in VARIANTS ? name : "grass";
 }
@@ -704,7 +745,11 @@ export default function Navbar() {
 
         <div className="navbar__columns">
           {dropdown.map((section, i) => (
-            <div className="navbar__column" key={section.header ?? i}>
+            <div
+              className="navbar__column"
+              key={section.header ?? i}
+              data-header={section.header}
+            >
               {section.header && (
                 <span className="navbar__col-header">{section.header}</span>
               )}

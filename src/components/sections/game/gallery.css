@@ -1,0 +1,97 @@
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 1rem;
+}
+
+.gallery__item {
+  margin: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.gallery__media {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  padding: 0;
+  line-height: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.gallery__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery__caption {
+  padding: 0.5rem 0.7rem;
+  font-family: "Minecraft", monospace;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.gallery__modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+}
+
+.gallery__modal-panel {
+  position: relative;
+  width: min(56rem, 100%);
+  max-height: 90vh;
+  overflow: auto;
+  padding: 1rem;
+  background: var(--color-surface);
+  box-shadow:
+    inset var(--bevel-size) var(--bevel-size) 0 var(--bevel-light),
+    inset calc(-1 * var(--bevel-size)) calc(-1 * var(--bevel-size)) 0 var(--bevel-dark);
+}
+
+.gallery__modal-panel img {
+  display: block;
+  width: 100%;
+  border: var(--pixel) solid #50505a;
+}
+
+.gallery__modal-caption {
+  margin: 1rem 0 0;
+  font-family: "Minecraft", monospace;
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+
+.gallery__modal-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  font-family: "Minecraft", monospace;
+  font-size: 1.2rem;
+  line-height: 1;
+  color: var(--color-text);
+  background: var(--color-gray);
+  border: none;
+  cursor: pointer;
+  box-shadow:
+    inset var(--bevel-size) var(--bevel-size) 0 var(--bevel-light),
+    inset calc(-1 * var(--bevel-size)) calc(-1 * var(--bevel-size)) 0 var(--bevel-dark);
+}
+
+.gallery__modal-close:hover {
+  background: var(--color-gray-hover);
+}

@@ -1,0 +1,255 @@
+{
+  "name": "Crafty Cannoneers",
+  "aliases": [
+    "cc"
+  ],
+  "navbarVariant": "sand",
+  "sections": [
+    {
+      "type": "hero",
+      "media": {
+        "type": "image",
+        "src": "hero/media.jpg"
+      },
+      "description": "Crafty Cannoneers is a game where 2 teams of Pirates are having a big battle, with their goal being to completely destroy the enemy team's ship as quickly as possible. They can do this by firing off a wide variety of Cannonballs using the Cannons found on their ships.",
+      "version": "26.2",
+      "download": {
+        "color": ""
+      },
+      "servers": [
+        {
+          "name": "CubeKrowd",
+          "url": "https://cubekrowd.net/"
+        },
+        {
+          "name": "StickyPiston",
+          "url": "https://trial.stickypiston.co/map/craftycannoneers"
+        },
+        {
+          "name": "MapVerse",
+          "url": "https://mapverse.net/map/crafty-cannoneers"
+        },
+        {
+          "name": "Realms",
+          "url": ""
+        },
+        {
+          "name": "PlanetMinecraft",
+          "url": "https://www.planetminecraft.com/project/crafty-cannoneers/"
+        }
+      ],
+      "credits": [
+        {
+          "player": "YZEROgame",
+          "roles": [
+            "Developer",
+            "Modeler",
+            "Sound Designer"
+          ]
+        },
+        {
+          "player": "Evtema3",
+          "roles": [
+            "Developer",
+            "Texture Artist"
+          ]
+        },
+        {
+          "player": "Stuffy",
+          "roles": [
+            "Builder",
+            "Texture Artist"
+          ]
+        },
+        {
+          "player": "Carloski",
+          "roles": [
+            "Logo Designer",
+            "Builder"
+          ]
+        },
+        {
+          "player": "Klariaon",
+          "roles": [
+            "Builder"
+          ]
+        },
+        {
+          "player": "BlockyM_",
+          "roles": [
+            "Trailer Director"
+          ]
+        },
+        {
+          "player": "ZeroIceBear",
+          "roles": [
+            "Translator (Chinese)"
+          ]
+        },
+        {
+          "player": "beiyao",
+          "roles": [
+            "Translator (Chinese)"
+          ]
+        },
+        {
+          "player": "tai_zazanek",
+          "roles": [
+            "Translator (Japanese)"
+          ]
+        },
+        {
+          "player": "Shirowh_",
+          "roles": [
+            "Translator (Spanish)"
+          ]
+        },
+        {
+          "player": "Armero",
+          "roles": [
+            "Translator (Spanish)"
+          ]
+        },
+        {
+          "player": "Pingoda",
+          "roles": [
+            "Translator (Italian)"
+          ]
+        },
+        {
+          "player": "TheOnlyMann",
+          "roles": [
+            "Translator (Korean)"
+          ]
+        },
+        {
+          "player": "Yatloaf",
+          "roles": [
+            "Translator (German)"
+          ]
+        },
+        {
+          "player": "CapitaineMinus",
+          "roles": [
+            "Translator (French)"
+          ]
+        },
+        {
+          "player": "4953makcim",
+          "roles": [
+            "Translator (Russian)"
+          ]
+        },
+        {
+          "player": "YZEROgame",
+          "roles": [
+            "Translator (Dutch)"
+          ]
+        },
+        {
+          "player": "Ostensvig",
+          "roles": [
+            "Translator (Norwegian)"
+          ]
+        }
+      ],
+      "creditsLink": "",
+      "logo": "hero/logo.png"
+    },
+    {
+      "type": "trailer",
+      "title": "Trailer",
+      "videos": [
+        {
+          "title": "",
+          "url": "https://www.youtube.com/watch?v=Ih1OxRfQWek"
+        }
+      ]
+    },
+    {
+      "type": "how-to-play",
+      "title": "How to Play",
+      "intro": "Crafty Cannoneers is a game where 2 teams of Pirates are having a big battle, with their goal being to completely destroy the enemy team's ship as quickly as possible. They can do this by firing off a wide variety of Cannonballs using the Cannons found on their ships.",
+      "categories": [
+        {
+          "name": "Loot",
+          "icon": "icons/loot.png",
+          "body": "The island in the middle of the map is home to Treasure Chests! These Treasure Chests contain Gold, Gunpowder, special weapons and other kinds of loot. The Pirates must visit this island frequently in order to get enough resources to shoot their cannons.\n\nGold is used to purchase Cannonballs from the Pirate Traders on your ship and Gunpowder is used to shoot your Cannons."
+        },
+        {
+          "name": "Cannons",
+          "icon": "icons/cannons.png",
+          "body": "Each Cannon has 2 Gunpowder slots on either side. You can insert up to 7 Gunpowder in these slots; the more Gunpowder you put in, the further the Cannonball will travel. You can even shoot Cannonballs in different directions by putting more Gunpowder in one slot than the other."
+        },
+        {
+          "name": "Weapons",
+          "icon": "icons/weapons.png",
+          "body": "The ships also have Weakpoints, which deal critical damage when hit. The Pirates can expose these Weakpoints by spotting them with their Spotting Spyglass. If they want to hit these Weakpoints, they need to learn how to properly aim their Cannons."
+        },
+        {
+          "name": "Team Chests",
+          "icon": "icons/team_chests.png",
+          "body": "Each ship has a Team Chest for all teammates to access shared resources. If an enemy makes it onto your ship, the Team Chest automatically locks itself, but if they have a Skeleton Key (found in Treasure Chests on the middle island), then they can unlock it and steal all of your precious items! You'll know when an enemy is on your ship if your Ship Bell starts ringing.\n\nThe last ship standing wins the game!"
+        },
+        {
+          "name": "Cannonballs",
+          "icon": "icons/cannonballs.png",
+          "body": "[icon:icons/cannonball.png] Cannonball: The most basic type of Cannonball. These deal the least amount of damage to ships, but are required to purchase the more special Cannonballs from your ship's Pirate Traders.\n\n[icon:icons/tracer_cannonball.png] Tracer Cannonball: These are part of the default equipment of any Pirate. They deal no damage, you have an infinite amount of them, and firing them from a Cannon will cost you no Gunpowder. They will create a green trajectory line only apparent to their users, which means you can use them to find out where your shot will land.\n\n[icon:icons/hot_cannonball.png] Hot Cannonball: These Cannonballs set a ship on fire on impact, and set the Gunpowder slots of nearby Cannons on fire temporarily, rendering them useless for the enemy team. After a while, the fire will automatically extinguish, which will deal a bit of extra damage to ships as well. Combine these with Gas Cannonballs for an extra powerful explosion!\n\n[icon:icons/gas_cannonball.png] Gas Cannonball: A big cloud of toxic gas gets released from this Cannonball on impact, which gives any players inside it blindness, nausea, and poison while also removing any regeneration effects they may have had. Combine these with Hot Cannonballs for an extra powerful explosion!\n\n[icon:icons/cannonball_cluster.png] Cannonball Cluster: Fire 5 Cannonballs for the price of 1! Cannonball Clusters are extremely inaccurate, especially on long range, but they are the best Cannonball to use against players on the central island due to their spread out range of effect.\n\n[icon:icons/chain_cannonball.png] Chain Cannonball: Two halves of a Cannonball, connected together by a chain. These are a little less accurate than other Cannonballs, and are best used when aimed at the sails of a ship. Hitting the sails with Chain Cannonballs will tear them apart and deal a lot of extra damage.\n\n[icon:icons/bouncy_cannonball.png] Bouncy Cannonball: After hitting their target, Bouncy Cannonballs will bounce around, blasting nearby players into the air and dealing damage to them with each bounce. They will randomly explode after bouncing around for a little bit.\n\n[icon:icons/player_cannonball.png] Player Cannonball: A Cannonball shaped like a barrel; you can use these to launch yourself from a Cannon onto the enemy ship! It's not exactly subtle though: a Pirate shooting themselves out of a Cannon makes a very loud and distinct sound.\n\n[icon:icons/golden_cannonball.png] Golden Cannonball: These are only found in Skeleton Chests that occasionally spawn on the middle island throughout the game. Not only do they look really fancy, but they also give you extra Gold when you damage ships or kill players with them!\n\n[icon:icons/copper_cannonball.png] Copper Cannonball: Unlike regular Cannonballs, Copper Cannonballs lodge themselves into ships and repeatedly strike lightning to deoxidize the copper before exploding a second time. These are found exclusively when the Sea Storms modifier is enabled."
+        }
+      ]
+    },
+    {
+      "type": "gallery",
+      "title": "Gallery",
+      "images": [
+        {
+          "src": "gallery/cc1.jpg",
+          "caption": "Game Arena"
+        },
+        {
+          "src": "gallery/cc2.jpg",
+          "caption": "Center Island"
+        },
+        {
+          "src": "gallery/cc3.jpg",
+          "caption": "Tutorial Island"
+        },
+        {
+          "src": "gallery/cc4.jpg",
+          "caption": "Lobby Island"
+        }
+      ]
+    },
+    {
+      "type": "versions",
+      "title": "Versions",
+      "versions": [
+        {
+          "name": "crafty-cannoneers-v1.1.14.zip",
+          "version": "1.1.14",
+          "gameVersion": "26.2",
+          "url": "https://downloads.zeronia.org/maps/crafty-cannoneers/crafty-cannoneers-v1.1.14.zip",
+          "type": "map"
+        },
+        {
+          "name": "crafty-cannoneers-pack-v1.1.14.zip",
+          "version": "1.1.14",
+          "gameVersion": "26.2",
+          "url": "https://downloads.zeronia.org/resource-packs/crafty-cannoneers/crafty-cannoneers-pack-v1.1.14.zip",
+          "type": "resourcepack"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "FAQ",
+      "faqs": [
+        {
+          "question": "Placeholder",
+          "answer": "Placeholder",
+          "pinned": false
+        }
+      ]
+    }
+  ]
+}

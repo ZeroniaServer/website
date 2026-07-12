@@ -1,0 +1,240 @@
+{
+  "name": "Snowy Skirmish 2: Avalanche",
+  "aliases": [
+    "ss"
+  ],
+  "navbarVariant": "snow",
+  "sections": [
+    {
+      "type": "hero",
+      "media": {
+        "type": "image",
+        "src": "hero/media.jpg"
+      },
+      "description": "Avalanche is the strategic, combat-focused sequel to Snowy Skirmish. Knock out enemies to collect Avalanche Rockets, blast the mountains behind the enemy base, and trigger the most Avalanches to win.",
+      "version": "26.2",
+      "download": {
+        "color": ""
+      },
+      "servers": [
+        {
+          "name": "CubeKrowd",
+          "url": "https://cubekrowd.net/"
+        },
+        {
+          "name": "StickyPiston",
+          "url": "https://trial.stickypiston.co/map/snowyskirmish2"
+        },
+        {
+          "name": "MapVerse",
+          "url": "https://mapverse.net/map/snowy-skirmish-2-avalanche"
+        },
+        {
+          "name": "Realms",
+          "url": ""
+        },
+        {
+          "name": "PlanetMinecraft",
+          "url": "https://www.planetminecraft.com/project/snowy-skirmish-2-avalanche/"
+        }
+      ],
+      "credits": [
+        {
+          "player": "YZEROgame",
+          "roles": [
+            "Developer",
+            "Modeler",
+            "Animator",
+            "Sound Designer"
+          ]
+        },
+        {
+          "player": "Evtema3",
+          "roles": [
+            "Developer",
+            "Texture Artist"
+          ]
+        },
+        {
+          "player": "Stuffy",
+          "roles": [
+            "Builder",
+            "Logo Designer"
+          ]
+        },
+        {
+          "player": "Louuuise",
+          "roles": [
+            "Builder"
+          ]
+        },
+        {
+          "player": "BlockyM_",
+          "roles": [
+            "Trailer Director"
+          ]
+        },
+        {
+          "player": "ZeroIceBear",
+          "roles": [
+            "Translator (Chinese)"
+          ]
+        },
+        {
+          "player": "beiyao",
+          "roles": [
+            "Translator (Chinese)"
+          ]
+        },
+        {
+          "player": "tai_zazanek",
+          "roles": [
+            "Translator (Japanese)"
+          ]
+        },
+        {
+          "player": "Shirowh_",
+          "roles": [
+            "Translator (Spanish)"
+          ]
+        },
+        {
+          "player": "Armero",
+          "roles": [
+            "Translator (Spanish)"
+          ]
+        },
+        {
+          "player": "Pingoda",
+          "roles": [
+            "Translator (Italian)"
+          ]
+        },
+        {
+          "player": "TheOnlyMann",
+          "roles": [
+            "Translator (Korean)"
+          ]
+        },
+        {
+          "player": "Yatloaf",
+          "roles": [
+            "Translator (German)"
+          ]
+        },
+        {
+          "player": "CapitaineMinus",
+          "roles": [
+            "Translator (French)"
+          ]
+        },
+        {
+          "player": "4953makcim",
+          "roles": [
+            "Translator (Russian)"
+          ]
+        },
+        {
+          "player": "YZEROgame",
+          "roles": [
+            "Translator (Dutch)"
+          ]
+        },
+        {
+          "player": "Ostensvig",
+          "roles": [
+            "Translator (Norwegian)"
+          ]
+        }
+      ],
+      "creditsLink": "",
+      "logo": "hero/logo.png"
+    },
+    {
+      "type": "trailer",
+      "title": "Trailer",
+      "videos": [
+        {
+          "title": "",
+          "url": "https://www.youtube.com/watch?v=5f-kBMxmfzk"
+        }
+      ]
+    },
+    {
+      "type": "how-to-play",
+      "title": "How to Play",
+      "intro": "Welcome to Avalanche, the official sequel to Snowy Skirmish! In this game, your objective is no longer to collect the most giftboxes or knock out the most enemies for points. The game is now more strategic and combat-oriented.\n\nHappy Holidays from the Zeronia Team!",
+      "categories": [
+        {
+          "name": "Rockets",
+          "icon": "icons/rockets.png",
+          "body": "Knocking out enemy players will cause them to drop Avalanche Rockets.\n\nWith these rockets, you can damage the mountains behind the enemy base."
+        },
+        {
+          "name": "Avalanches",
+          "icon": "icons/avalanches.png",
+          "body": "If you damage the enemy mountain enough with Avalanche Rockets, you'll trigger an Avalanche.\n\nAvalanches are the new way to score points. The team that triggers the most Avalanches by the end of the game wins."
+        },
+        {
+          "name": "Powerups",
+          "icon": "icons/powerups.png",
+          "body": "All powerups from Snowy Skirmish 1 have been reworked in terms of visuals and functionality. They now look and play better than ever before! The 2-powerup per player restriction has also been removed in favor of item cooldowns.\n\nIce Ball: A strong ice ball with limited range, capable of knocking out enemies with a single hit.\n\nHot Chocolate: A consumable item; players can drink hot chocolate to quickly heal back some health, and knocked out players can use this to revive themselves.\n\nSnowman: A friendly snowman that fires bursts of snowballs at enemy players that get near it. They can be destroyed with snow and ice balls, and they melt over time.\n\nSnowglobe: Makes a stormy cloud where it lands. When enemies stand in its range, they'll get slowed down and take a lot of damage. When you stand in your own team's blizzards, you'll get snowballs much quicker.\n\nIcicle: Melee weapon used to deal a lot of damage and knockback to enemy players.\n\nHealing Campfire: A small campfire that heals nearby players. When knocked-out allies get near this, they'll be revived.\n\nSleigh: Lets you quickly move around the map, making you harder to hit. Press your jump key to perform a big jump while riding a Sleigh. Sleighs break over time when nobody is riding them or after a couple of big jumps.\n\nCoal Stocking: Similar to a flashbang. Blinds nearby players wherever it lands.\n\nSnow Barricade: Placeable block. Breaks upon impact with Snowballs, Iceballs, and Avalanche Rockets."
+        }
+      ]
+    },
+    {
+      "type": "gallery",
+      "title": "Gallery",
+      "images": [
+        {
+          "src": "gallery/ss2_1.jpg",
+          "caption": "Lobby"
+        },
+        {
+          "src": "gallery/ss2_2.jpg",
+          "caption": "Game Overview"
+        },
+        {
+          "src": "gallery/ss2_3.jpg",
+          "caption": "Gameplay"
+        }
+      ]
+    },
+    {
+      "type": "additional-info",
+      "title": "Additional Info",
+      "body": "Avalanche is the sequel to the original Snowy Skirmish, both originally released as PlanetMinecraft projects.\n\nhttps://www.planetminecraft.com/project/snowy-skirmish/"
+    },
+    {
+      "type": "versions",
+      "title": "Versions",
+      "versions": [
+        {
+          "name": "snowy-skirmish-2-v1.0.6.zip",
+          "version": "1.0.6",
+          "gameVersion": "26.2",
+          "url": "https://downloads.zeronia.org/maps/snowy-skirmish-2/snowy-skirmish-2-v1.0.6.zip",
+          "type": "map"
+        },
+        {
+          "name": "snowy-skirmish-2-pack-v1.0.6.zip",
+          "version": "1.0.6",
+          "gameVersion": "26.2",
+          "url": "https://downloads.zeronia.org/resource-packs/snowy-skirmish-2/snowy-skirmish-2-pack-v1.0.6.zip",
+          "type": "resourcepack"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "FAQ",
+      "faqs": [
+        {
+          "question": "Placeholder",
+          "answer": "Placeholder",
+          "pinned": false
+        }
+      ]
+    }
+  ]
+}

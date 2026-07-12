@@ -1,0 +1,133 @@
+.faq {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  font-family: "Minecraft", monospace;
+}
+
+.faq__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 0.85rem;
+}
+
+.faq__title {
+  margin: 0;
+}
+
+.faq__search {
+  width: 19rem;
+  max-width: 100%;
+  padding: 0.45rem 0.7rem;
+  font-family: "Minecraft", monospace;
+  font-size: 0.9rem;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: var(--border-width) solid var(--color-gray-dark);
+  border-radius: var(--radius);
+  outline: none;
+}
+
+.faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.faq__item {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.faq__question {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  font-family: "Minecraft", monospace;
+  font-size: 0.95rem;
+  text-align: left;
+  color: var(--color-text);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.faq__question:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.faq__pin {
+  color: #f5c542;
+}
+
+.faq__question-text {
+  flex: 1;
+}
+
+/* A "+" made of two bars that rotates 45deg into an "x" when open. */
+.faq__toggle {
+  position: relative;
+  width: 0.85rem;
+  height: 0.85rem;
+  flex-shrink: 0;
+  transition: transform 0.15s ease;
+}
+
+.faq__toggle::before,
+.faq__toggle::after {
+  content: "";
+  position: absolute;
+  background: var(--color-muted);
+}
+
+.faq__toggle::before {
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  transform: translateY(-50%);
+}
+
+.faq__toggle::after {
+  left: 50%;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  transform: translateX(-50%);
+}
+
+.faq__question[aria-expanded="true"] .faq__toggle {
+  transform: rotate(45deg);
+}
+
+.faq__answer-wrap {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.2s ease;
+}
+
+.faq__answer {
+  padding: 0 0.8rem 0.8rem;
+}
+
+.faq__empty {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.faq__pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  font-size: 0.9rem;
+}
+
+.faq__pager button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
