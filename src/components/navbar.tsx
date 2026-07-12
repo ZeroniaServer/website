@@ -745,7 +745,11 @@ export default function Navbar() {
 
         <div className="navbar__columns">
           {dropdown.map((section, i) => (
-            <div className="navbar__column" key={section.header ?? i}>
+            <div
+              className="navbar__column"
+              key={section.header ?? i}
+              data-header={section.header}
+            >
               {section.header && (
                 <span className="navbar__col-header">{section.header}</span>
               )}

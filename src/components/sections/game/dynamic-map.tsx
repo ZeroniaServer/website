@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { gameAsset } from "../../../lib/games";
+import { useMediaQuery } from "../../../lib/use-media-query";
 import { frameStyle } from "../frame";
 import arrowUrl from "../../../assets/sprites/arrow_down.png";
 import {
@@ -30,6 +31,7 @@ const roomAt = (rooms: MapRoom[], x: number, y: number): MapRoom | null => {
 };
 
 export default function DynamicMap({ slug }: { slug: string }) {
+  const isMobile = useMediaQuery("(max-width: 40rem)");
   const [floorIndex, setFloorIndex] = useState(0);
   const [hovered, setHovered] = useState<MapRoom | null>(null);
   const [pinnedIndex, setPinnedIndex] = useState(0);
@@ -44,8 +46,9 @@ export default function DynamicMap({ slug }: { slug: string }) {
   const floor = MUSEUM_MAP_FLOORS[floorIndex];
   const asset = (relPath: string) => gameAsset(slug, relPath);
 
-  // preload everything up front so hover is instant
+  // preload everything up front so hover is instant (skip on mobile, hidden there anyway)
   useEffect(() => {
+    if (isMobile) return;
     let cancelled = false;
     for (const relPath of ALL_MUSEUM_MAP_ASSETS) {
       const url = asset(relPath);
@@ -61,7 +64,7 @@ export default function DynamicMap({ slug }: { slug: string }) {
       cancelled = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [slug]);
+  }, [slug, isMobile]);
 
   // show the hover hint once, only while the section is on screen
   useEffect(() => {
@@ -99,6 +102,8 @@ export default function DynamicMap({ slug }: { slug: string }) {
     const y = ((e.clientY - rect.top) / rect.height) * MAP_NATIVE_HEIGHT;
     setHovered(roomAt(floor.rooms, x, y));
   };
+
+  if (isMobile) return null;
 
   const active = hovered ?? pinned;
   const mapSrc = asset(`museum_map/${active ? active.file : floor.file}`);

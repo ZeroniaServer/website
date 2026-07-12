@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { frameStyle } from "../frame";
+import { useMediaQuery } from "../../../lib/use-media-query";
 import arrowUrl from "../../../assets/sprites/arrow_down.png";
 import "./versions.css";
 
@@ -21,7 +22,14 @@ const COLUMNS: { key: SortKey; label: string }[] = [
   { key: "type", label: "Type" },
 ];
 
-export default function Versions({ versions = [] }: { versions?: VersionEntry[] }) {
+export default function Versions({
+  title,
+  versions = [],
+}: {
+  title?: string;
+  versions?: VersionEntry[];
+}) {
+  const isMobile = useMediaQuery("(max-width: 40rem)");
   const [sort, setSort] = useState<{ key: SortKey; dir: 1 | -1 } | null>(null);
   const [typeFilter, setTypeFilter] = useState("");
   const [gvFilter, setGvFilter] = useState("");
@@ -58,9 +66,40 @@ export default function Versions({ versions = [] }: { versions?: VersionEntry[] 
   const toggleSort = (key: SortKey) =>
     setSort((s) => (s?.key !== key ? { key, dir: 1 } : s.dir === 1 ? { key, dir: -1 } : null));
 
-  if (versions.length === 0) return <p className="versions__empty">No versions listed yet.</p>;
+  const heading = <h2 className="section__title">{isMobile ? "Download" : title}</h2>;
+
+  if (versions.length === 0)
+    return (
+      <>
+        {heading}
+        <p className="versions__empty">No versions listed yet.</p>
+      </>
+    );
+
+  if (isMobile) {
+    const latest = versions[0];
+    return (
+      <>
+        {heading}
+        <div className="versions versions--mobile">
+          <p className="versions__mobile-label">Download Latest Release ({latest.version})</p>
+          {latest.url ? (
+            <a className="mc-button versions__dl" href={latest.url} target="_blank" rel="noreferrer">
+              {latest.name}
+            </a>
+          ) : (
+            <span className="mc-button versions__dl mc-button--disabled">{latest.name}</span>
+          )}
+          <p className="versions__mobile-note">For all releases, please view on desktop.</p>
+        </div>
+      </>
+    );
+  }
+
   return (
-    <div className="versions">
+    <>
+      {heading}
+      <div className="versions">
       <div className="versions__controls">
         <input
           className="versions__search"
@@ -153,6 +192,7 @@ export default function Versions({ versions = [] }: { versions?: VersionEntry[] 
           </button>
         </div>
       )}
-    </div>
+      </div>
+    </>
   );
 }

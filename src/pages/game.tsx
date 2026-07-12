@@ -47,8 +47,13 @@ export default function GamePage({ slug }: { slug: string }) {
         const { type, background, title, ...props } = s;
         void background;
         const Cmp = SECTIONS[type];
-        const ownsHeader = type === "hero" || type === "faq";
-        const extra = type === "hero" ? { versionsId } : type === "faq" ? { title } : {};
+        const ownsHeader = type === "hero" || type === "faq" || type === "versions";
+        const extra =
+          type === "hero"
+            ? { versionsId }
+            : type === "faq" || type === "versions"
+              ? { title }
+              : {};
         return (
           <Fragment key={`${type}-${i}`}>
             {i > 0 && <Seam above={pools[i - 1]} below={pools[i]} />}

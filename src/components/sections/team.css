@@ -21,11 +21,39 @@
 }
 
 .team__card-head {
+  all: unset;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
   padding: 0.6rem 0.8rem;
   background: rgba(0, 0, 0, 0.3);
+  cursor: default;
+}
+
+.team__chevron {
+  display: none;
+  width: 0.7rem;
+  margin-left: auto;
+  image-rendering: pixelated;
+  transition: transform 0.2s ease;
+}
+
+.team__chevron--open {
+  transform: rotate(180deg);
+}
+
+.team__card-body-wrap {
+  display: grid;
+  grid-template-rows: 1fr;
+  overflow: hidden;
+  transition: grid-template-rows 0.2s ease;
+}
+
+.team__card-body-wrap > .team__card-body {
+  overflow: hidden;
+  min-height: 0;
 }
 
 .team__role {
@@ -38,6 +66,7 @@
 }
 
 .team__count {
+  margin-right: auto;
   font-family: "Minecraft", monospace;
   font-size: 0.8rem;
   color: var(--color-muted);
@@ -89,5 +118,43 @@
 @media (max-width: 56rem) {
   .team__grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 40rem) {
+  .team__grid,
+  .team__column {
+    gap: 0.5rem;
+  }
+
+  .team__card-head {
+    padding: 0.4rem 0.6rem;
+    cursor: pointer;
+  }
+
+  .team__role {
+    font-size: 0.8rem;
+  }
+
+  .team__count {
+    font-size: 0.7rem;
+  }
+
+  .team__chevron {
+    display: block;
+    width: 0.55rem;
+  }
+
+  .team__card-body-wrap {
+    grid-template-rows: 0fr;
+  }
+
+  .team__card-body-wrap--open {
+    grid-template-rows: 1fr;
+  }
+
+  /* padding alone keeps the row from reaching 0 height when collapsed */
+  .team__card-body-wrap:not(.team__card-body-wrap--open) .team__card-body {
+    padding: 0;
   }
 }

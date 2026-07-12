@@ -112,20 +112,7 @@
 }
 
 @media (max-width: 40rem) {
-  .htp__layout {
-    flex-direction: column;
-  }
-
   .htp__rail {
-    transform: none !important;
-  }
-
-  .htp__rail-icons {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .htp__rail-scrollbar {
     display: none;
   }
 }

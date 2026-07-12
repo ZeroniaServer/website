@@ -129,8 +129,19 @@
   cursor: default;
 }
 
-@media (max-width: 40rem) {
-  .versions__row {
-    grid-template-columns: 1fr 1fr;
-  }
+.versions--mobile {
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+
+.versions__mobile-label {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.versions__mobile-note {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-muted);
 }

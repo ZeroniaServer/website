@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { type Pool } from "../navbar";
 import teamData from "../../data/team/team.json";
 import Section from "./section";
+import arrowUrl from "../../assets/sprites/arrow_down.png";
 import "./team.css";
 
 interface Member {
@@ -21,33 +23,49 @@ const COLUMNS: string[][] = [
   ["Translators", "Discord Moderators"],
 ];
 
+// stay open by default, on mobile everything else starts collapsed
+const OPEN_BY_DEFAULT = new Set(["Founders", "Developers"]);
+
 const headUrl = (name: string) =>
   `https://mc-heads.net/avatar/${encodeURIComponent(name)}/96`;
 
 function Card({ group }: { group: Group }) {
+  const [open, setOpen] = useState(OPEN_BY_DEFAULT.has(group.role));
+
   return (
     <div className="team__card">
-      <div className="team__card-head">
+      <button
+        className="team__card-head"
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+      >
         <span className="team__role">{group.role}</span>
         <span className="team__count">{group.members.length}</span>
-      </div>
-      <div className="team__card-body">
-        {group.members.map((member, i) => (
-          <div className="team__member" key={`${member.name}-${i}`}>
-            <img
-              className="team__avatar"
-              src={headUrl(member.name)}
-              alt={member.name}
-              loading="lazy"
-              width={32}
-              height={32}
-            />
-            <span className="team__name" title={member.name}>
-              {member.name}
-            </span>
-            {member.note && <span className="team__note">{member.note}</span>}
-          </div>
-        ))}
+        <img
+          className={`team__chevron${open ? " team__chevron--open" : ""}`}
+          src={arrowUrl}
+          alt=""
+        />
+      </button>
+      <div className={`team__card-body-wrap${open ? " team__card-body-wrap--open" : ""}`}>
+        <div className="team__card-body">
+          {group.members.map((member, i) => (
+            <div className="team__member" key={`${member.name}-${i}`}>
+              <img
+                className="team__avatar"
+                src={headUrl(member.name)}
+                alt={member.name}
+                loading="lazy"
+                width={32}
+                height={32}
+              />
+              <span className="team__name" title={member.name}>
+                {member.name}
+              </span>
+              {member.note && <span className="team__note">{member.note}</span>}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
