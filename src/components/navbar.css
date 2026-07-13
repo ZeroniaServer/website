@@ -218,13 +218,16 @@
 }
 
 @media (max-width: 40rem) {
-  .navbar__brand,
-  .navbar__brand-icon {
-    display: none;
+  .navbar__brand {
+    margin-left: 0.75rem;
   }
 
-  .navbar__bar {
-    justify-content: center;
+  .navbar__wordmark {
+    height: 2rem;
+  }
+
+  .navbar__brand-icon {
+    display: none;
   }
 
   .navbar__btn {
@@ -245,5 +248,25 @@
   /* only show Released on mobile */
   .navbar__column:not([data-header="Released"]) {
     display: none;
+  }
+}
+
+/* too narrow for the wordmark next to the links - drop to the icon mark */
+@media (max-width: 26rem) {
+  .navbar__brand {
+    display: none;
+  }
+
+  .navbar__brand-icon {
+    display: inline-flex;
+    margin-right: 0.75rem;
+  }
+
+  .navbar__icon {
+    height: 2rem;
+  }
+
+  .navbar__bar {
+    justify-content: center;
   }
 }
