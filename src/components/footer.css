@@ -95,6 +95,10 @@
   margin: 0 auto;
 }
 
+.footer--sand .footer__columns {
+  margin-top: 2rem;
+}
+
 .footer__column {
   display: flex;
   flex-direction: column;
@@ -154,6 +158,13 @@
 
 .footer__legal-link:hover {
   text-decoration: none;
+}
+
+.footer--darktext .footer__col-header,
+.footer--darktext .footer__link,
+.footer--darktext .footer__legal {
+  color: rgba(0, 0, 0, 0.6);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
 @media (max-width: 40rem) {
