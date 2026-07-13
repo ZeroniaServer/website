@@ -1,5 +1,5 @@
 import {
-  type MouseEvent,
+  type PointerEvent,
   useEffect,
   useLayoutEffect,
   useRef,
@@ -622,8 +622,11 @@ export default function Navbar() {
     }
   };
 
-  const onEnter = (e: MouseEvent<HTMLElement>, isDropdown: boolean) => {
-    setOpen(isDropdown);
+  const onEnter = (e: PointerEvent<HTMLElement>, isDropdown: boolean) => {
+    // Touch devices simulate a hover before the click that follows it, which
+    // would otherwise fight the click's toggle below - only real mouse hover
+    // drives `open` here; touch relies on the click alone.
+    if (e.pointerType === "mouse") setOpen(isDropdown);
     const btn = e.currentTarget;
     if (variant.wave) {
       aimWave(columnRange(btn), isDropdown);
@@ -687,8 +690,14 @@ export default function Navbar() {
                 className="navbar__btn"
                 key={item.name}
                 aria-expanded={isDropdown ? open : undefined}
-                onMouseEnter={(e) => onEnter(e, isDropdown)}
-                onClick={() => (isDropdown ? setOpen((v) => !v) : follow(item))}
+                onPointerEnter={(e) => onEnter(e, isDropdown)}
+                onClick={() => {
+                  if (isDropdown) setOpen((v) => !v);
+                  else {
+                    setOpen(false);
+                    follow(item);
+                  }
+                }}
               >
                 {item.name}
                 {isDropdown && (
