@@ -15,11 +15,12 @@ interface VersionEntry {
 }
 
 const PAGE_SIZE = 10;
-const TYPE_ORDER = ["datapack", "resourcepack", "world"];
+const TYPE_ORDER = ["world", "resourcepack", "datapack", "plugin"];
 const TYPE_LABELS: Record<string, string> = {
   datapack: "Datapack",
   resourcepack: "Resource Pack",
   world: "World",
+  plugin: "Plugin",
 };
 
 const typeLabel = (t: string) => TYPE_LABELS[t] ?? t.charAt(0).toUpperCase() + t.slice(1);
@@ -139,8 +140,10 @@ export default function Versions({
   const current = Math.min(page, pages - 1);
   const visible = rows.slice(current * PAGE_SIZE, (current + 1) * PAGE_SIZE);
 
-  const toggleSort = (key: string) =>
+  const toggleSort = (key: string) => {
     setSort((s) => (s?.key !== key ? { key, dir: 1 } : s.dir === 1 ? { key, dir: -1 } : null));
+    setPage(0);
+  };
 
   const toggleType = (t: string) =>
     setHiddenTypes((prev) => {
@@ -300,11 +303,11 @@ export default function Versions({
         <div className="versions__table pixel-frame" style={gridStyle}>
           <div className="versions__row versions__row--head">
             <button className="versions__head" onClick={() => toggleSort("mcVersion")}>
-              MC Version
+              Minecraft Version
               {sortArrow("mcVersion")}
             </button>
             <button className="versions__head" onClick={() => toggleSort("version")}>
-              Version
+              Minigame Version
               {sortArrow("version")}
             </button>
             {visibleTypes.map((t) => (
@@ -315,7 +318,7 @@ export default function Versions({
             <span className="versions__head versions__head--static">All</span>
           </div>
           {visible.map((v) => (
-            <div key={v.version} className="versions__row">
+            <div key={`${v.version}-${v.mcVersions.join(",")}`} className="versions__row">
               <span title={sortedMc(v.mcVersions).join(", ")}>{mcRange(v.mcVersions)}</span>
               <span>{v.version}</span>
               {visibleTypes.map((t) => (
