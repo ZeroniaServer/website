@@ -105,6 +105,15 @@
   border-top: 2px solid rgba(255, 255, 255, 0.08);
 }
 
+.versions__changelog {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.versions__changelog:hover {
+  color: var(--color-text);
+}
+
 .versions__row--head {
   background: rgba(0, 0, 0, 0.3);
 }

@@ -11,6 +11,7 @@ import "./versions.css";
 interface VersionEntry {
   version: string;
   mcVersions: string[];
+  changelog?: string;
   files: Record<string, string>;
 }
 
@@ -320,7 +321,20 @@ export default function Versions({
           {visible.map((v) => (
             <div key={`${v.version}-${v.mcVersions.join(",")}`} className="versions__row">
               <span title={sortedMc(v.mcVersions).join(", ")}>{mcRange(v.mcVersions)}</span>
-              <span>{v.version}</span>
+              <span>
+                {v.changelog ? (
+                  <a
+                    className="versions__changelog"
+                    href={v.changelog}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {v.version}
+                  </a>
+                ) : (
+                  v.version
+                )}
+              </span>
               {visibleTypes.map((t) => (
                 <span key={t} className="versions__cell">
                   {dlButton(v.files?.[t])}

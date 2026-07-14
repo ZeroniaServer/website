@@ -176,6 +176,7 @@
           "mcVersions": [
             "26.2"
           ],
+          "changelog": "https://github.com/ZeroniaServer/RocketRiders/releases/tag/v1.3.3",
           "files": {
             "world": "https://downloads.zeronia.org/maps/rocket-riders/rocket-riders-v1.3.3.zip",
             "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.3.3.zip"
