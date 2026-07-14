@@ -177,19 +177,385 @@
             "26.2"
           ],
           "files": {
-            "world": "testing.url",
-            "datapack": "testing.url"
+            "world": "https://downloads.zeronia.org/maps/rocket-riders/rocket-riders-v1.3.3.zip",
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.3.3.zip"
           }
         },
         {
           "version": "1.3.2",
           "mcVersions": [
-            "26.0",
             "26.1"
           ],
           "files": {
-            "world": "",
-            "datapack": ""
+            "world": "https://downloads.zeronia.org/maps/rocket-riders/rocket-riders-v1.3.2-26.1.zip",
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.3.2.zip"
+          }
+        },
+        {
+          "version": "1.3.2",
+          "mcVersions": [
+            "1.21.11",
+            "1.21.10"
+          ],
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/rocket-riders/rocket-riders-v1.3.2-1.21.10-1.21.11.zip",
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.3.2.zip"
+          }
+        },
+        {
+          "version": "1.3.1",
+          "mcVersions": [
+            "26.1"
+          ],
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/rocket-riders/rocket-riders-v1.3.1-26.1.zip",
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.3.1.zip"
+          }
+        },
+        {
+          "version": "1.3.1",
+          "mcVersions": [
+            "1.21.11",
+            "1.21.10"
+          ],
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/rocket-riders/rocket-riders-v1.3.1-1.21.10-1.21.11.zip",
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.3.1.zip"
+          }
+        },
+        {
+          "version": "1.3.0",
+          "mcVersions": [
+            "1.21.11",
+            "1.21.10"
+          ],
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/rocket-riders/rocket-riders-v1.3.0.zip",
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.3.0.zip"
+          }
+        },
+        {
+          "version": "1.2.15",
+          "mcVersions": [
+            "1.20.4",
+            "1.20.3",
+            "1.20.2",
+            "1.20.1"
+          ],
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/rocket-riders/rocket-riders-v1.2.15.zip",
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.2.15.zip"
+          }
+        },
+        {
+          "version": "1.2.14",
+          "mcVersions": [
+            "1.20.4",
+            "1.20.3",
+            "1.20.2",
+            "1.20.1"
+          ],
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/rocket-riders/rocket-riders-v1.2.14.zip",
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.2.14.zip"
+          }
+        },
+        {
+          "version": "1.2.13",
+          "mcVersions": [
+            "1.20.2",
+            "1.20.1"
+          ],
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/rocket-riders/rocket-riders-v1.2.13.zip",
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.2.13.zip"
+          }
+        },
+        {
+          "version": "1.2.12",
+          "mcVersions": [
+            "1.20.1"
+          ],
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/rocket-riders/rocket-riders-v1.2.12.zip",
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.2.12.zip"
+          }
+        },
+        {
+          "version": "1.2.11",
+          "mcVersions": [
+            "1.20.1"
+          ],
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/rocket-riders/rocket-riders-v1.2.11.zip",
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.2.11.zip"
+          }
+        },
+        {
+          "version": "1.2.10",
+          "mcVersions": [
+            "1.19.4"
+          ],
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/rocket-riders/rocket-riders-v1.2.10-1.19.4.zip",
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.2.10-1.19.4.zip"
+          }
+        },
+        {
+          "version": "1.2.10",
+          "mcVersions": [
+            "1.19.3",
+            "1.19.2",
+            "1.19.1"
+          ],
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/rocket-riders/rocket-riders-v1.2.10-1.19.1-1.19.3.zip",
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.2.10-1.19.1-1.19.3.zip"
+          }
+        },
+        {
+          "version": "1.2.9",
+          "mcVersions": [
+            "1.19.3",
+            "1.19.2",
+            "1.19.1"
+          ],
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/rocket-riders/rocket-riders-v1.2.9-1.19.1-1.19.3.zip",
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.2.9.zip"
+          }
+        },
+        {
+          "version": "1.2.9",
+          "mcVersions": [
+            "1.18.2"
+          ],
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/rocket-riders/rocket-riders-v1.2.9-1.18.2.zip",
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.2.9.zip"
+          }
+        },
+        {
+          "version": "1.2.8",
+          "mcVersions": [
+            "1.19"
+          ],
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/rocket-riders/rocket-riders-v1.2.8.zip",
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.2.8.zip"
+          }
+        },
+        {
+          "version": "1.2.7",
+          "mcVersions": [
+            "1.19"
+          ],
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/rocket-riders/rocket-riders-v1.2.7-1.19.zip",
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.2.7-1.19.zip"
+          }
+        },
+        {
+          "version": "1.2.7",
+          "mcVersions": [
+            "1.18.2"
+          ],
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/rocket-riders/rocket-riders-v1.2.7-1.18.2.zip",
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.2.7-1.18.2.zip"
+          }
+        },
+        {
+          "version": "1.2.6",
+          "mcVersions": [
+            "1.19"
+          ],
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/rocket-riders/rocket-riders-v1.2.6-1.19.zip",
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.2.6-1.19.zip"
+          }
+        },
+        {
+          "version": "1.2.6",
+          "mcVersions": [
+            "1.18.2"
+          ],
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/rocket-riders/rocket-riders-v1.2.6-1.18.2.zip"
+          }
+        },
+        {
+          "version": "1.2.5",
+          "mcVersions": [
+            "1.19"
+          ],
+          "files": {
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.2.5.zip"
+          }
+        },
+        {
+          "version": "1.2.4",
+          "mcVersions": [
+            "1.19"
+          ],
+          "files": {
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.2.4.zip"
+          }
+        },
+        {
+          "version": "1.2.3",
+          "mcVersions": [
+            "1.18.2"
+          ],
+          "files": {
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.2.3.zip"
+          }
+        },
+        {
+          "version": "1.2.2",
+          "mcVersions": [
+            "1.18.2"
+          ],
+          "files": {
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.2.2.zip"
+          }
+        },
+        {
+          "version": "1.2.1",
+          "mcVersions": [
+            "1.18.1"
+          ],
+          "files": {
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.2.1.zip"
+          }
+        },
+        {
+          "version": "1.2.0",
+          "mcVersions": [
+            "1.18.1"
+          ],
+          "files": {
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.2.0.zip"
+          }
+        },
+        {
+          "version": "1.1.5",
+          "mcVersions": [
+            "1.18.1"
+          ],
+          "files": {
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.1.5.zip"
+          }
+        },
+        {
+          "version": "1.1.4",
+          "mcVersions": [
+            "1.18"
+          ],
+          "files": {
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.1.4.zip"
+          }
+        },
+        {
+          "version": "1.1.3",
+          "mcVersions": [
+            "1.17.1"
+          ],
+          "files": {
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.1.3.zip"
+          }
+        },
+        {
+          "version": "1.1.2",
+          "mcVersions": [
+            "1.17.1"
+          ],
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/rocket-riders/rocket-riders-v1.1.2.zip",
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.1.2.zip"
+          }
+        },
+        {
+          "version": "1.1.1",
+          "mcVersions": [
+            "1.17.1"
+          ],
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/rocket-riders/rocket-riders-v1.1.1.zip",
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.1.1.zip"
+          }
+        },
+        {
+          "version": "1.1.0",
+          "mcVersions": [
+            "1.17.1"
+          ],
+          "files": {
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.1.0.zip"
+          }
+        },
+        {
+          "version": "1.0.6",
+          "mcVersions": [
+            "1.17.1"
+          ],
+          "files": {
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.0.6.zip"
+          }
+        },
+        {
+          "version": "1.0.5",
+          "mcVersions": [
+            "1.17.1"
+          ],
+          "files": {
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.0.5.zip"
+          }
+        },
+        {
+          "version": "1.0.4",
+          "mcVersions": [
+            "1.17.1"
+          ],
+          "files": {
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.0.4.zip"
+          }
+        },
+        {
+          "version": "1.0.3",
+          "mcVersions": [
+            "1.17.1"
+          ],
+          "files": {
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.0.3.zip"
+          }
+        },
+        {
+          "version": "1.0.2",
+          "mcVersions": [
+            "1.17.1"
+          ],
+          "files": {
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.0.2.zip"
+          }
+        },
+        {
+          "version": "1.0.1",
+          "mcVersions": [
+            "1.17.1"
+          ],
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/rocket-riders/rocket-riders-v1.0.1.zip",
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.0.1.zip"
+          }
+        },
+        {
+          "version": "1.0.0",
+          "mcVersions": [
+            "1.17.1"
+          ],
+          "files": {
+            "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.0.0.zip"
           }
         }
       ]
