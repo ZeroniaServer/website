@@ -225,18 +225,15 @@
       "title": "Versions",
       "versions": [
         {
-          "name": "crafty-cannoneers-v1.1.14.zip",
           "version": "1.1.14",
-          "gameVersion": "26.2",
-          "url": "https://downloads.zeronia.org/maps/crafty-cannoneers/crafty-cannoneers-v1.1.14.zip",
-          "type": "map"
-        },
-        {
-          "name": "crafty-cannoneers-pack-v1.1.14.zip",
-          "version": "1.1.14",
-          "gameVersion": "26.2",
-          "url": "https://downloads.zeronia.org/resource-packs/crafty-cannoneers/crafty-cannoneers-pack-v1.1.14.zip",
-          "type": "resourcepack"
+          "mcVersions": [
+            "26.2"
+          ],
+          "files": {
+            "world": "",
+            "datapack": "",
+            "resourcepack": ""
+          }
         }
       ]
     },

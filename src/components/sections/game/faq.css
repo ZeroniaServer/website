@@ -21,11 +21,13 @@
 .faq__search {
   width: 19rem;
   max-width: 100%;
-  padding: 0.45rem 0.7rem;
+  padding: 0.45rem 0.7rem 0.45rem 2rem;
   font-family: "Minecraft", monospace;
   font-size: 0.9rem;
   color: var(--color-text);
-  background: var(--color-surface);
+  background: var(--color-surface) url("../../../assets/sprites/search.png") no-repeat left 0.6rem center;
+  background-size: 0.85rem;
+  image-rendering: pixelated;
   border: var(--border-width) solid var(--color-gray-dark);
   border-radius: var(--radius);
   outline: none;

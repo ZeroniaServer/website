@@ -164,18 +164,15 @@
       "title": "Versions",
       "versions": [
         {
-          "name": "the-purple-v1.0.10.zip",
           "version": "1.0.10",
-          "gameVersion": "26.2",
-          "url": "https://downloads.zeronia.org/maps/the-purple/the-purple-v1.0.10.zip",
-          "type": "map"
-        },
-        {
-          "name": "the-purple-pack-v1.0.10.zip",
-          "version": "1.0.10",
-          "gameVersion": "26.2",
-          "url": "https://downloads.zeronia.org/resource-packs/the-purple/the-purple-pack-v1.0.10.zip",
-          "type": "resourcepack"
+          "mcVersions": [
+            "26.2"
+          ],
+          "files": {
+            "world": "",
+            "datapack": "",
+            "resourcepack": ""
+          }
         }
       ]
     },

@@ -59,25 +59,22 @@
     {
       "type": "additional-info",
       "title": "Additional Info",
-      "body": "Made for the 2021 MCMaps Summer Game Jam (Theme: “Beyond Limits”)\n\nNOTE: Borderline won't play well on vanilla clients unless/until Mojang fixes MC-248304, a bug which has broken world border collision since Minecraft 1.18.1. We highly recommend you play with the Lithium mod, and we apologize for any inconvenience."
+      "body": "Made for the 2021 MCMaps Summer Game Jam (Theme: \u201cBeyond Limits\u201d)\n\nNOTE: Borderline won't play well on vanilla clients unless/until Mojang fixes MC-248304, a bug which has broken world border collision since Minecraft 1.18.1. We highly recommend you play with the Lithium mod, and we apologize for any inconvenience."
     },
     {
       "type": "versions",
       "title": "Versions",
       "versions": [
         {
-          "name": "borderline-v1.1.6.zip",
           "version": "1.1.6",
-          "gameVersion": "1.21.11",
-          "url": "https://downloads.zeronia.org/maps/borderline/borderline-v1.1.6.zip",
-          "type": "map"
-        },
-        {
-          "name": "borderline-pack-v1.1.6.zip",
-          "version": "1.1.6",
-          "gameVersion": "1.21.11",
-          "url": "https://downloads.zeronia.org/resource-packs/borderline/borderline-pack-v1.1.6.zip",
-          "type": "resourcepack"
+          "mcVersions": [
+            "1.21.11"
+          ],
+          "files": {
+            "world": "",
+            "datapack": "",
+            "resourcepack": ""
+          }
         }
       ]
     },

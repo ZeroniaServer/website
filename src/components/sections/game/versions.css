@@ -12,7 +12,7 @@
 }
 
 .versions__controls input,
-.versions__controls select {
+.versions__filter-toggle {
   padding: 0.45rem 0.7rem;
   font-family: "Minecraft", monospace;
   font-size: 0.9rem;
@@ -23,8 +23,11 @@
   outline: none;
 }
 
-.versions__controls select {
-  appearance: none;
+.versions__filter {
+  position: relative;
+}
+
+.versions__filter-toggle {
   padding-right: 1.8rem;
   background-image: url("../../../assets/sprites/arrow_down.png");
   background-repeat: no-repeat;
@@ -33,9 +36,44 @@
   cursor: pointer;
 }
 
-.versions__search {
+.versions__filter-menu {
+  position: absolute;
+  top: calc(100% + 0.3rem);
+  right: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 100%;
+  padding: 0.5rem 0.7rem;
+  background: var(--color-surface);
+  border: var(--border-width) solid var(--color-gray-dark);
+  border-radius: var(--radius);
+}
+
+.versions__filter-option {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.versions__filter-option input {
+  accent-color: var(--color-green);
+  cursor: pointer;
+}
+
+.versions__controls .versions__search {
   flex: 1;
   min-width: 10rem;
+  padding-left: 2rem;
+  background-image: url("../../../assets/sprites/search.png");
+  background-repeat: no-repeat;
+  background-position: left 0.6rem center;
+  background-size: 0.85rem;
+  image-rendering: pixelated;
 }
 
 .versions__table {
@@ -43,19 +81,20 @@
 }
 
 .versions__sort {
-  width: 0.8rem;
-  margin-left: 0.3rem;
+  width: 0.7rem;
+  margin-left: 0.35rem;
   vertical-align: middle;
   image-rendering: pixelated;
 }
 
-.versions__sort--asc {
-  transform: rotate(180deg);
+.versions__dl-icon {
+  width: 0.75rem;
+  image-rendering: pixelated;
 }
 
 .versions__row {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 0.8fr 8rem;
+  grid-template-columns: var(--versions-cols, 1.1fr 0.9fr 1.1fr 1.1fr 5rem);
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 0.8rem;
@@ -85,28 +124,25 @@
   color: var(--color-text);
 }
 
-.versions__name {
-  overflow-wrap: anywhere;
+.versions__head--static {
+  cursor: default;
 }
 
-.versions__type {
-  padding: 0.1rem 0.45rem;
-  font-size: 0.8rem;
-  text-transform: uppercase;
+.versions__head--static:hover {
   color: var(--color-muted);
-  background: rgba(255, 255, 255, 0.08);
+}
+
+.versions__cell .versions__dl,
+.versions__action .versions__dl {
+  font-size: 0.85rem;
+  text-decoration: none;
 }
 
 .versions__action {
   justify-self: end;
 }
 
-.versions__action a {
-  text-decoration: none;
-  font-size: 0.85rem;
-}
-
-.versions__dl--latest {
+.versions__dl--available {
   --btn-bg: var(--color-green-dark);
   --btn-bg-hover: var(--color-green);
   --btn-bg-active: var(--color-green-dark);

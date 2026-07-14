@@ -86,11 +86,13 @@
       "title": "Versions",
       "versions": [
         {
-          "name": "Placeholder",
-          "version": "",
-          "gameVersion": "",
-          "url": "",
-          "type": "dp"
+          "version": "1.0.0",
+          "mcVersions": ["26.2"],
+          "files": {
+            "world": "",
+            "resourcepack": "",
+            "datapack": ""
+          }
         }
       ]
     },

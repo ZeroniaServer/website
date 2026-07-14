@@ -210,18 +210,15 @@
       "title": "Versions",
       "versions": [
         {
-          "name": "snowy-skirmish-2-v1.0.6.zip",
           "version": "1.0.6",
-          "gameVersion": "26.2",
-          "url": "https://downloads.zeronia.org/maps/snowy-skirmish-2/snowy-skirmish-2-v1.0.6.zip",
-          "type": "map"
-        },
-        {
-          "name": "snowy-skirmish-2-pack-v1.0.6.zip",
-          "version": "1.0.6",
-          "gameVersion": "26.2",
-          "url": "https://downloads.zeronia.org/resource-packs/snowy-skirmish-2/snowy-skirmish-2-pack-v1.0.6.zip",
-          "type": "resourcepack"
+          "mcVersions": [
+            "26.2"
+          ],
+          "files": {
+            "world": "",
+            "datapack": "",
+            "resourcepack": ""
+          }
         }
       ]
     },

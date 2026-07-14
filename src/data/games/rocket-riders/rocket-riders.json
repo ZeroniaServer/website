@@ -172,18 +172,25 @@
       "title": "Versions",
       "versions": [
         {
-          "name": "rocket-riders-v1.3.3.zip",
           "version": "1.3.3",
-          "gameVersion": "26.2",
-          "url": "https://downloads.zeronia.org/maps/rocket-riders/rocket-riders-v1.3.3.zip",
-          "type": "map"
+          "mcVersions": [
+            "26.2"
+          ],
+          "files": {
+            "world": "testing.url",
+            "datapack": "testing.url"
+          }
         },
         {
-          "name": "rocket-riders-pack-v1.3.3.zip",
-          "version": "1.3.3",
-          "gameVersion": "26.2",
-          "url": "https://downloads.zeronia.org/resource-packs/rocket-riders/rocket-riders-pack-v1.3.3.zip",
-          "type": "resourcepack"
+          "version": "1.3.2",
+          "mcVersions": [
+            "26.0",
+            "26.1"
+          ],
+          "files": {
+            "world": "",
+            "datapack": ""
+          }
         }
       ]
     },
