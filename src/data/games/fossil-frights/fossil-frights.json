@@ -82,7 +82,7 @@
           ]
         },
         {
-          "player": "Nightlibra",
+          "player": "nightlibra",
           "roles": [
             "Datapack"
           ]
@@ -111,7 +111,7 @@
         },
         {
           "name": "Tasks",
-          "icon": "icons/task_easy.png",
+          "icon": "icons/task_gif.gif",
           "body": "There are three main task types.\n\n[icon:icons/task_easy.png] Easy Tasks\n\nUsually these are simple jobs like going somewhere or pressing a button.\n\n[icon:icons/task_medium.png] Medium Tasks\n\nThese usually need an item. Most of the time that means using your Storage Key, going into the basement, grabbing what you need, and bringing it to the correct location to complete the task.\n\n[icon:icons/task_hard.png] Hard Tasks\n\nThese are puzzles. They are slower, weirder, and usually not obvious the first time. Read the task book carefully and expect to learn them over multiple runs."
         },
         {
