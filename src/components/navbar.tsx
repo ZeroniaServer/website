@@ -84,6 +84,16 @@ export const POOLS: Record<string, Pool> = {
     { color: "#2f72b0", weight: 25 },
     { color: "#5aa6e0", weight: 15 },
   ],
+  purple: [
+    { color: "#b252de", weight: 60 },
+    { color: "#a23fd0", weight: 25 },
+    { color: "#a850d1", weight: 15 },
+  ],
+  purple_dark: [
+    { color: "#863ea7", weight: 60 },
+    { color: "#6e2d8b", weight: 25 },
+    { color: "#693283", weight: 15 },
+  ],
 };
 
 // sand tide shades, light to deep
@@ -222,6 +232,23 @@ const VARIANTS: Record<string, Variant> = {
     rowStep: 0,
     jitter: 0,
     textDelay: 0,
+  },
+  purple: {
+    logo: "logo_purple.png",
+    darkText: true,
+    body: POOLS.purple,
+    dug: POOLS.purple_dark,
+    surface: (_row, rs) => pick(POOLS.purple, rs),
+    dig: (row, rs, rl) =>
+      row === 1 || row === 6
+        ? rl < 0.5
+          ? pick(POOLS.purple_dark, rs)
+          : pick(POOLS.purple, rs)
+        : pick(POOLS.purple_dark, rs),
+    digSequence: [[3, 4], [2, 5], [1, 6]],
+    rowStep: 0,
+    jitter: 80,
+    textDelay: 50,
   },
 };
 
