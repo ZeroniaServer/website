@@ -604,13 +604,13 @@
       "title": "FAQ",
       "faqs": [
         {
-          "question": "When is FAQ comming?",
-          "answer": "Soon",
+          "question": "When is the FAQ coming?",
+          "answer": "Soon!",
           "pinned": true
         },
         {
-          "question": "How can I ask questions until FAQ is added",
-          "answer": "Zeronia Discord (https://discord.com/invite/X9bZgw7)",
+          "question": "How can I ask questions until the FAQ is added?",
+          "answer": "Go to the Zeronia Discord! (https://discord.com/invite/X9bZgw7)",
           "pinned": false
         }
       ]
