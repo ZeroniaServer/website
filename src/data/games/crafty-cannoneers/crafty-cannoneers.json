@@ -223,19 +223,7 @@
     {
       "type": "versions",
       "title": "Versions",
-      "versions": [
-        {
-          "version": "1.1.14",
-          "mcVersions": [
-            "26.2"
-          ],
-          "files": {
-            "world": "",
-            "datapack": "",
-            "resourcepack": ""
-          }
-        }
-      ]
+      "versions": []
     },
     {
       "type": "faq",

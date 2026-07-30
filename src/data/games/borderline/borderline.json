@@ -64,19 +64,7 @@
     {
       "type": "versions",
       "title": "Versions",
-      "versions": [
-        {
-          "version": "1.1.6",
-          "mcVersions": [
-            "1.21.11"
-          ],
-          "files": {
-            "world": "",
-            "datapack": "",
-            "resourcepack": ""
-          }
-        }
-      ]
+      "versions": []
     },
     {
       "type": "faq",

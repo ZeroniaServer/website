@@ -194,19 +194,7 @@
     {
       "type": "versions",
       "title": "Versions",
-      "versions": [
-        {
-          "version": "1.0.10",
-          "mcVersions": [
-            "26.2"
-          ],
-          "files": {
-            "world": "",
-            "datapack": "",
-            "resourcepack": ""
-          }
-        }
-      ]
+      "versions": []
     },
     {
       "type": "faq",
