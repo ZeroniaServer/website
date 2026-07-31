@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
 import { type Pool } from "../navbar";
+import CustomMarkdown, { markdownToText } from "../custom-markdown";
 import newsData from "../../data/news/news.json";
 import Section from "./section";
 import "./news.css";
@@ -40,7 +41,7 @@ function youtubeFrame(item: NewsItem) {
   return id ? (
     <iframe
       src={`https://www.youtube-nocookie.com/embed/${id}`}
-      title={`${item.title} video`}
+      title={`${markdownToText(item.title)} video`}
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen
     />
@@ -55,9 +56,9 @@ function NewsMedia({ item, featured = false }: { item: NewsItem; featured?: bool
     <button
       className="news__featured-media"
       onClick={() => undefined}
-      aria-label={`Open ${item.title}`}
+      aria-label={`Open ${markdownToText(item.title)}`}
     >
-      <img src={mediaUrl(item)} alt={item.title} />
+      <img src={mediaUrl(item)} alt={markdownToText(item.title)} />
     </button>
   );
 }
@@ -69,39 +70,17 @@ const formatDate = (iso: string) =>
     day: "numeric",
   });
 
-function descriptionParts(text: string) {
-  const parts = text.split(/(\[head:\s*[^\]]+\]|\[[^\]]+\]\(https?:\/\/[^)]+\)|https?:\/\/\S+)/g);
-  return parts.map((part, i) => {
-    const head = part.match(/^\[head:\s*([^\]]+)\]$/i);
-    if (head) {
-      return (
-        <img
-          key={i}
-          className="news__head"
-          src={`https://mc-heads.net/avatar/${encodeURIComponent(head[1])}/32`}
-          alt={head[1]}
-          title={head[1]}
-          width={24}
-          height={24}
-        />
-      );
-    }
-    const link = part.match(/^\[([^\]]+)\]\((https?:\/\/[^)]+)\)$/);
-    if (link) {
-      return <a key={i} href={link[2]} target="_blank" rel="noreferrer">{link[1]}</a>;
-    }
-    if (/^https?:\/\//.test(part)) {
-      return <a key={i} href={part} target="_blank" rel="noreferrer">{part}</a>;
-    }
-    return <span key={i}>{part}</span>;
-  });
-}
-
 function NewsDescription({ item }: { item: NewsItem }) {
   return (
     <>
-      <p className="news__desc">{descriptionParts(item.description)}</p>
-      {item.button && <a className="mc-button news__button" href={item.button.href}>{item.button.label}</a>}
+      <p className="news__desc">
+        <CustomMarkdown text={item.description} resolveAsset={imageUrl} inline />
+      </p>
+      {item.button && (
+        <a className="mc-button news__button" href={item.button.href}>
+          <CustomMarkdown text={item.button.label} resolveAsset={imageUrl} inline />
+        </a>
+      )}
     </>
   );
 }
@@ -141,14 +120,14 @@ export default function News() {
           <button
             className="news__featured-media"
             onClick={() => setActive(featured)}
-            aria-label={`Open ${featured.title}`}
+            aria-label={`Open ${markdownToText(featured.title)}`}
           >
-            <img src={mediaUrl(featured)} alt={featured.title} />
+            <img src={mediaUrl(featured)} alt={markdownToText(featured.title)} />
           </button>
         )}
         <div className="news__featured-meta">
           <h3 className="news__title">
-            <span>{featured.title}</span>
+            <span><CustomMarkdown text={featured.title} resolveAsset={imageUrl} inline /></span>
             <span className="news__date">{formatDate(featured.date)}</span>
           </h3>
           <NewsDescription item={featured} />
@@ -161,10 +140,26 @@ export default function News() {
             const isLast = i === shown.length - 1;
             return (
               <div className="news__card-wrap" key={`${item.title}-${item.date}`}>
-                <button className="news__card" onClick={() => setActive(item)}>
-                  <img src={mediaUrl(item)} alt={item.title} />
-                  <span className="news__card-title">{item.title}</span>
-                </button>
+                <div
+                  className="news__card"
+                  role="button"
+                  tabIndex={0}
+                  onClick={(event) => {
+                    if ((event.target as HTMLElement).closest("a")) return;
+                    setActive(item);
+                  }}
+                  onKeyDown={(event) => {
+                    if ((event.target as HTMLElement).closest("a")) return;
+                    if (event.key !== "Enter" && event.key !== " ") return;
+                    event.preventDefault();
+                    setActive(item);
+                  }}
+                >
+                  <img src={mediaUrl(item)} alt={markdownToText(item.title)} />
+                  <span className="news__card-title">
+                    <CustomMarkdown text={item.title} resolveAsset={imageUrl} inline />
+                  </span>
+                </div>
                 {isLast && hasMore && (
                   <div className="news__more-overlay">
                     <button
@@ -195,10 +190,10 @@ export default function News() {
               {youtubeId(active.youtube) ? (
                 <div className="news__modal-video">{youtubeFrame(active)}</div>
               ) : (
-                <img src={mediaUrl(active)} alt={active.title} />
+                <img src={mediaUrl(active)} alt={markdownToText(active.title)} />
               )}
               <h3 className="news__title">
-                <span>{active.title}</span>
+                <span><CustomMarkdown text={active.title} resolveAsset={imageUrl} inline /></span>
                 <span className="news__date">{formatDate(active.date)}</span>
               </h3>
               <NewsDescription item={active} />

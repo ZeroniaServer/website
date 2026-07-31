@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { gameAsset } from "../../../lib/games";
+import CustomMarkdown, { markdownToText } from "../../custom-markdown";
 import { buttonStyle, frameStyle } from "../frame";
 import arrowUrl from "../../../assets/sprites/arrow_down.png";
 import globeUrl from "../../../assets/sprites/globe.png";
@@ -65,7 +66,7 @@ export default function Hero({
       <img src={headUrl(c.player)} alt={c.player} loading="lazy" width={40} height={40} />
       <span className="hero__credit-tip pixel-frame">
         <strong>{c.player}</strong>
-        {c.roles.join(", ")}
+        <CustomMarkdown text={c.roles.join(", ")} slug={slug} inline />
       </span>
     </li>
   );
@@ -97,15 +98,21 @@ export default function Hero({
               onClick={replay}
             />
           ) : (
-            <img className="hero__bg" src={mediaSrc} alt={gameName} />
+            <img className="hero__bg" src={mediaSrc} alt={markdownToText(gameName)} />
           )}
-          {logoSrc && <img className="hero__logo" src={logoSrc} alt={gameName} />}
+          {logoSrc && <img className="hero__logo" src={logoSrc} alt={markdownToText(gameName)} />}
         </div>
       )}
       <div className="hero__row">
         <div className="hero__title-group">
-          <h1 className="hero__title">{gameName}</h1>
-          {version && <span className="hero__version-chip">{version}</span>}
+          <h1 className="hero__title">
+            <CustomMarkdown text={gameName} slug={slug} inline />
+          </h1>
+          {version && (
+            <span className="hero__version-chip">
+              <CustomMarkdown text={version} slug={slug} inline />
+            </span>
+          )}
         </div>
         {credits.length > 0 && (
           <ul className="hero__credits">
@@ -127,7 +134,11 @@ export default function Hero({
           </ul>
         )}
       </div>
-      {description && <p className="hero__desc">{description}</p>}
+      {description && (
+        <p className="hero__desc">
+          <CustomMarkdown text={description} slug={slug} inline />
+        </p>
+      )}
       <div className="hero__buttons">
         <button
           className="mc-button hero__download"
@@ -147,7 +158,7 @@ export default function Hero({
               target="_blank"
               rel="noreferrer"
             >
-              {s.name}
+              <CustomMarkdown text={s.name} slug={slug} inline />
             </a>
           ) : (
             <span
@@ -155,7 +166,7 @@ export default function Hero({
               className="mc-button mc-button--disabled"
               style={buttonStyle(s.color)}
             >
-              {s.name}
+              <CustomMarkdown text={s.name} slug={slug} inline />
             </span>
           ),
         )}

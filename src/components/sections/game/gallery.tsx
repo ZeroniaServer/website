@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { gameAsset } from "../../../lib/games";
+import CustomMarkdown, { markdownToText } from "../../custom-markdown";
 import { frameStyle } from "../frame";
 import "./gallery.css";
 
@@ -35,11 +36,15 @@ export default function Gallery({
             <button
               className="gallery__media"
               onClick={() => url && setActive(img)}
-              aria-label={img.caption ? `Open ${img.caption}` : "Open image"}
+              aria-label={img.caption ? `Open ${markdownToText(img.caption)}` : "Open image"}
             >
-              {url && <img src={url} alt={img.caption || ""} loading="lazy" />}
+              {url && <img src={url} alt={markdownToText(img.caption || "")} loading="lazy" />}
             </button>
-            {img.caption && <figcaption className="gallery__caption">{img.caption}</figcaption>}
+            {img.caption && (
+              <figcaption className="gallery__caption">
+                <CustomMarkdown text={img.caption} slug={slug} inline />
+              </figcaption>
+            )}
           </figure>
         );
       })}
@@ -54,8 +59,15 @@ export default function Gallery({
               >
                 ×
               </button>
-              <img src={gameAsset(slug, active.src)} alt={active.caption || ""} />
-              {active.caption && <p className="gallery__modal-caption">{active.caption}</p>}
+              <img
+                src={gameAsset(slug, active.src)}
+                alt={markdownToText(active.caption || "")}
+              />
+              {active.caption && (
+                <p className="gallery__modal-caption">
+                  <CustomMarkdown text={active.caption} slug={slug} inline />
+                </p>
+              )}
             </div>
           </div>,
           document.body,

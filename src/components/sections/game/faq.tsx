@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import Paragraphs from "../../paragraphs";
+import CustomMarkdown from "../../custom-markdown";
 import { frameStyle } from "../frame";
 import "./faq.css";
 
@@ -19,14 +19,19 @@ function AnswerPanel({ open, text, slug }: { open: boolean; text: string; slug: 
     const measure = () => setHeight(open && innerRef.current ? innerRef.current.scrollHeight : 0);
     measure();
     if (!open) return;
+    const observer = new ResizeObserver(measure);
+    if (innerRef.current) observer.observe(innerRef.current);
     window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", measure);
+    };
   }, [open, text]);
 
   return (
     <div className="faq__answer-wrap" style={{ height }}>
       <div className="faq__answer" ref={innerRef}>
-        <Paragraphs text={text} slug={slug} />
+        <CustomMarkdown text={text} slug={slug} />
       </div>
     </div>
   );
@@ -83,7 +88,11 @@ export default function Faq({
   return (
     <div className="faq">
       <div className="faq__header">
-        {title && <h2 className="section__title faq__title">{title}</h2>}
+        {title && (
+          <h2 className="section__title faq__title">
+            <CustomMarkdown text={title} slug={slug} inline />
+          </h2>
+        )}
         <input
           className="faq__search"
           type="search"
@@ -98,19 +107,32 @@ export default function Faq({
       <div className="faq__list">
         {visible.map((f) => (
           <div key={f.question} className="faq__item pixel-frame" style={frameStyle()}>
-            <button
+            <div
               className="faq__question"
+              role="button"
+              tabIndex={0}
               aria-expanded={!!open[f.question]}
-              onClick={() => setOpen((o) => ({ ...o, [f.question]: !o[f.question] }))}
+              onClick={(event) => {
+                if ((event.target as HTMLElement).closest("a")) return;
+                setOpen((o) => ({ ...o, [f.question]: !o[f.question] }));
+              }}
+              onKeyDown={(event) => {
+                if ((event.target as HTMLElement).closest("a")) return;
+                if (event.key !== "Enter" && event.key !== " ") return;
+                event.preventDefault();
+                setOpen((o) => ({ ...o, [f.question]: !o[f.question] }));
+              }}
             >
               {f.pinned && (
                 <span className="faq__pin" title="Pinned">
                   ★
                 </span>
               )}
-              <span className="faq__question-text">{f.question}</span>
+              <span className="faq__question-text">
+                <CustomMarkdown text={f.question} slug={slug} inline />
+              </span>
               <span className="faq__toggle" aria-hidden="true" />
-            </button>
+            </div>
             <AnswerPanel open={!!open[f.question]} text={f.answer} slug={slug} />
           </div>
         ))}

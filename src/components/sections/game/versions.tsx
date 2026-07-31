@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import JSZip from "jszip";
+import CustomMarkdown from "../../custom-markdown";
 import { frameStyle } from "../frame";
 import { useMediaQuery } from "../../../lib/use-media-query";
 import sortUpUrl from "../../../assets/sprites/sort_up.png";
@@ -211,7 +212,11 @@ export default function Versions({
       </span>
     );
 
-  const heading = <h2 className="section__title">{isMobile ? "Download" : title}</h2>;
+  const heading = (
+    <h2 className="section__title">
+      <CustomMarkdown text={isMobile ? "Download" : title || ""} slug={slug} inline />
+    </h2>
+  );
 
   if (versions.length === 0)
     return (

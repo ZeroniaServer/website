@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { gameAsset } from "../../../lib/games";
 import { useMediaQuery } from "../../../lib/use-media-query";
+import CustomMarkdown, { markdownToText } from "../../custom-markdown";
 import { frameStyle } from "../frame";
 import arrowUrl from "../../../assets/sprites/arrow_down.png";
 import {
@@ -125,7 +126,9 @@ export default function DynamicMap({ slug }: { slug: string }) {
           >
             <img src={arrowUrl} alt="" />
           </button>
-          <span className="dmap__floor-label">{floor.label}</span>
+          <span className="dmap__floor-label">
+            <CustomMarkdown text={floor.label} slug={slug} inline />
+          </span>
           <button className="dmap__arrow" aria-label="Next floor" onClick={() => changeFloor(1)}>
             <img src={arrowUrl} alt="" />
           </button>
@@ -137,7 +140,11 @@ export default function DynamicMap({ slug }: { slug: string }) {
           onMouseMove={onMouseMove}
           onMouseLeave={() => setHovered(null)}
         >
-          <img className="dmap__crop" src={mapSrc} alt={hovered?.name ?? floor.label} />
+          <img
+            className="dmap__crop"
+            src={mapSrc}
+            alt={markdownToText(hovered?.name ?? floor.label)}
+          />
         </div>
       </div>
       <div className="dmap__panel dmap__panel--photo">
@@ -145,7 +152,9 @@ export default function DynamicMap({ slug }: { slug: string }) {
           <button className="dmap__arrow" aria-label="Previous room" onClick={() => cycleRoom(-1)}>
             <img src={arrowUrl} alt="" />
           </button>
-          <span className="dmap__floor-label">{previewRoom.name}</span>
+          <span className="dmap__floor-label">
+            <CustomMarkdown text={previewRoom.name} slug={slug} inline />
+          </span>
           <button className="dmap__arrow" aria-label="Next room" onClick={() => cycleRoom(1)}>
             <img src={arrowUrl} alt="" />
           </button>
@@ -154,7 +163,7 @@ export default function DynamicMap({ slug }: { slug: string }) {
           <img
             className={`dmap__photo${previewSharp ? "" : " dmap__photo--loading"}`}
             src={previewSrc}
-            alt={previewRoom.name}
+            alt={markdownToText(previewRoom.name)}
           />
           {showHint && (
             <div className="dmap__hint">

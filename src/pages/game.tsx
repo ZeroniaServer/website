@@ -5,6 +5,7 @@ import Section, { DEEPSLATE, DEEPSLATE_LIGHT, Seam, fieldStyle } from "../compon
 import { SECTIONS } from "../components/sections/game/registry";
 import Missing from "../components/sections/game/missing";
 import { getGame } from "../lib/games";
+import CustomMarkdown, { markdownToText } from "../components/custom-markdown";
 import "./game.css";
 
 const NAMES: Record<string, string> = {};
@@ -22,14 +23,16 @@ export default function GamePage({ slug }: { slug: string }) {
   const game = getGame(slug);
 
   useEffect(() => {
-    document.title = game ? `${game.name} | Zeronia` : "Zeronia";
+    document.title = game ? `${markdownToText(game.name)} | Zeronia` : "Zeronia";
   }, [game]);
 
   if (!game) {
     const name = NAMES[slug] ?? titleize(slug);
     return (
       <main className="game-page" style={fieldStyle(DEEPSLATE)}>
-        <h1 className="game-page__title">{name}</h1>
+        <h1 className="game-page__title">
+          <CustomMarkdown text={name} inline />
+        </h1>
         <p className="game-page__soon">Coming soon…</p>
       </main>
     );
@@ -61,6 +64,7 @@ export default function GamePage({ slug }: { slug: string }) {
               id={`${type}-${i}`}
               pool={pools[i]}
               title={ownsHeader ? undefined : title}
+              slug={slug}
               className={`game__section game__section--${type}`}
             >
               {Cmp ? (

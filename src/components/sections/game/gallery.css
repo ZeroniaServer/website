@@ -57,7 +57,7 @@
     inset calc(-1 * var(--bevel-size)) calc(-1 * var(--bevel-size)) 0 var(--bevel-dark);
 }
 
-.gallery__modal-panel img {
+.gallery__modal-panel > img {
   display: block;
   width: 100%;
   border: var(--pixel) solid #50505a;

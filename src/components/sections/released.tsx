@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { type Pool } from "../navbar";
 import { goToPage } from "../../lib/router";
 import releasedData from "../../data/released/released.json";
+import CustomMarkdown, { markdownToText } from "../custom-markdown";
 import Section from "./section";
 import { frameStyle } from "./frame";
 import "./released.css";
@@ -60,8 +61,14 @@ export default function Released() {
             style={frameStyle(game.color)}
             onMouseEnter={() => setActive(i)}
             onFocus={() => setActive(i)}
-            onClick={() => goToPage(game.route)}
-            onKeyDown={(e) => e.key === "Enter" && goToPage(game.route)}
+            onClick={(event) => {
+              if ((event.target as HTMLElement).closest("a")) return;
+              goToPage(game.route);
+            }}
+            onKeyDown={(event) => {
+              if ((event.target as HTMLElement).closest("a") || event.key !== "Enter") return;
+              goToPage(game.route);
+            }}
           >
             <div className="released__media">
               {game.media.type === "video" ? (
@@ -76,7 +83,7 @@ export default function Released() {
                   preload="metadata"
                 />
               ) : (
-                <img src={assetUrl(game.media.src)} alt={game.name} />
+                <img src={assetUrl(game.media.src)} alt={markdownToText(game.name)} />
               )}
             </div>
             <div className="released__overlay">
@@ -84,12 +91,16 @@ export default function Released() {
                 <img
                   className="released__logo"
                   src={assetUrl(game.logo)}
-                  alt={game.name}
+                  alt={markdownToText(game.name)}
                 />
               ) : (
-                <span className="released__name">{game.name}</span>
+                <span className="released__name">
+                  <CustomMarkdown text={game.name} resolveAsset={assetUrl} inline />
+                </span>
               )}
-              <p className="released__blurb">{game.description}</p>
+              <p className="released__blurb">
+                <CustomMarkdown text={game.description} resolveAsset={assetUrl} inline />
+              </p>
             </div>
           </div>
         ))}
