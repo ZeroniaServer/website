@@ -116,6 +116,7 @@ video.hero__bg {
   cursor: help;
   outline: none;
   line-height: 0;
+  transition: scale 100ms ease-in-out;
 }
 
 .hero__credit > img,
@@ -143,6 +144,7 @@ video.hero__bg {
 .hero__credits:focus-within .hero__credit:focus > img,
 .hero__credits:focus-within .hero__credit:focus .hero__globe-btn img {
   filter: none;
+  scale: 105%;
 }
 
 .hero__globe-btn {
@@ -150,6 +152,12 @@ video.hero__bg {
   display: block;
   line-height: 0;
   cursor: pointer;
+}
+
+.hero__credit--globe button
+.hero__credit--globe img {
+  width: 1.75rem;
+  height: 1.75rem;
 }
 
 .hero__credit-tip {

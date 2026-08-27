@@ -7,6 +7,11 @@
 .gallery__item {
   margin: 0;
   background: rgba(0, 0, 0, 0.35);
+  transition: scale 50ms ease-in;
+  box-shadow: 3px 3px .5rem #000000;
+}
+.gallery__item:hover {
+  scale: 102%;
 }
 
 .gallery__media {

@@ -37,9 +37,17 @@ export default function GamePage({ slug }: { slug: string }) {
       </main>
     );
   }
-
-  const pools = game.sections.map(
-    (s, i) => (s.background as Pool | undefined) ?? (i % 2 ? DEEPSLATE_LIGHT : DEEPSLATE),
+  const darkSections = new Set(["hero", "how-to-play", "additional-info"]) // Text based sections will have dark background for visibility
+  const pools = game.sections.map( (s, i) => {
+    if (darkSections.has(s.type)) {
+      console.log(`${s.type} is dark`)
+      return DEEPSLATE
+    }
+    else {
+      console.log(`${s.type} is light`)
+      return DEEPSLATE_LIGHT
+    }
+  }
   );
   const versionsIndex = game.sections.findIndex((s) => s.type === "versions");
   const versionsId = versionsIndex >= 0 ? `versions-${versionsIndex}` : undefined;
