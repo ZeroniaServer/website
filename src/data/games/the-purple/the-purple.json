@@ -1,6 +1,6 @@
 {
   "name": "The Purple",
-  "aliases": [],
+  "aliases": ["purple"],
   "navbarVariant": "purple",
   "sections": [
     {
@@ -16,6 +16,10 @@
       },
       "servers": [
         {
+          "name": "CubeKrowd",
+          "url": "https://cubekrowd.net"
+        },
+        {
           "name": "StickyPiston",
           "url": "https://trial.stickypiston.co/map/purple"
         },
@@ -25,7 +29,7 @@
         },
         {
           "name": "Realms",
-          "url": ""
+          "url": "https://www.minecraft.net/en-us/realms"
         },
         {
           "name": "PlanetMinecraft",
@@ -192,8 +196,18 @@
           "name": "Spectators can play too",
           "icon": "icons/slime_ball.png",
           "body": "Spectators have abilities too! It's part of what makes The Purple so unique. Use your spectator abilities to affect gameplay: Spawn power-ups, Teleport players, Spawn hordes of annoying purple slimes, and more!"
+        },
+        {
+          "name": "Collect Artifacts",
+          "icon": "icons/artifacts.gif",
+          "body": "Artifacts are hidden throughout the game and can be collected by players. Artifacts glow when you get close to them. Click to pick them up, and display them on pedestals in the lobby. Some artifacts are easy to find, while others may need to find you."
         }
       ]
+    },
+    {
+      "type": "additional-info",
+      "title": "Abilities",
+      "body": "There are two different types of abilities in The Purple: Spectator Abilities and Infected Abilities. Infected Abilities are meant to assist you while you are infected. Spectator Abilties give you something to do when you are dead, and can influence the game in strategic ways or just simply to have some fun.\n\nYou may only have one ability of each type selected at any given time. To select an ability, open your inventory while in the lobby and click on the icon of the ability you want desire. You can change your ability at any time while in the lobby. In game you will see the ability you have selected via the item name on your hotbar.\n\nTo use your ability, right click on the item in your hotbar. If you are in spectator mode, you can use your ability via left click.\n\nAbilities have a cooldown, and will deactivate early if you become no longer infected."
     },
     {
       "type": "versions",
@@ -205,13 +219,33 @@
       "title": "FAQ",
       "faqs": [
         {
-          "question": "When is the FAQ coming?",
-          "answer": "Soon!",
+          "question": "What are abilities and how do I select them?",
+          "answer": "Spectator Abilities Infected Abilities\n\nWhile in the lobby, open your inventory to view all the abilities. Your inventory works as a selection menu: click around to select your abilities. Read more about abilities in the Abilities section of this page.",
           "pinned": true
         },
         {
-          "question": "How can I ask questions until the FAQ is added?",
-          "answer": "Go to the [Zeronia Discord server](https://discord.com/invite/X9bZgw7)!",
+          "question": "Help! I'm stuck in spectator mode!",
+          "answer": "Use the command ++/trigger return++.\n\nAs a spectator you can fly around an affect the gameplay, but if you want to get back in, you'll need to run the command to return to the game. There is also a message in chat from when you entered spectator mode. You can click that in case you forget the command.",
+          "pinned": true
+        },
+        {
+          "question": "Why am I sometimes in the game and sometimes spectator mode after dying?",
+          "answer": "Once you end a round as infected, you become a spectator. Spectators have two modes, and can swap between the two interchangeably. Both modes allow you to use your spectator ability to continue to affect the game, but one mode allows you to fly around the map as a spectator, and the other one will have you looking like other players but dead, which can allow you to get back into the game with a Revival Elixir.",
+          "pinned": false
+        },
+        {
+          "question": "What does my team color mean?",
+          "answer": "The color of your nametag indicates your status in the game. Green for alive in game, purple for infected, or gray for a spectator. Players also have colored stars in front of their names that indicate their selected cosmetic color. This affects the color of your footprints, the color of wool that appears when you spread infection, and the color of your space helmet. Cosmetic team color has no gameplay effect.",
+          "pinned": false
+        },
+        {
+          "question": "How do I know who is infected?",
+          "answer": "",
+          "pinned": false
+        },
+        {
+          "question": "Why would I want to revive someone?",
+          "answer": "A couple reasons! Firstly, its just a fun game with some friends, so why not! There is however some strategy to it as well. If you are infected with no alive players nearby, you may want to revive a nearby spectator to pass on The Purple and help your chances of winning.",
           "pinned": false
         }
       ]
