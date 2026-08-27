@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { type Pool } from "../navbar";
 import teamData from "../../data/team/team.json";
+import CustomMarkdown from "../custom-markdown";
 import Section from "./section";
 import arrowUrl from "../../assets/sprites/arrow_down.png";
 import "./team.css";
@@ -34,19 +35,32 @@ function Card({ group }: { group: Group }) {
 
   return (
     <div className="team__card">
-      <button
+      <div
         className="team__card-head"
-        onClick={() => setOpen((o) => !o)}
+        role="button"
+        tabIndex={0}
+        onClick={(event) => {
+          if ((event.target as HTMLElement).closest("a")) return;
+          setOpen((o) => !o);
+        }}
+        onKeyDown={(event) => {
+          if ((event.target as HTMLElement).closest("a")) return;
+          if (event.key !== "Enter" && event.key !== " ") return;
+          event.preventDefault();
+          setOpen((o) => !o);
+        }}
         aria-expanded={open}
       >
-        <span className="team__role">{group.role}</span>
+        <span className="team__role">
+          <CustomMarkdown text={group.role} inline />
+        </span>
         <span className="team__count">{group.members.length}</span>
         <img
           className={`team__chevron${open ? " team__chevron--open" : ""}`}
           src={arrowUrl}
           alt=""
         />
-      </button>
+      </div>
       <div className={`team__card-body-wrap${open ? " team__card-body-wrap--open" : ""}`}>
         <div className="team__card-body">
           {group.members.map((member, i) => (
@@ -62,7 +76,11 @@ function Card({ group }: { group: Group }) {
               <span className="team__name" title={member.name}>
                 {member.name}
               </span>
-              {member.note && <span className="team__note">{member.note}</span>}
+              {member.note && (
+                <span className="team__note">
+                  <CustomMarkdown text={member.note} inline />
+                </span>
+              )}
             </div>
           ))}
         </div>

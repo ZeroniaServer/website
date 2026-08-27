@@ -1,5 +1,5 @@
 import {
-  type MouseEvent,
+  type PointerEvent,
   useEffect,
   useLayoutEffect,
   useRef,
@@ -28,21 +28,15 @@ export interface DropdownSection {
   items: NavLink[];
 }
 
-// Buttons and dropdown are global - shared across every page and variant.
 const buttons = navData.buttons as NavButton[];
 const dropdown = navData.dropdown as DropdownSection[];
 
-// Per-page variant pools: { "<page path>": ["grass", ...] }. The current page's
-// list is chosen from at random on load; only the colours/animation change.
+// per-page variant pools, one picked at random on load
 const PAGES = ((navData as { pages?: Record<string, string[]> }).pages ??
   {}) as Record<string, string[]>;
 
 const SCROLL_THRESHOLD = 24; // px scrolled before the bar drops a shadow
 
-// The bar background is a procedural pixel grid of ROWS rows of square cells.
-// Each cell picks a colour from a pool (a weighted list of colours). A variant
-// defines the idle `surface` colour and either a `dig` reveal (grass/snow) or a
-// `wave` tide animation (sand). Add another variant to VARIANTS the same way.
 export const ROWS = 8;
 
 export type Pool = { color: string; weight: number }[];
@@ -102,7 +96,7 @@ export const POOLS: Record<string, Pool> = {
   ],
 };
 
-// Blue shades for the sand tide, surface (light) → deep (dark).
+// sand tide shades, light to deep
 export const WAVE_SHADES = ["#bfe6ff", "#86c6ef", "#479bd8", "#2f72b0"];
 
 export function pick(pool: Pool, r: number): string {
@@ -111,9 +105,7 @@ export function pick(pool: Pool, r: number): string {
   return pool[pool.length - 1].color;
 }
 
-// Coherent value noise in [0,1) - neighbouring cells get similar values, so
-// colours land in short streaks instead of per-pixel noise. Sampled with a wide
-// horizontal scale (NOISE_X) and short vertical one (NOISE_Y) → linear sections.
+// value noise in [0,1), neighbouring cells blend instead of flickering per-pixel
 const NOISE_X = 4;
 const NOISE_Y = 1.4;
 function hash2(x: number, y: number, seed: number): number {
@@ -137,7 +129,7 @@ export function noise(col: number, row: number, seed: number): number {
 }
 
 interface WaveConfig {
-  shades: string[]; // surface → deep
+  shades: string[]; // surface to deep
   peakRows: number; // water height at the hovered centre
   edgeRows: number; // water height at the hovered edges
   amp: number; // surface wobble amplitude, in rows
@@ -262,8 +254,7 @@ const VARIANTS: Record<string, Variant> = {
 
 function pickVariantName(): string {
   const slug = typeof window !== "undefined" ? currentSlug() : "";
-  // A game's own JSON is the source of truth for its navbar variant; the
-  // navbar.json pages map only covers home and games without a JSON file.
+  // a game's own JSON overrides navbar.json's page pool
   const gameVariant = slug ? getGame(slug)?.navbarVariant : undefined;
   const fromGame = gameVariant
     ? Array.isArray(gameVariant)
@@ -279,7 +270,6 @@ function pickVariantName(): string {
 // Chosen once on load and shared with the footer so they always match.
 export const VARIANT_NAME = pickVariantName();
 
-// Logo png lookup so a variant can target any file in src/assets/logo by name.
 const LOGOS = import.meta.glob("../assets/logo/*.png", {
   eager: true,
   query: "?url",
@@ -291,7 +281,6 @@ function resolveLogo(name: string): string {
   return hit ? hit[1] : "";
 }
 
-// A small tiling texture painted from a pool - fills the dropdown.
 export const TEX = 32; // texture tile size, in cells
 export function makeTexture(p: Pool): string {
   const canvas = document.createElement("canvas");
@@ -306,8 +295,7 @@ export function makeTexture(p: Pool): string {
   return `url(${canvas.toDataURL()})`;
 }
 
-// A variant's idle surface as a ROWS-tall texture (grass cap + dirt for grass,
-// uniform for snow/sand) - used for the footer's top "surface" strip.
+// idle surface as a ROWS-tall texture, used for the footer's top strip
 export function surfaceTexture(name: string): string {
   const v = VARIANTS[name] ?? VARIANTS.grass;
   const canvas = document.createElement("canvas");
@@ -328,14 +316,12 @@ interface Grid {
   cell: number;
   normal: string[];
   hover: string[];
-  // top strip of the dropdown: 50% body / 50% dug, plus a full-dug variant used
-  // directly under the open (hovered) dropdown button.
+  // dropdown top strip: half body/dug, plus a full-dug row for the open button
   strip: string[];
   stripDug: string[];
 }
 
-// Resolve a nav item's destination. `scroll` smooth-scrolls to a home section
-// by id; `page` hash-navigates to a game page; `url` opens externally.
+// scroll = home section, page = game route, url = external
 export function follow(item: NavLink) {
   switch (item.link) {
     case "scroll":
@@ -442,7 +428,7 @@ export default function Navbar() {
     return [c0, c1];
   };
 
-  /* --- dig variants (grass / snow) --- */
+  // dig variants: grass, snow
 
   const resetRange = (g: HTMLElement) => {
     if (!grid || !lastRange.current) return;
@@ -521,19 +507,16 @@ export default function Navbar() {
     }
   };
 
-  /* --- wave variant (sand): animated tide in the hovered column --- */
+  // wave variant (sand): animated tide in the hovered column
 
-  // Surface wobble shared by the bar and the dropdown so they read as one tide.
+  // shared wobble so the bar and dropdown read as one tide
   const wobbleAt = (w: WaveConfig, col: number, t: number) =>
     w.amp * Math.sin(col * w.freq + t * w.speed) +
     0.5 * w.amp * Math.sin(col * w.freq * 2 - t * w.speed * 1.7);
 
-  const FALLOFF = 18; // wide, rounded bell - fine for the base to reach neighbours
+  const FALLOFF = 18; // wide bell so it reaches neighbouring columns
 
-  // Aim the wave at a button's column range (or null to recede). A single loop
-  // eases a per-column water level toward the target bell. Moving between
-  // buttons makes the old column sink and the new one rise in place (the pixels
-  // animate up/down) rather than the shape sliding sideways. null = recede.
+  // eases each column's water level toward the target; null recedes
   const aimWave = (range: [number, number] | null, isDropdown: boolean) => {
     if (!variant.wave || !grid) return;
     waveTarget.current = range;
@@ -557,7 +540,7 @@ export default function Navbar() {
     const last = w.shades.length - 1;
     const cols = grid.cols;
 
-    // per-column water level, eased toward the target bell (1 at its centre)
+    // eased toward the target, 1 at its centre
     let level = waveLevel.current;
     if (level.length !== cols) {
       level = new Array(cols).fill(0);
@@ -597,14 +580,12 @@ export default function Navbar() {
       canvas.getContext("2d")?.clearRect(0, 0, canvas.width, canvas.height);
     }
 
-    // shared surface line (rows from the bar bottom): sand on top, water below;
-    // lifts up into the bar by each column's eased level.
+    // sand on top, water below, lifted per column
     const surface = (col: number) => {
       const hf = level[col];
       return sandTop * (1 - hf) - peakLift * hf + wobbleAt(w, col, t);
     };
 
-    // bar across all columns (each repaints water-or-sand from its own level)
     for (let col = 0; col < cols; col++) {
       const s = surface(col);
       for (let row = 0; row < ROWS; row++) {
@@ -615,7 +596,7 @@ export default function Navbar() {
       }
     }
 
-    // dropdown: sand above the surface, water banded down to the bottom
+    // dropdown surface, same shape as the bar above
     if (ctx) {
       for (let col = 0; col < cols; col++) {
         const s = surface(col);
@@ -645,12 +626,13 @@ export default function Navbar() {
     if (tgt || maxLevel > 0.01) {
       waveRAF.current = requestAnimationFrame(waveFrame);
     } else {
-      waveRAF.current = 0; // fully receded - bar is plain sand again, loop idles
+      waveRAF.current = 0; // fully receded, stop the loop
     }
   };
 
-  const onEnter = (e: MouseEvent<HTMLElement>, isDropdown: boolean) => {
-    setOpen(isDropdown);
+  const onEnter = (e: PointerEvent<HTMLElement>, isDropdown: boolean) => {
+    // touch fires a synthetic hover before click, so only real mouse opens here
+    if (e.pointerType === "mouse") setOpen(isDropdown);
     const btn = e.currentTarget;
     if (variant.wave) {
       aimWave(columnRange(btn), isDropdown);
@@ -714,8 +696,14 @@ export default function Navbar() {
                 className="navbar__btn"
                 key={item.name}
                 aria-expanded={isDropdown ? open : undefined}
-                onMouseEnter={(e) => onEnter(e, isDropdown)}
-                onClick={() => (isDropdown ? setOpen((v) => !v) : follow(item))}
+                onPointerEnter={(e) => onEnter(e, isDropdown)}
+                onClick={() => {
+                  if (isDropdown) setOpen((v) => !v);
+                  else {
+                    setOpen(false);
+                    follow(item);
+                  }
+                }}
               >
                 {item.name}
                 {isDropdown && (

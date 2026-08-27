@@ -198,30 +198,20 @@
     {
       "type": "versions",
       "title": "Versions",
-      "versions": [
-        {
-          "name": "the-purple-v1.0.10.zip",
-          "version": "1.0.10",
-          "gameVersion": "26.2",
-          "url": "https://downloads.zeronia.org/maps/the-purple/the-purple-v1.0.10.zip",
-          "type": "map"
-        },
-        {
-          "name": "the-purple-pack-v1.0.10.zip",
-          "version": "1.0.10",
-          "gameVersion": "26.2",
-          "url": "https://downloads.zeronia.org/resource-packs/the-purple/the-purple-pack-v1.0.10.zip",
-          "type": "resourcepack"
-        }
-      ]
+      "versions": []
     },
     {
       "type": "faq",
       "title": "FAQ",
       "faqs": [
         {
-          "question": "Placeholder",
-          "answer": "Placeholder",
+          "question": "When is the FAQ coming?",
+          "answer": "Soon!",
+          "pinned": true
+        },
+        {
+          "question": "How can I ask questions until the FAQ is added?",
+          "answer": "Go to the [Zeronia Discord server](https://discord.com/invite/X9bZgw7)!",
           "pinned": false
         }
       ]

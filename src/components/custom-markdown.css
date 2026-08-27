@@ -1,0 +1,41 @@
+.custom-markdown {
+  font-family: "Minecraft", monospace;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+}
+
+.custom-markdown p {
+  margin: 0 0 1rem;
+  white-space: pre-line;
+}
+
+.custom-markdown p:last-child {
+  margin-bottom: 0;
+}
+
+.custom-markdown__link {
+  color: #7ec8f0;
+}
+
+.custom-markdown__icon,
+.custom-markdown__head {
+  display: inline-block;
+  width: 1.1em;
+  height: 1.1em;
+  vertical-align: text-bottom;
+  image-rendering: pixelated;
+}
+
+.custom-markdown__head {
+  margin: 0 0.15rem;
+  vertical-align: middle;
+}
+
+.custom-markdown__image {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}

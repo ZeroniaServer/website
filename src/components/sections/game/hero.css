@@ -118,7 +118,8 @@ video.hero__bg {
   line-height: 0;
 }
 
-.hero__credit img {
+.hero__credit > img,
+.hero__globe-btn img {
   width: 2.5rem;
   height: 2.5rem;
   image-rendering: pixelated;
@@ -130,13 +131,17 @@ video.hero__bg {
 
 /* Dim every head once the group is hovered/focused, then un-dim the one
    actually being pointed at, instead of moving heads around. */
-.hero__credits:hover .hero__credit img,
-.hero__credits:focus-within .hero__credit img {
+.hero__credits:hover .hero__credit > img,
+.hero__credits:hover .hero__globe-btn img,
+.hero__credits:focus-within .hero__credit > img,
+.hero__credits:focus-within .hero__globe-btn img {
   filter: brightness(0.7);
 }
 
-.hero__credits:hover .hero__credit:hover img,
-.hero__credits:focus-within .hero__credit:focus img {
+.hero__credits:hover .hero__credit:hover > img,
+.hero__credits:hover .hero__credit:hover .hero__globe-btn img,
+.hero__credits:focus-within .hero__credit:focus > img,
+.hero__credits:focus-within .hero__credit:focus .hero__globe-btn img {
   filter: none;
 }
 

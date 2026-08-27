@@ -98,8 +98,7 @@
   transition: transform 0.15s ease;
 }
 
-/* grass/jungle both have a grass cap up top, so slide the label down onto
-   the dug ground beneath it */
+/* grass/jungle: slide the label onto the dug ground under the grass cap */
 .navbar--grass .navbar__btn--dug,
 .navbar--jungle .navbar__btn--dug {
   transform: translateY(0.5rem);
@@ -112,8 +111,7 @@
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 
-/* jungle's dug ground is dark night mud, not light stone - the engraved dark
-   text trick would be unreadable, so keep the label white instead */
+/* jungle's dug ground is dark mud, so the engraved-dark-text trick can't work */
 .navbar--jungle .navbar__btn--dug {
   color: var(--color-text);
   mix-blend-mode: normal;
@@ -193,6 +191,10 @@
   padding: 1.25rem;
 }
 
+.navbar--sand .navbar__columns {
+  margin-top: 2rem;
+}
+
 .navbar__column {
   display: flex;
   flex-direction: column;
@@ -216,13 +218,16 @@
 }
 
 @media (max-width: 40rem) {
-  .navbar__brand,
-  .navbar__brand-icon {
-    display: none;
+  .navbar__brand {
+    margin-left: 0.75rem;
   }
 
-  .navbar__bar {
-    justify-content: center;
+  .navbar__wordmark {
+    height: 2rem;
+  }
+
+  .navbar__brand-icon {
+    display: none;
   }
 
   .navbar__btn {
@@ -243,5 +248,25 @@
   /* only show Released on mobile */
   .navbar__column:not([data-header="Released"]) {
     display: none;
+  }
+}
+
+/* too narrow for the wordmark next to the links - drop to the icon mark */
+@media (max-width: 26rem) {
+  .navbar__brand {
+    display: none;
+  }
+
+  .navbar__brand-icon {
+    display: inline-flex;
+    margin-right: 0.75rem;
+  }
+
+  .navbar__icon {
+    height: 2rem;
+  }
+
+  .navbar__bar {
+    justify-content: center;
   }
 }

@@ -1,5 +1,6 @@
 import { type ReactNode, useMemo } from "react";
 import { type Pool, noise, pick } from "../navbar";
+import CustomMarkdown from "../custom-markdown";
 import "./section.css";
 
 export const CELL = 8;
@@ -54,16 +55,21 @@ interface SectionProps {
   id: string;
   pool: Pool;
   title?: string;
+  slug?: string;
   className?: string;
   children: ReactNode;
 }
 
-export default function Section({ id, pool, title, className, children }: SectionProps) {
+export default function Section({ id, pool, title, slug, className, children }: SectionProps) {
   const style = useMemo(() => fieldStyle(pool), [pool]);
   return (
     <section id={id} className={["section", className].filter(Boolean).join(" ")} style={style}>
       <div className="section__inner">
-        {title && <h2 className="section__title">{title}</h2>}
+        {title && (
+          <h2 className="section__title">
+            <CustomMarkdown text={title} slug={slug} inline />
+          </h2>
+        )}
         {children}
       </div>
     </section>

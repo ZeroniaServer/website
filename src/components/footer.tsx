@@ -26,13 +26,11 @@ interface Social {
   url: string;
 }
 
-// Links + columns are shared with the nav (single source of truth).
+// links + columns are shared with the nav
 const buttons = navData.buttons as NavButton[];
 const dropdown = navData.dropdown as DropdownSection[];
 const socials = footerData.socials as Social[];
 
-// The footer is a cross-section: the variant's surface material on top (socials),
-// a 1-cell transition strip, then its underground material below (links).
 const BODY_POOL: Record<string, Pool> = {
   grass: POOLS.stone,
   snow: POOLS.ice,
@@ -49,6 +47,7 @@ const SEAM: Record<string, [Pool, Pool]> = {
   purple: [POOLS.purple_dark, POOLS.purple],
 };
 const IS_WATER = VARIANT_NAME === "sand";
+const DARK_TEXT = VARIANT_NAME === "snow";
 const CELL = 8; // px per texture pixel, matching the navbar grid
 
 // 1-row mixed strip used as the seam between the surface and the underground.
@@ -92,7 +91,7 @@ export default function Footer() {
   const bodyRef = useRef<HTMLDivElement>(null);
   const waterRef = useRef<HTMLCanvasElement>(null);
 
-  // Animate the body water (sand variant only) - same banded tide as the navbar.
+  // sand variant only, same banded tide as the navbar
   useEffect(() => {
     if (!IS_WATER) return;
     const body = bodyRef.current;
@@ -143,7 +142,13 @@ export default function Footer() {
     return () => cancelAnimationFrame(raf);
   }, []);
 
-  const className = ["footer", `footer--${VARIANT_NAME}`].join(" ");
+  const className = [
+    "footer",
+    `footer--${VARIANT_NAME}`,
+    DARK_TEXT && "footer--darktext",
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <footer className={className} id="site-footer">

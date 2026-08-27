@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { gameAsset } from "../../../lib/games";
-import Paragraphs from "../../paragraphs";
+import CustomMarkdown, { markdownToText } from "../../custom-markdown";
 import "./how-to-play.css";
 
 interface Category {
@@ -131,7 +131,7 @@ export default function HowToPlay({
   if (categories.length === 0)
     return (
       <div className="htp">
-        <Paragraphs className="htp__intro" text={intro} slug={slug} />
+        <CustomMarkdown className="htp__intro" text={intro} slug={slug} />
       </div>
     );
 
@@ -144,7 +144,7 @@ export default function HowToPlay({
     }, 1000);
 
     const heading = document
-      .getElementById(idFor(categories[i].name, i))
+      .getElementById(idFor(markdownToText(categories[i].name), i))
       ?.querySelector(".htp__heading");
     const icon = iconRefs.current[i];
     if (heading && icon) {
@@ -155,7 +155,7 @@ export default function HowToPlay({
       window.scrollBy({ top: delta, behavior: "smooth" });
     } else {
       document
-        .getElementById(idFor(categories[i].name, i))
+        .getElementById(idFor(markdownToText(categories[i].name), i))
         ?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
@@ -166,7 +166,7 @@ export default function HowToPlay({
 
   return (
     <div className="htp">
-      {intro && <Paragraphs className="htp__intro" text={intro} slug={slug} />}
+      {intro && <CustomMarkdown className="htp__intro" text={intro} slug={slug} />}
       <div className="htp__layout" ref={layoutRef}>
         <nav className="htp__rail" aria-label="How to play categories" ref={railRef}>
           <div className="htp__rail-scrollbar" aria-hidden="true">
@@ -189,10 +189,14 @@ export default function HowToPlay({
                     iconRefs.current[i] = el;
                   }}
                   className={`htp__rail-icon${active === i ? " htp__rail-icon--active" : ""}`}
-                  title={c.name}
+                  title={markdownToText(c.name)}
                   onClick={() => scrollToIndex(i)}
                 >
-                  {icon ? <img src={icon} alt={c.name} /> : <span>{c.name.charAt(0)}</span>}
+                  {icon ? (
+                    <img src={icon} alt={markdownToText(c.name)} />
+                  ) : (
+                    <span>{markdownToText(c.name).charAt(0)}</span>
+                  )}
                 </button>
               );
             })}
@@ -202,12 +206,17 @@ export default function HowToPlay({
           {categories.map((c, i) => {
             const icon = c.icon ? gameAsset(slug, c.icon) : "";
             return (
-              <div key={i} id={idFor(c.name, i)} data-index={i} className="htp__category">
+              <div
+                key={i}
+                id={idFor(markdownToText(c.name), i)}
+                data-index={i}
+                className="htp__category"
+              >
                 <h3 className="htp__heading">
                   {icon && <img className="htp__heading-icon" src={icon} alt="" />}
-                  {c.name}
+                  <CustomMarkdown text={c.name} slug={slug} inline />
                 </h3>
-                <Paragraphs text={c.body} slug={slug} />
+                <CustomMarkdown text={c.body} slug={slug} />
               </div>
             );
           })}

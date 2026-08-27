@@ -208,30 +208,20 @@
     {
       "type": "versions",
       "title": "Versions",
-      "versions": [
-        {
-          "name": "snowy-skirmish-2-v1.0.6.zip",
-          "version": "1.0.6",
-          "gameVersion": "26.2",
-          "url": "https://downloads.zeronia.org/maps/snowy-skirmish-2/snowy-skirmish-2-v1.0.6.zip",
-          "type": "map"
-        },
-        {
-          "name": "snowy-skirmish-2-pack-v1.0.6.zip",
-          "version": "1.0.6",
-          "gameVersion": "26.2",
-          "url": "https://downloads.zeronia.org/resource-packs/snowy-skirmish-2/snowy-skirmish-2-pack-v1.0.6.zip",
-          "type": "resourcepack"
-        }
-      ]
+      "versions": []
     },
     {
       "type": "faq",
       "title": "FAQ",
       "faqs": [
         {
-          "question": "Placeholder",
-          "answer": "Placeholder",
+          "question": "When is the FAQ coming?",
+          "answer": "Soon!",
+          "pinned": true
+        },
+        {
+          "question": "How can I ask questions until the FAQ is added?",
+          "answer": "Go to the [Zeronia Discord server](https://discord.com/invite/X9bZgw7)!",
           "pinned": false
         }
       ]

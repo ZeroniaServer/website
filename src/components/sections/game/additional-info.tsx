@@ -1,5 +1,5 @@
-import Paragraphs from "../../paragraphs";
+import CustomMarkdown from "../../custom-markdown";
 
 export default function AdditionalInfo({ slug, body = "" }: { slug: string; body?: string }) {
-  return <Paragraphs text={body} slug={slug} />;
+  return <CustomMarkdown text={body} slug={slug} />;
 }
