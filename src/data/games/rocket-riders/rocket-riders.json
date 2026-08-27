@@ -533,6 +533,7 @@
           ],
           "changelog": "https://github.com/ZeroniaServer/RocketRiders/releases/tag/v1.0.6",
           "files": {
+            "world": "https://downloads.zeronia.org/maps/rocket-riders/rocket-riders-v1.0.6.zip",
             "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.0.6.zip"
           }
         },
@@ -543,6 +544,7 @@
           ],
           "changelog": "https://github.com/ZeroniaServer/RocketRiders/releases/tag/v1.0.5",
           "files": {
+            "world": "https://downloads.zeronia.org/maps/rocket-riders/rocket-riders-v1.0.5.zip",
             "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.0.5.zip"
           }
         },
@@ -594,6 +596,7 @@
           ],
           "changelog": "https://github.com/ZeroniaServer/RocketRiders/releases/tag/v1.0.0",
           "files": {
+            "world": "https://downloads.zeronia.org/maps/rocket-riders/rocket-riders-v1.0.0.zip",
             "datapack": "https://downloads.zeronia.org/datapacks/rocket-riders/rocket-riders-datapacks-v1.0.0.zip"
           }
         }
