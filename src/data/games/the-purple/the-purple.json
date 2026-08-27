@@ -207,7 +207,7 @@
     {
       "type": "additional-info",
       "title": "Abilities",
-      "body": "There are two different types of abilities in The Purple: Spectator Abilities and Infected Abilities. Infected Abilities are meant to assist you while you are infected. Spectator Abilties give you something to do when you are dead, and can influence the game in strategic ways or just simply to have some fun.\n\nYou may only have one ability of each type selected at any given time. To select an ability, open your inventory while in the lobby and click on the icon of the ability you want desire. You can change your ability at any time while in the lobby. In game you will see the ability you have selected via the item name on your hotbar.\n\nTo use your ability, right click on the item in your hotbar. If you are in spectator mode, you can use your ability via left click.\n\nAbilities have a cooldown, and will deactivate early if you become no longer infected."
+      "body": "There are two different types of abilities in The Purple: Spectator Abilities and Infected Abilities. Infected Abilities are meant to assist you while you are infected. Spectator Abilties give you something to do when you are dead, and can influence the game in strategic ways or just simply to have some fun.\n\nYou may only have one ability of each type selected at any given time. To select an ability, open your inventory while in the lobby and click on the icon of the ability you desire. You can change your ability at any time while in the lobby. In game you will see the ability you have selected via the item name on your hotbar.\n\nTo use your ability, right click on the item in your hotbar. If you are in spectator mode, you can use your ability via left click.\n\nAbilities have a cooldown, and will deactivate early if you become no longer infected."
     },
     {
       "type": "versions",
@@ -220,12 +220,12 @@
       "faqs": [
         {
           "question": "What are abilities and how do I select them?",
-          "answer": "Spectator Abilities Infected Abilities\n\nWhile in the lobby, open your inventory to view all the abilities. Your inventory works as a selection menu: click around to select your abilities. Read more about abilities in the Abilities section of this page.",
+          "answer": "While in the lobby, open your inventory to view all the abilities. Your inventory works as a selection menu: click around to select your abilities. Read more about abilities in the Abilities section of this page.",
           "pinned": true
         },
         {
           "question": "Help! I'm stuck in spectator mode!",
-          "answer": "Use the command ++/trigger return++.\n\nAs a spectator you can fly around an affect the gameplay, but if you want to get back in, you'll need to run the command to return to the game. There is also a message in chat from when you entered spectator mode. You can click that in case you forget the command.",
+          "answer": "Use the command ++/trigger return++.\n\nAs a spectator you can fly around and affect the gameplay, but if you want to get back in, you'll need to run the command to return to the game. There is also a message in chat from when you entered spectator mode. You can click that in case you forget the command.",
           "pinned": true
         },
         {
@@ -241,6 +241,11 @@
         {
           "question": "Why would I want to revive someone?",
           "answer": "A couple reasons! Firstly, its just a fun game with some friends, so why not! There is however some strategy to it as well. If you are infected with no alive players nearby, you may want to revive a nearby spectator to pass on The Purple and help your chances of winning.",
+          "pinned": false
+        },
+        {
+          "question": "How do I know who is infected?",
+          "answer": "Infected players have a purple nametag and the glow effect. Players with a green nametag are not infected (yet!). Infected players also have an [icon: icons/popped_chorus_fruit.png]Infected Ability in their hotbar, which they will use to tag other players and pass on The Purple, or to activate their infected ability.",
           "pinned": false
         }
       ]
