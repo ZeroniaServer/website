@@ -12,8 +12,7 @@ npm run dev   # start the dev server
 ## Build
 
 ```bash
-npm run build     # type-check + build to dist/
-npm run preview   # serve the built dist/ locally
+npm run build     # build to dist/
 ```
 
 ## Deployment
