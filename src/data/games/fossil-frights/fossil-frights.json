@@ -151,6 +151,10 @@
       "type": "dynamic-map"
     },
     {
+      "type": "ff-run-breakdown",
+      "title": "Run Breakdown"
+    },
+    {
       "type": "versions",
       "title": "Versions",
       "versions": []
