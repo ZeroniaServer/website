@@ -8,7 +8,7 @@ Run breakdowns are URL-safe token generated from unmodified speedrun solo runs a
 1U<username>_<event>_<event>..._R<result><day>.<ticks>
 ```
 
-- `D<day>.<ticks>`: day complete
+- `D<day>.<ticks>`: day start
 - `T<task-id>.<ticks>`: task complete
 - `H<hazard-id><state>.<ticks>`: hazard on(1)/off(0)
 - `C<use-id>.<ticks>`: coin use.
