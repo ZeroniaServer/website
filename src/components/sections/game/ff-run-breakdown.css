@@ -247,6 +247,14 @@
 }
 .ff-run-breakdown__tooltip--floating.is-below { transform: translate(-50%, .8rem);
 }
+.ff-run-breakdown__tooltip--floating.is-left { transform: translate(0, calc(-100% - .8rem));
+}
+.ff-run-breakdown__tooltip--floating.is-left.is-below { transform: translate(0, .8rem);
+}
+.ff-run-breakdown__tooltip--floating.is-right { transform: translate(-100%, calc(-100% - .8rem));
+}
+.ff-run-breakdown__tooltip--floating.is-right.is-below { transform: translate(-100%, .8rem);
+}
 .ff-run-breakdown__tooltip img { width: 1.25rem;
  height: 1.25rem;
  margin-right: .35rem;

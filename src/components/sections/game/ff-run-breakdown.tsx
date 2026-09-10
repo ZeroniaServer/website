@@ -52,7 +52,7 @@ export default function FfRunBreakdown() {
   const [token, setToken] = useState(initialToken);
   const [history, setHistory] = useState(savedRuns);
   const [tip, setTip] = useState<Tip | null>(null);
-  const [cursor, setCursor] = useState({ x: 0, y: 0 });
+  const [cursor, setCursor] = useState({ x: 0, y: 0, width: 0 });
   const historyRef = useRef<HTMLDetailsElement>(null);
   const run = useMemo<Run | null>(() => token ? parseRun(token) : null, [token]);
 
@@ -105,7 +105,7 @@ export default function FfRunBreakdown() {
         <div className="ff-run-breakdown__identity"><img src={`https://mc-heads.net/avatar/${encodeURIComponent(run.username)}/48`} alt="" /><span>{run.username}</span></div>
         {history.length > 0 && <details ref={historyRef} className="ff-run-breakdown__history"><summary>Previous Runs<img src={arrowUrl} alt="" /></summary><div>{orderedHistory.map((entry) => { const item = parseRun(entry.token); return <button key={entry.token} onClick={() => chooseRun(entry.token)}>{item.result?.name ?? "In progress"} · {formatTicks(item.result?.ticks ?? 0)}<b onClick={(event) => removeRun(event, entry.token)}>×</b></button>; })}</div></details>}
       </div>
-      <div className="ff-run-breakdown__scroll"><div className="ff-run-breakdown__chart" onMouseMove={(event) => { const rect = event.currentTarget.getBoundingClientRect(); setCursor({ x: event.clientX - rect.left, y: event.clientY - rect.top }); }} onMouseLeave={() => setTip(null)}>
+      <div className="ff-run-breakdown__scroll"><div className="ff-run-breakdown__chart" onMouseMove={(event) => { const rect = event.currentTarget.getBoundingClientRect(); setCursor({ x: event.clientX - rect.left, y: event.clientY - rect.top, width: rect.width }); }} onMouseLeave={() => setTip(null)}>
         {days.map((day, index) => { const end = days[index + 1]?.ticks ?? duration; const color = day.day! <= 2 ? "green" : day.day! <= 6 ? "yellow" : day.day! <= 9 ? "orange" : "red"; return <div key={day.ticks} className={`ff-run-breakdown__day ff-run-breakdown__day--${color}`} style={{ left: `${day.ticks / duration * 100}%`, width: `${(end - day.ticks) / duration * 100}%` }} />; })}
         <div className="ff-run-breakdown__coins">{coins.map((event, index) => <Hover key={index} event={event} duration={duration} className="ff-run-breakdown__coin" onHover={setTip} />)}</div>
         <div className="ff-run-breakdown__lanes">{Object.keys(HAZARDS).map((id) => <div className="ff-run-breakdown__lane" key={id} />)}</div>
@@ -113,7 +113,7 @@ export default function FfRunBreakdown() {
         {days.map((event) => <Hover key={event.ticks} event={event} duration={duration} hit={hitSize(event)} onHover={setTip} className={`ff-run-breakdown__line ff-run-breakdown__line--day is-${dayTone(event.ticks)}`} />)}
         {tasks.map((event, index) => <Hover key={index} event={event} duration={duration} hit={hitSize(event)} icon={gameAsset("fossil-frights", `icons/${taskIcon(event.id)}`)} onHover={setTip} className={`ff-run-breakdown__line ff-run-breakdown__line--task is-${dayTone(event.ticks)}`} />)}
         {run.result && <Hover event={run.result} duration={duration} hit={hitSize(run.result)} onHover={setTip} className={`ff-run-breakdown__line ff-run-breakdown__line--result${run.result.name === "Victory" ? " is-victory" : ""}`} />}
-        {tip && <div className={`ff-run-breakdown__tooltip ff-run-breakdown__tooltip--floating${cursor.y < 62 ? " is-below" : ""}`} style={{ left: cursor.x, top: cursor.y }}>{tip.icon && <img src={tip.icon} alt="" />}{tip.event.name}<small>{tip.detail ?? formatTicks(tip.event.ticks)}</small></div>}
+        {tip && <div className={`ff-run-breakdown__tooltip ff-run-breakdown__tooltip--floating${cursor.y < 62 ? " is-below" : ""}${cursor.x < 120 ? " is-left" : cursor.x > cursor.width - 120 ? " is-right" : ""}`} style={{ left: cursor.x, top: cursor.y }}>{tip.icon && <img src={tip.icon} alt="" />}{tip.event.name}<small>{tip.detail ?? formatTicks(tip.event.ticks)}</small></div>}
       </div><div className="ff-run-breakdown__times">{labels.map((event) => <span key={`${event.name}-${event.ticks}`} className={`${event.ticks > duration * .8 ? "is-right" : "is-left"}${event.kind === "result" && event.name === "Victory" ? " is-victory" : ""}`} style={pointStyle(event.ticks, duration)}>{formatTicks(event.ticks)}</span>)}</div></div>
       <div className="ff-run-breakdown__mobile-chart" style={{ "--mobile-duration": `${duration}` } as CSSProperties}>
         {days.map((day, index) => { const end = days[index + 1]?.ticks ?? duration; const color = day.day! <= 2 ? "green" : day.day! <= 6 ? "yellow" : day.day! <= 9 ? "orange" : "red"; return <div key={day.ticks} className={`ff-run-breakdown__mobile-day ff-run-breakdown__day--${color}`} style={{ top: `${day.ticks / duration * 100}%`, height: `${(end - day.ticks) / duration * 100}%` }} />; })}
