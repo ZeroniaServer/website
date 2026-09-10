@@ -81,6 +81,11 @@
 
 .ff-run-breakdown__history button:hover { background: #4b4b52;
 }
+.ff-run-breakdown__history-avatar { width: 1.5rem;
+ height: 1.5rem;
+ flex: 0 0 auto;
+ image-rendering: pixelated;
+}
 .ff-run-breakdown__history b { margin-left: auto;
  padding: .05rem .35rem;
  color: #fff;

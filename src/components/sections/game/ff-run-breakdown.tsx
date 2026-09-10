@@ -98,12 +98,12 @@ export default function FfRunBreakdown() {
   const mobileLabelLayout = mobileLabelOffsets(mobileEvents.filter((event) => event.kind !== "result"), duration);
   const chooseRun = (next: string) => { window.history.pushState(null, "", `/fossil-frights/run=${encodeURIComponent(next)}`); setToken(next); if (historyRef.current) historyRef.current.open = false; };
   const removeRun = (event: MouseEvent, value: string) => { event.preventDefault(); event.stopPropagation(); const next = history.filter((item) => item.token !== value); localStorage.setItem(STORAGE_KEY, JSON.stringify(next)); setHistory(next); };
-  const orderedHistory = [...history].sort((a, b) => a.cachedAt - b.cachedAt);
+  const orderedHistory = [...history].sort((a, b) => b.cachedAt - a.cachedAt);
   return (
     <div className="ff-run-breakdown" style={{ "--coin-texture": `url(${gameAsset("fossil-frights", "icons/dino_coin.png")})` } as CSSProperties}>
       <div className="ff-run-breakdown__heading">
         <div className="ff-run-breakdown__identity"><img src={`https://mc-heads.net/avatar/${encodeURIComponent(run.username)}/48`} alt="" /><span>{run.username}</span></div>
-        {history.length > 0 && <details ref={historyRef} className="ff-run-breakdown__history"><summary>Previous Runs<img src={arrowUrl} alt="" /></summary><div>{orderedHistory.map((entry) => { const item = parseRun(entry.token); return <button key={entry.token} onClick={() => chooseRun(entry.token)}>{item.result?.name ?? "In progress"} · {formatTicks(item.result?.ticks ?? 0)}<b onClick={(event) => removeRun(event, entry.token)}>×</b></button>; })}</div></details>}
+        {history.length > 0 && <details ref={historyRef} className="ff-run-breakdown__history"><summary>Previous Runs<img src={arrowUrl} alt="" /></summary><div>{orderedHistory.map((entry) => { const item = parseRun(entry.token); return <button key={entry.token} onClick={() => chooseRun(entry.token)}><img className="ff-run-breakdown__history-avatar" src={`https://mc-heads.net/avatar/${encodeURIComponent(item.username)}/32`} alt="" /><span>{item.result?.name ?? "In progress"} · {formatTicks(item.result?.ticks ?? 0)}</span><b onClick={(event) => removeRun(event, entry.token)}>×</b></button>; })}</div></details>}
       </div>
       <div className="ff-run-breakdown__scroll"><div className="ff-run-breakdown__chart" onMouseMove={(event) => { const rect = event.currentTarget.getBoundingClientRect(); setCursor({ x: event.clientX - rect.left, y: event.clientY - rect.top, width: rect.width }); }} onMouseLeave={() => setTip(null)}>
         {days.map((day, index) => { const end = days[index + 1]?.ticks ?? duration; const color = day.day! <= 2 ? "green" : day.day! <= 6 ? "yellow" : day.day! <= 9 ? "orange" : "red"; return <div key={day.ticks} className={`ff-run-breakdown__day ff-run-breakdown__day--${color}`} style={{ left: `${day.ticks / duration * 100}%`, width: `${(end - day.ticks) / duration * 100}%` }} />; })}
