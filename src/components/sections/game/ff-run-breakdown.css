@@ -64,7 +64,7 @@
  pointer-events: none;
 }
 .ff-run-breakdown--vertical .ff-run-breakdown__mobile-hazard { position: absolute;
- width: 14px;
+ width: 56px;
  transform: translateX(-50%);
  opacity: .86;
 }
@@ -582,7 +582,7 @@ html, body { overflow-x: hidden;
  pointer-events: none;
 }
 .ff-run-breakdown__mobile-hazard { position: absolute;
- width: 14px;
+ width: 21px;
  transform: translateX(-50%);
  opacity: .86;
 }
