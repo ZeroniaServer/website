@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { gameAsset } from "../../../lib/games";
 import CustomMarkdown, { markdownToText } from "../../custom-markdown";
+import McmetaImg from "../../mcmeta-img";
 import "./how-to-play.css";
 
 interface Category {
@@ -193,7 +194,7 @@ export default function HowToPlay({
                   onClick={() => scrollToIndex(i)}
                 >
                   {icon ? (
-                    <img src={icon} alt={markdownToText(c.name)} />
+                    <McmetaImg src={icon} alt={markdownToText(c.name)} />
                   ) : (
                     <span>{markdownToText(c.name).charAt(0)}</span>
                   )}
@@ -213,7 +214,7 @@ export default function HowToPlay({
                 className="htp__category"
               >
                 <h3 className="htp__heading">
-                  {icon && <img className="htp__heading-icon" src={icon} alt="" />}
+                  {icon && <McmetaImg className="htp__heading-icon" src={icon} alt="" />}
                   <CustomMarkdown text={c.name} slug={slug} inline />
                 </h3>
                 <CustomMarkdown text={c.body} slug={slug} />

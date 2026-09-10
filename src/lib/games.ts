@@ -12,7 +12,7 @@ export interface GameData {
   sections: GameSection[];
 }
 
-// One folder per game under src/data/games; the folder name is the slug.
+// Game data
 const MODULES = import.meta.glob("../data/games/*/*.json", {
   eager: true,
   import: "default",
@@ -44,7 +44,18 @@ const ASSETS = import.meta.glob("../assets/games/**/*", {
   import: "default",
 }) as Record<string, string>;
 
-// relPath is relative to src/assets/games/<slug>/, e.g. "hero/loop.mp4".
+const ASSET_METADATA = import.meta.glob("../assets/games/**/*.png.mcmeta", {
+  eager: true,
+  query: "?raw",
+  import: "default",
+}) as Record<string, string>;
+
+const METADATA_BY_ASSET = new Map<string, string>();
+for (const [metadataPath, metadata] of Object.entries(ASSET_METADATA)) {
+  METADATA_BY_ASSET.set(metadataPath.slice(0, -".mcmeta".length), metadata);
+}
+
+// Game asset
 export function gameAsset(slug: string, relPath: string): string {
   if (!relPath) return "";
   const suffix = `/games/${slug}/${relPath}`;
@@ -52,4 +63,10 @@ export function gameAsset(slug: string, relPath: string): string {
     if (path.endsWith(suffix)) return url;
   if (import.meta.env.DEV) console.warn(`Missing game asset: ${suffix}`);
   return "";
+}
+
+// Asset metadata
+export function gameAssetMetadata(url: string): string | undefined {
+  const assetPath = Object.entries(ASSETS).find(([, assetUrl]) => assetUrl === url)?.[0];
+  return assetPath ? METADATA_BY_ASSET.get(assetPath) : undefined;
 }

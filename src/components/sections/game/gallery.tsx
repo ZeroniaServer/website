@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import { gameAsset } from "../../../lib/games";
 import CustomMarkdown, { markdownToText } from "../../custom-markdown";
 import { frameStyle } from "../frame";
+import McmetaImg from "../../mcmeta-img";
 import "./gallery.css";
 
 interface GalleryImage {
@@ -38,7 +39,7 @@ export default function Gallery({
               onClick={() => url && setActive(img)}
               aria-label={img.caption ? `Open ${markdownToText(img.caption)}` : "Open image"}
             >
-              {url && <img src={url} alt={markdownToText(img.caption || "")} loading="lazy" />}
+              {url && <McmetaImg src={url} alt={markdownToText(img.caption || "")} loading="lazy" />}
             </button>
             {img.caption && (
               <figcaption className="gallery__caption">
@@ -59,7 +60,7 @@ export default function Gallery({
               >
                 ×
               </button>
-              <img
+              <McmetaImg
                 src={gameAsset(slug, active.src)}
                 alt={markdownToText(active.caption || "")}
               />
