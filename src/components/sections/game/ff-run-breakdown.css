@@ -1,6 +1,194 @@
 .ff-run-breakdown { font-family: "Minecraft", monospace;
 }
 
+.ff-run-breakdown__view-toggle { display: flex;
+ align-items: center;
+ gap: .45rem;
+ width: fit-content;
+ margin-top: .75rem;
+ color: #cfcfd2;
+ font: .8rem "Minecraft", monospace;
+ cursor: pointer;
+}
+.ff-run-breakdown__view-toggle input { width: 1rem;
+ height: 1rem;
+ margin: 0;
+ accent-color: #5ae161;
+ cursor: pointer;
+}
+.ff-run-breakdown__mobile-tooltip { position: absolute;
+ z-index: 30;
+ min-width: max-content;
+ max-width: 13rem;
+ padding: .5rem .6rem;
+ color: #fff;
+ font: .78rem "Minecraft", monospace;
+ text-align: left;
+ background: #1d1d21;
+ border: 1px solid #a5a5a8;
+ box-shadow: 2px 2px 0 #111;
+ transform: translate(-50%, calc(-100% - .8rem));
+ pointer-events: none;
+}
+.ff-run-breakdown__mobile-tooltip img { width: 1.25rem;
+ height: 1.25rem;
+ margin-right: .35rem;
+ vertical-align: middle;
+ image-rendering: pixelated;
+}
+.ff-run-breakdown__mobile-tooltip small { display: block;
+ margin-top: .2rem;
+ color: #d7d7d7;
+}
+
+@media (min-width: 40.01rem) { .ff-run-breakdown--vertical .ff-run-breakdown__scroll { display: none;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-chart { position: relative;
+ display: block;
+ width: 100%;
+ min-width: 0;
+ min-height: 78rem;
+ overflow: visible;
+ border: 2px solid #26262b;
+ background: #33333a;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-day { position: absolute;
+ left: 0;
+ right: 0;
+ opacity: .16;
+ border-top: 1px solid currentColor;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-hazards { position: absolute;
+ inset: 0;
+ z-index: 14;
+ pointer-events: none;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-hazard { position: absolute;
+ width: 14px;
+ transform: translateX(-50%);
+ opacity: .86;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-coins { position: absolute;
+ inset: 0;
+ z-index: 12;
+ pointer-events: none;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-coin { position: absolute;
+ left: 92%;
+ width: 1.8rem;
+ height: 1.8rem;
+ transform: translate(-50%, -50%);
+ background: var(--coin-texture) center/contain no-repeat;
+ image-rendering: pixelated;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-event { position: absolute;
+ left: 0;
+ right: 0;
+ z-index: 10;
+ height: 2px;
+ background: #cfcfd2;
+ cursor: pointer;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-event::before { content: "";
+ position: absolute;
+ inset: -8px 0;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-event:hover { z-index: 15;
+ filter: brightness(1.25);
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-event--task { background: transparent;
+ border-top: 2px dashed currentColor;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-event--task.is-green { color: #5ae161;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-event--task.is-yellow { color: #ebd25c;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-event--task.is-orange { color: #ff9b4d;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-event--task.is-red { color: #e55b4c;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-event--day.is-green { background: #5ae161;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-event--day.is-yellow { background: #ebd25c;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-event--day.is-orange { background: #ff9b4d;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-event--day.is-red { background: #e55b4c;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-event--result { background: #ef4c4c;
+ height: 3px;
+ z-index: 11;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-event--result.is-victory { background: #fff;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-hazard,
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-coin { pointer-events: auto;
+ cursor: pointer;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-hazard:hover,
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-coin:hover { filter: brightness(1.25);
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-labels { position: absolute;
+ inset: 0;
+ z-index: 20;
+ pointer-events: none;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-label { position: absolute;
+ left: 0;
+ right: 0;
+ height: 2px;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-label > span { position: absolute;
+ bottom: 0;
+ left: .65rem;
+ width: max-content;
+ max-width: calc(100% - 1.3rem);
+ display: inline-flex;
+ align-items: center;
+ gap: .3rem;
+ height: 1.34rem;
+ box-sizing: border-box;
+ padding: .12rem .3rem;
+ color: #fff;
+ font-size: .74rem;
+ line-height: 1.15;
+ white-space: nowrap;
+ overflow: hidden;
+ text-overflow: ellipsis;
+ background: rgba(29, 29, 33, .62);
+ transform: translateY(var(--label-shift, 0rem));
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-label small { color: #d7d7d7;
+ font: inherit;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-label img { width: 1.1rem;
+ height: 1.1rem;
+ image-rendering: pixelated;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-label--day > span { color: #17171c;
+ background: #5ae161;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-label--day.is-yellow > span { background: #ebd25c;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-label--day.is-orange > span { background: #ff9b4d;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-label--day.is-red > span { background: #e55b4c;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-label--day small { color: inherit;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-result { display: block;
+ padding: .35rem .65rem 0;
+ color: #fff;
+ font-size: .74rem;
+ line-height: 1.15;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-result.is-victory strong { font-size: 1.48rem;
+ line-height: 1;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-tooltip { display: block;
+}
+}
+
 .ff-run-breakdown__scroll { position: relative;
  overflow-x: auto;
  overflow-y: visible;
