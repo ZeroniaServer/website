@@ -417,7 +417,33 @@
  top: calc(3.2rem + (var(--row, 0) * ((70% - 3.6rem) / 5)) + ((70% - 3.6rem) / 10));
  opacity: .86;
  cursor: pointer;
+ overflow: hidden;
 }
+.ff-run-breakdown__bar-texture {
+ position: absolute;
+ inset: 0;
+ width: 100%;
+ height: 100%;
+ pointer-events: none;
+ opacity: .7;
+}
+@keyframes ff-lights-fade {
+ 0%, 100% { background-color: #c7a832; }
+ 50% { background-color: #ead66a; }
+}
+@keyframes ff-security-pulse {
+ 0%, 45.45%, 100% { background-color: #e64a4a; }
+ 50%, 95.45% { background-color: #c83b3b; }
+}
+@keyframes ff-curse-shift {
+ 0%, 100% { background-color: #ac05ff; }
+ 25% { background-color: #cf14f5; }
+ 50% { background-color: #e829f2; }
+ 75% { background-color: #d538f5; }
+}
+.ff-run-breakdown__bar-fill--1 { animation: ff-lights-fade 4s ease-in-out infinite; }
+.ff-run-breakdown__bar-fill--4 { animation: ff-security-pulse 2.2s linear infinite; }
+.ff-run-breakdown__bar-fill--5 { animation: ff-curse-shift 5s ease-in-out infinite; }
 
 .ff-run-breakdown__bar-fill--1 { --row: 0;
  background: #ffe55a;

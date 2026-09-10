@@ -9,6 +9,8 @@ import "./ff-run-breakdown.css";
 const STORAGE_KEY = "ff-run-breakdowns";
 const COIN_URL = gameAsset("fossil-frights", "icons/dinocoin.png");
 const STATIC_COIN_URL = gameAsset("fossil-frights", "icons/dinocoin_static.png");
+const LAVA_FLOW_URL = gameAsset("fossil-frights", "run_breakdown/lava_flow.png");
+const WATER_FLOW_URL = gameAsset("fossil-frights", "run_breakdown/water_flow.png");
 type HistoryEntry = { token: string; cachedAt: number };
 const savedRuns = (): HistoryEntry[] => { try { const value = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "[]"); return Array.isArray(value) ? value.map((entry, index) => typeof entry === "string" ? { token: entry, cachedAt: index } : entry).filter((entry) => entry?.token) : []; } catch { return []; } };
 const pointStyle = (ticks: number, duration: number, bounds?: { left: number; right: number }) => ({ "--at": `${(ticks / duration) * 100}%`, ...(bounds ? { "--hit-left": `${bounds.left}%`, "--hit-right": `${bounds.right}%` } : {}) } as CSSProperties);
@@ -62,6 +64,8 @@ function CoinImage() {
   }, []);
   return <McmetaImg src={hovered ? COIN_URL : STATIC_COIN_URL} alt="" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} />;
 }
+
+const flowUrl = (id: string) => id === "2" ? LAVA_FLOW_URL : id === "3" ? WATER_FLOW_URL : "";
 
 export default function FfRunBreakdown() {
   const initialToken = useMemo(readRunToken, []);
@@ -140,7 +144,9 @@ export default function FfRunBreakdown() {
         {days.map((day, index) => { const end = days[index + 1]?.ticks ?? duration; const color = day.day! <= 2 ? "green" : day.day! <= 6 ? "yellow" : day.day! <= 9 ? "orange" : "red"; return <div key={day.ticks} className={`ff-run-breakdown__day ff-run-breakdown__day--${color}`} style={{ left: `${day.ticks / duration * 100}%`, width: `${(end - day.ticks) / duration * 100}%` }} />; })}
         <div className="ff-run-breakdown__coins">{coins.map((event, index) => <Hover key={index} event={event} duration={duration} className="ff-run-breakdown__coin" onHover={setTip}><CoinImage /></Hover>)}</div>
         <div className="ff-run-breakdown__lanes">{Object.keys(HAZARDS).map((id) => <div className="ff-run-breakdown__lane" key={id} />)}</div>
-        {hazards.map(({ id, start, end }) => <button onMouseEnter={() => setTip({ event: { ...start, name: HAZARDS[id] }, icon: gameAsset("fossil-frights", `icons/${HAZARDS[id].toLowerCase()}.png`), detail: `${formatTicks(start.ticks)} – ${formatTicks(end.ticks)}` })} onMouseLeave={() => setTip(null)} key={id} className={`ff-run-breakdown__bar-fill ff-run-breakdown__bar-fill--${id}`} style={{ left: `${start.ticks / duration * 100}%`, width: `${(end.ticks - start.ticks) / duration * 100}%` }} aria-label={`${HAZARDS[id]}, ${formatTicks(start.ticks)} to ${formatTicks(end.ticks)}`} />)}
+        {hazards.map(({ id, start, end }) => <button onMouseEnter={() => setTip({ event: { ...start, name: HAZARDS[id] }, icon: gameAsset("fossil-frights", `icons/${HAZARDS[id].toLowerCase()}.png`), detail: `${formatTicks(start.ticks)} – ${formatTicks(end.ticks)}` })} onMouseLeave={() => setTip(null)} key={id} className={`ff-run-breakdown__bar-fill ff-run-breakdown__bar-fill--${id}`} style={{ left: `${start.ticks / duration * 100}%`, width: `${(end.ticks - start.ticks) / duration * 100}%` }} aria-label={`${HAZARDS[id]}, ${formatTicks(start.ticks)} to ${formatTicks(end.ticks)}`}>
+          {flowUrl(id) && <McmetaImg className="ff-run-breakdown__bar-texture" src={flowUrl(id)} tile="x" rotate={id === "2" ? 90 : 270} alt="" />}
+        </button>)}
         {days.map((event) => <Hover key={event.ticks} event={event} duration={duration} bounds={lineBounds(event)} onHover={setTip} className={`ff-run-breakdown__line ff-run-breakdown__line--day is-${dayTone(event.ticks)}`} />)}
         {tasks.map((event, index) => <Hover key={index} event={event} duration={duration} bounds={lineBounds(event)} icon={gameAsset("fossil-frights", `icons/${taskIcon(event.id)}`)} onHover={setTip} className={`ff-run-breakdown__line ff-run-breakdown__line--task is-${dayTone(event.ticks)}`} />)}
         {run.result && <Hover event={run.result} duration={duration} bounds={lineBounds(run.result)} onHover={setTip} className={`ff-run-breakdown__line ff-run-breakdown__line--result${run.result.name === "Victory" ? " is-victory" : ""}`} />}
@@ -148,7 +154,9 @@ export default function FfRunBreakdown() {
       </div><div className="ff-run-breakdown__times">{labels.map((event) => <span key={`${event.name}-${event.ticks}`} className={`${event.ticks > duration * .8 ? "is-right" : "is-left"}${event.kind === "result" && event.name === "Victory" ? " is-victory" : ""}`} style={pointStyle(event.ticks, duration)}>{event.kind === "result" && event.name === "Victory" && <img src={trophyUrl} alt="" />}{formatTicks(event.ticks)}</span>)}</div></div>
       <div className="ff-run-breakdown__mobile-chart" onMouseMove={(event) => { const rect = event.currentTarget.getBoundingClientRect(); setCursor({ x: event.clientX - rect.left, y: event.clientY - rect.top, width: rect.width }); }} onMouseLeave={() => setTip(null)} style={{ "--mobile-duration": `${duration}` } as CSSProperties}>
         {days.map((day, index) => { const end = days[index + 1]?.ticks ?? duration; const color = day.day! <= 2 ? "green" : day.day! <= 6 ? "yellow" : day.day! <= 9 ? "orange" : "red"; return <div key={day.ticks} className={`ff-run-breakdown__mobile-day ff-run-breakdown__day--${color}`} style={{ top: `${day.ticks / duration * 100}%`, height: `${(end - day.ticks) / duration * 100}%` }} />; })}
-        <div className="ff-run-breakdown__mobile-hazards">{hazards.map(({ id, start, end }) => <div key={id} onMouseEnter={() => setTip({ event: { ...start, name: HAZARDS[id] }, icon: gameAsset("fossil-frights", `icons/${HAZARDS[id].toLowerCase()}.png`), detail: `${formatTicks(start.ticks)} – ${formatTicks(end.ticks)}` })} onMouseLeave={() => setTip(null)} className={`ff-run-breakdown__mobile-hazard ff-run-breakdown__bar-fill--${id}`} style={{ top: `${start.ticks / duration * 100}%`, height: `${(end.ticks - start.ticks) / duration * 100}%`, left: `${58 + Number(id) * 5}%` }} />)}</div>
+        <div className="ff-run-breakdown__mobile-hazards">{hazards.map(({ id, start, end }) => <div key={id} onMouseEnter={() => setTip({ event: { ...start, name: HAZARDS[id] }, icon: gameAsset("fossil-frights", `icons/${HAZARDS[id].toLowerCase()}.png`), detail: `${formatTicks(start.ticks)} – ${formatTicks(end.ticks)}` })} onMouseLeave={() => setTip(null)} className={`ff-run-breakdown__mobile-hazard ff-run-breakdown__bar-fill--${id}`} style={{ top: `${start.ticks / duration * 100}%`, height: `${(end.ticks - start.ticks) / duration * 100}%`, left: `${58 + Number(id) * 5}%` }}>
+          {flowUrl(id) && <McmetaImg className="ff-run-breakdown__bar-texture" src={flowUrl(id)} tile="y" alt="" />}
+        </div>)}</div>
         <div className="ff-run-breakdown__mobile-coins">{coins.map((event, index) => <div key={index} onMouseEnter={() => setTip(mobileEventTip(event))} onMouseLeave={() => setTip(null)} className="ff-run-breakdown__mobile-coin" style={{ top: `${event.ticks / duration * 100}%` }} aria-hidden="true"><CoinImage /></div>)}</div>
         {mobileEvents.map((event, index) => <div key={`${event.kind}-${event.ticks}-${index}`} onMouseEnter={() => setTip(mobileEventTip(event))} onMouseLeave={() => setTip(null)} className={`ff-run-breakdown__mobile-event ff-run-breakdown__mobile-event--${event.kind}${event.kind === "day" || event.kind === "task" ? ` is-${dayTone(event.ticks)}` : ""}${event.kind === "result" && event.name === "Victory" ? " is-victory" : ""}`} style={event.kind === "result" ? { bottom: 0 } : { top: `${Math.min(99.5, event.ticks / duration * 100)}%` }} />)}
         <div className="ff-run-breakdown__mobile-labels">

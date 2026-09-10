@@ -36,8 +36,11 @@ export default function McmetaImg({
   src,
   alt = "",
   className,
+  tile,
+  rotate,
+  reverse,
   ...props
-}: ImgHTMLAttributes<HTMLImageElement>) {
+}: ImgHTMLAttributes<HTMLImageElement> & { tile?: "x" | "y"; rotate?: 90 | 180 | 270; reverse?: boolean }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [animation, setAnimation] = useState<McmetaAnimation | null>(null);
 
@@ -64,17 +67,37 @@ export default function McmetaImg({
     const draw = () => {
       if (stopped || !image.naturalWidth) return;
       const size = image.naturalWidth;
-      const frameInfo = frames?.[frame % frames.length];
+      const width = tile ? Math.max(1, canvas.clientWidth) : size;
+      const height = tile ? Math.max(1, canvas.clientHeight) : size;
+      const frameCount = frames?.length ?? Math.max(1, Math.floor(image.naturalHeight / size));
+      const frameInfo = frames?.[(reverse ? frameCount - 1 - frame : frame) % frameCount];
       const index = frameInfo?.index ?? frame;
       const context = canvas.getContext("2d");
       if (!context) return;
-      canvas.width = size;
-      canvas.height = size;
+      canvas.width = width;
+      canvas.height = height;
       context.imageSmoothingEnabled = false;
-      context.clearRect(0, 0, size, size);
-      context.drawImage(image, 0, index * size, size, size, 0, 0, size, size);
+      context.clearRect(0, 0, width, height);
+      const tileSize = tile === "x" ? height : tile === "y" ? width : size;
+      const columns = tile === "x" ? Math.ceil(width / tileSize) : 1;
+      const rows = tile === "y" ? Math.ceil(height / tileSize) : 1;
+      for (let row = 0; row < rows; row++) {
+        for (let column = 0; column < columns; column++) {
+          const x = column * tileSize;
+          const y = row * tileSize;
+          if (!rotate) {
+            context.drawImage(image, 0, index * size, size, size, x, y, tileSize, tileSize);
+            continue;
+          }
+          context.save();
+          context.translate(x + tileSize / 2, y + tileSize / 2);
+          context.rotate((rotate * Math.PI) / 180);
+          context.drawImage(image, 0, index * size, size, size, -tileSize / 2, -tileSize / 2, tileSize, tileSize);
+          context.restore();
+        }
+      }
       const ticks = Math.max(1, frameInfo?.time ?? defaultTime);
-      frame = (frame + 1) % (frames?.length ?? Math.max(1, Math.floor(image.naturalHeight / size)));
+      frame = (frame + 1) % frameCount;
       timeout = window.setTimeout(draw, (ticks * 1000) / 20);
     };
 
