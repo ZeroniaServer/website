@@ -1,0 +1,295 @@
+.ff-run-breakdown { font-family: "Minecraft", monospace;
+}
+
+.ff-run-breakdown__scroll { position: relative;
+ overflow-x: auto;
+ overflow-y: visible;
+}
+
+.ff-run-breakdown__heading { position: relative;
+ z-index: 20;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ gap: 1rem;
+ margin-bottom: 1.2rem;
+}
+
+.ff-run-breakdown__identity { display: flex;
+ align-items: center;
+ gap: .55rem;
+ font-size: 1.6rem;
+ text-align: left;
+}
+
+.ff-run-breakdown__identity img { width: 1.6rem;
+ height: 1.6rem;
+ image-rendering: pixelated;
+}
+
+.ff-run-breakdown__history { position: relative;
+ z-index: 30;
+}
+
+.ff-run-breakdown__history summary { display: flex;
+ align-items: center;
+ gap: .5rem;
+ padding: .45rem .65rem;
+ color: #fff;
+ cursor: pointer;
+ list-style: none;
+ background: #4a4a50;
+ border: 2px solid #85858b;
+ box-shadow: 2px 2px 0 #1b1b1f;
+ font-family: "Minecraft", monospace;
+}
+.ff-run-breakdown__history summary::-webkit-details-marker { display: none;
+}
+.ff-run-breakdown__history summary img { width: .65rem;
+ image-rendering: pixelated;
+}
+.ff-run-breakdown__history[open] summary img { transform: rotate(180deg);
+}
+
+.ff-run-breakdown__history > div { position: absolute;
+ z-index: 31;
+ top: 2.35rem;
+ right: 0;
+ width: 17rem;
+ max-height: calc(6 * 2.4rem + .7rem);
+ overflow-y: auto;
+ overflow-x: hidden;
+ padding: .35rem;
+ background: #25252a;
+ border: 2px solid #747478;
+ box-shadow: 3px 3px 0 #171719;
+}
+
+.ff-run-breakdown__history button { display: flex;
+ width: 100%;
+ min-height: 2.4rem;
+ gap: .35rem;
+ align-items: center;
+ padding: .5rem;
+ color: inherit;
+ font: inherit;
+ text-align: left;
+ background: transparent;
+ border: 0;
+ cursor: pointer;
+}
+
+.ff-run-breakdown__history button:hover { background: #4b4b52;
+}
+.ff-run-breakdown__history b { margin-left: auto;
+ padding: .05rem .35rem;
+ color: #fff;
+ font-size: 1.15rem;
+}
+.ff-run-breakdown__history b:hover { color: #ff6868;
+}
+
+.ff-run-breakdown__chart { position: relative;
+ min-width: 800px;
+ min-height: 19rem;
+ overflow: visible;
+ border: 2px solid #26262b;
+ background: #33333a;
+}
+
+.ff-run-breakdown__chart::after { content: "";
+ position: absolute;
+ inset: 0;
+ pointer-events: none;
+ opacity: .05;
+ background: var(--coin-texture) repeat/3.4rem;
+ image-rendering: pixelated;
+}
+
+.ff-run-breakdown__day { position: absolute;
+ top: 0;
+ bottom: 0;
+ opacity: .2;
+ border-left: 2px solid currentColor;
+}
+
+.ff-run-breakdown__day--green { color: #45c44a;
+ background: #45c44a;
+}
+.ff-run-breakdown__day--yellow { color: #e8ca35;
+ background: #e8ca35;
+}
+.ff-run-breakdown__day--orange { color: #ee822a;
+ background: #ee822a;
+}
+.ff-run-breakdown__day--red { color: #d34c3c;
+ background: #d34c3c;
+}
+
+.ff-run-breakdown__coins { position: absolute;
+ z-index: 7;
+ top: .65rem;
+ left: 0;
+ right: 0;
+ height: 2.4rem;
+}
+.ff-run-breakdown__lanes { position: absolute;
+ inset: 3.2rem 0 auto;
+ height: calc(70% - 3.2rem);
+ display: grid;
+ grid-template-rows: repeat(5, 1fr);
+}
+
+.ff-run-breakdown__lane { position: relative;
+}
+
+.ff-run-breakdown__point { position: absolute;
+ z-index: 4;
+ left: var(--at);
+ appearance: none;
+ padding: 0;
+ border: 0;
+ background: transparent;
+ cursor: pointer;
+}
+
+.ff-run-breakdown__coin { top: 0;
+ width: 2rem;
+ height: 2rem;
+ transform: translateX(-50%);
+ background: var(--coin-texture) center/contain no-repeat;
+ image-rendering: pixelated;
+ filter: drop-shadow(1px 2px 0 rgba(0, 0, 0, .5));
+}
+
+.ff-run-breakdown__line { top: 0;
+ bottom: 0;
+ width: min(14px, var(--hit, 14px));
+ transform: translateX(-50%);
+}
+.ff-run-breakdown__line::after { content: "";
+ position: absolute;
+ top: 0;
+ bottom: 0;
+ left: 50%;
+ width: 2px;
+ transform: translateX(-50%);
+ background: repeating-linear-gradient(to bottom, currentColor 0 7px, transparent 7px 13px);
+}
+.ff-run-breakdown__line:hover::after, .ff-run-breakdown__line:focus-visible::after { filter: brightness(1.3);
+}
+.ff-run-breakdown__line.is-green { color: #5ae161;
+}
+.ff-run-breakdown__line.is-yellow { color: #ebd25c;
+}
+.ff-run-breakdown__line.is-orange { color: #ff9b4d;
+}
+.ff-run-breakdown__line.is-red { color: #e55b4c;
+}
+.ff-run-breakdown__line--day::after { background: currentColor;
+}
+.ff-run-breakdown__line--task::after { opacity: .55;
+}
+.ff-run-breakdown__line--result { color: #ef4c4c;
+}
+.ff-run-breakdown__line--result::after { background: currentColor;
+}
+.ff-run-breakdown__line--result.is-victory::after { background: #fff;
+ box-shadow: 0 0 6px #e8b538;
+}
+
+.ff-run-breakdown__bar-fill { position: absolute;
+ z-index: 6;
+ height: 1.25rem;
+ padding: 0;
+ border: 0;
+ transform: translateY(-50%);
+ top: calc(3.2rem + (var(--row, 0) * ((70% - 3.6rem) / 5)) + ((70% - 3.6rem) / 10));
+ opacity: .86;
+ cursor: pointer;
+}
+
+.ff-run-breakdown__bar-fill--1 { --row: 0;
+ background: #ffe55a;
+}
+.ff-run-breakdown__bar-fill--2 { --row: 1;
+ background: #ff8639;
+}
+.ff-run-breakdown__bar-fill--3 { --row: 2;
+ background: #2fcceb;
+}
+.ff-run-breakdown__bar-fill--4 { --row: 3;
+ background: #fa4747;
+}
+.ff-run-breakdown__bar-fill--5 { --row: 4;
+ background: #843cf0;
+}
+
+.ff-run-breakdown__point:hover, .ff-run-breakdown__bar-fill:hover { filter: brightness(1.45);
+ z-index: 8;
+}
+
+.ff-run-breakdown__tooltip { min-width: max-content;
+ max-width: 13rem;
+ padding: .5rem .6rem;
+ color: #fff;
+ font: inherit;
+ font-size: .78rem;
+ text-align: left;
+ background: #1d1d21;
+ border: 1px solid #a5a5a8;
+ box-shadow: 2px 2px 0 #111;
+ pointer-events: none;
+}
+.ff-run-breakdown__tooltip--floating { position: absolute;
+ z-index: 10;
+ transform: translate(-50%, calc(-100% - .8rem));
+}
+.ff-run-breakdown__tooltip--floating.is-below { transform: translate(-50%, .8rem);
+}
+.ff-run-breakdown__tooltip img { width: 1.25rem;
+ height: 1.25rem;
+ margin-right: .35rem;
+ vertical-align: middle;
+ image-rendering: pixelated;
+}
+.ff-run-breakdown__tooltip small { display: block;
+ margin-top: .2rem;
+ color: #d7d7d7;
+}
+
+.ff-run-breakdown__empty { margin: 0;
+ color: #cfcfd2;
+ font-family: "Minecraft", monospace;
+}
+
+.game__section--ff-run-breakdown:has(.ff-run-breakdown__empty) .section__title { display: none;
+}
+
+.ff-run-breakdown__times { position: relative;
+ min-width: 800px;
+ height: 1.7rem;
+ font-size: .72rem;
+ color: #cfcfd2;
+}
+.ff-run-breakdown__times span { position: absolute;
+ left: var(--at);
+ white-space: nowrap;
+}
+.ff-run-breakdown__times span.is-left { transform: translateX(0);
+}
+.ff-run-breakdown__times span.is-right { transform: translateX(-100%);
+}
+.ff-run-breakdown__times span.is-victory { color: #fff;
+ font-size: 1rem;
+}
+
+@media (max-width: 40rem) { .ff-run-breakdown__heading { align-items: flex-start;
+ flex-direction: column-reverse;
+}
+.ff-run-breakdown__identity { font-size: 1.25rem;
+}
+.ff-run-breakdown__chart { min-height: 16rem;
+}
+}
+
