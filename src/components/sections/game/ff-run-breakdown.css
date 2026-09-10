@@ -36,6 +36,8 @@
  vertical-align: middle;
  image-rendering: pixelated;
 }
+.ff-run-breakdown__tooltip .mcmeta-img,
+.ff-run-breakdown__mobile-tooltip .mcmeta-img { width: 1.25rem; height: 1.25rem; margin-right: .35rem; vertical-align: middle; }
 .ff-run-breakdown__mobile-tooltip small { display: block;
  margin-top: .2rem;
  color: #d7d7d7;
@@ -596,6 +598,8 @@ html, body { overflow-x: hidden;
  width: 1.8rem;
  height: 1.8rem;
  transform: translate(-50%, -50%);
+ pointer-events: auto;
+ cursor: pointer;
 }
 .ff-run-breakdown__mobile-coin .mcmeta-img { width: 100%; height: 100%; }
 .ff-run-breakdown__mobile-event { position: absolute;
