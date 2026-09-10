@@ -185,6 +185,14 @@
 .ff-run-breakdown--vertical .ff-run-breakdown__mobile-result.is-victory strong { font-size: 1.48rem;
  line-height: 1;
 }
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-result.is-victory strong { display: inline-flex;
+ align-items: center;
+ gap: .35em;
+}
+.ff-run-breakdown--vertical .ff-run-breakdown__mobile-result.is-victory img { width: 1em;
+ height: 1em;
+ image-rendering: pixelated;
+}
 .ff-run-breakdown--vertical .ff-run-breakdown__mobile-tooltip { display: block;
 }
 }
@@ -497,6 +505,12 @@
 .ff-run-breakdown__times span.is-victory { color: #fff;
  font-size: 1rem;
 }
+.ff-run-breakdown__times span.is-victory img { width: 1.1rem;
+ height: 1.1rem;
+ margin-right: .25rem;
+ vertical-align: middle;
+ image-rendering: pixelated;
+}
 
 .ff-run-breakdown__mobile-chart { display: none;
 }
@@ -658,6 +672,14 @@ html, body { overflow-x: hidden;
 }
 .ff-run-breakdown__mobile-result.is-victory strong { font-size: 1.48rem;
  line-height: 1;
+}
+.ff-run-breakdown__mobile-result.is-victory strong { display: inline-flex;
+ align-items: center;
+ gap: .35rem;
+}
+.ff-run-breakdown__mobile-result.is-victory img { width: 1.48rem;
+ height: 1.48rem;
+ image-rendering: pixelated;
 }
 .ff-run-breakdown__mobile-event--hazard,
 .ff-run-breakdown__mobile-event--coin { display: none;
