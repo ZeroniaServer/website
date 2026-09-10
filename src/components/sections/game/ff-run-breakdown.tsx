@@ -7,7 +7,7 @@ import "./ff-run-breakdown.css";
 const STORAGE_KEY = "ff-run-breakdowns";
 type HistoryEntry = { token: string; cachedAt: number };
 const savedRuns = (): HistoryEntry[] => { try { const value = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "[]"); return Array.isArray(value) ? value.map((entry, index) => typeof entry === "string" ? { token: entry, cachedAt: index } : entry).filter((entry) => entry?.token) : []; } catch { return []; } };
-const pointStyle = (ticks: number, duration: number, hit?: number) => ({ "--at": `${(ticks / duration) * 100}%`, ...(hit ? { "--hit": `${hit}%` } : {}) } as CSSProperties);
+const pointStyle = (ticks: number, duration: number, bounds?: { left: number; right: number }) => ({ "--at": `${(ticks / duration) * 100}%`, ...(bounds ? { "--hit-left": `${bounds.left}%`, "--hit-right": `${bounds.right}%` } : {}) } as CSSProperties);
 type Tip = { event: RunEvent; icon?: string; detail?: string };
 const MOBILE_CHART_HEIGHT_REM = 78;
 const MOBILE_LABEL_HEIGHT_REM = 1.34;
@@ -43,8 +43,8 @@ function mobileLabelOffsets(events: RunEvent[], duration: number) {
   return { offsets, hiddenDays };
 }
 
-function Hover({ event, duration, icon, detail, hit, className = "", onHover }: { event: RunEvent; duration: number; icon?: string; detail?: string; hit?: number; className?: string; onHover: (tip: Tip | null) => void }) {
-  return <button onMouseEnter={() => onHover({ event, icon, detail })} onMouseLeave={() => onHover(null)} onFocus={() => onHover({ event, icon, detail })} onBlur={() => onHover(null)} className={`ff-run-breakdown__point ${className}`} style={pointStyle(event.ticks, duration, hit)} aria-label={`${event.name}, ${formatTicks(event.ticks)}`} />;
+function Hover({ event, duration, icon, detail, bounds, className = "", onHover }: { event: RunEvent; duration: number; icon?: string; detail?: string; bounds?: { left: number; right: number }; className?: string; onHover: (tip: Tip | null) => void }) {
+  return <button onMouseEnter={() => onHover({ event, icon, detail })} onMouseLeave={() => onHover(null)} onFocus={() => onHover({ event, icon, detail })} onBlur={() => onHover(null)} className={`ff-run-breakdown__point ${className}`} style={pointStyle(event.ticks, duration, bounds)} aria-label={`${event.name}, ${formatTicks(event.ticks)}`} />;
 }
 
 export default function FfRunBreakdown() {
@@ -86,7 +86,13 @@ export default function FfRunBreakdown() {
   const coins = run.events.filter((event) => event.kind === "coin");
   const dayTone = (ticks: number) => { const day = [...days].reverse().find((event) => event.ticks <= ticks)?.day ?? 1; return day <= 2 ? "green" : day <= 6 ? "yellow" : day <= 9 ? "orange" : "red"; };
   const markers = [...days, ...tasks, ...(run.result ? [run.result] : [])];
-  const hitSize = (event: RunEvent) => Math.max(.08, Math.min(5, Math.min(...markers.filter((item) => item !== event).map((item) => Math.abs(item.ticks - event.ticks) / duration * 100), 10) / 2));
+  const lineBounds = (event: RunEvent) => {
+    const at = event.ticks / duration * 100;
+    const others = markers.filter((item) => item !== event).map((item) => item.ticks / duration * 100);
+    const previous = Math.max(...others.filter((position) => position < at), 0);
+    const next = Math.min(...others.filter((position) => position > at), 100);
+    return { left: (at - previous) / 2, right: (next - at) / 2 };
+  };
   const labels = [...days, ...(run.result ? [run.result] : [])].sort((a, b) => b.ticks - a.ticks).reduce<RunEvent[]>((kept, event) => kept.some((item) => Math.abs(item.ticks - event.ticks) < duration * .065) ? kept : [...kept, event], []).sort((a, b) => a.ticks - b.ticks);
   const hazards = Object.keys(HAZARDS).map((id) => {
     const changes = run.events.filter((event) => event.kind === "hazard" && event.id === id);
@@ -110,9 +116,9 @@ export default function FfRunBreakdown() {
         <div className="ff-run-breakdown__coins">{coins.map((event, index) => <Hover key={index} event={event} duration={duration} className="ff-run-breakdown__coin" onHover={setTip} />)}</div>
         <div className="ff-run-breakdown__lanes">{Object.keys(HAZARDS).map((id) => <div className="ff-run-breakdown__lane" key={id} />)}</div>
         {hazards.map(({ id, start, end }) => <button onMouseEnter={() => setTip({ event: { ...start, name: HAZARDS[id] }, icon: gameAsset("fossil-frights", `icons/${HAZARDS[id].toLowerCase()}.png`), detail: `${formatTicks(start.ticks)} – ${formatTicks(end.ticks)}` })} onMouseLeave={() => setTip(null)} key={id} className={`ff-run-breakdown__bar-fill ff-run-breakdown__bar-fill--${id}`} style={{ left: `${start.ticks / duration * 100}%`, width: `${(end.ticks - start.ticks) / duration * 100}%` }} aria-label={`${HAZARDS[id]}, ${formatTicks(start.ticks)} to ${formatTicks(end.ticks)}`} />)}
-        {days.map((event) => <Hover key={event.ticks} event={event} duration={duration} hit={hitSize(event)} onHover={setTip} className={`ff-run-breakdown__line ff-run-breakdown__line--day is-${dayTone(event.ticks)}`} />)}
-        {tasks.map((event, index) => <Hover key={index} event={event} duration={duration} hit={hitSize(event)} icon={gameAsset("fossil-frights", `icons/${taskIcon(event.id)}`)} onHover={setTip} className={`ff-run-breakdown__line ff-run-breakdown__line--task is-${dayTone(event.ticks)}`} />)}
-        {run.result && <Hover event={run.result} duration={duration} hit={hitSize(run.result)} onHover={setTip} className={`ff-run-breakdown__line ff-run-breakdown__line--result${run.result.name === "Victory" ? " is-victory" : ""}`} />}
+        {days.map((event) => <Hover key={event.ticks} event={event} duration={duration} bounds={lineBounds(event)} onHover={setTip} className={`ff-run-breakdown__line ff-run-breakdown__line--day is-${dayTone(event.ticks)}`} />)}
+        {tasks.map((event, index) => <Hover key={index} event={event} duration={duration} bounds={lineBounds(event)} icon={gameAsset("fossil-frights", `icons/${taskIcon(event.id)}`)} onHover={setTip} className={`ff-run-breakdown__line ff-run-breakdown__line--task is-${dayTone(event.ticks)}`} />)}
+        {run.result && <Hover event={run.result} duration={duration} bounds={lineBounds(run.result)} onHover={setTip} className={`ff-run-breakdown__line ff-run-breakdown__line--result${run.result.name === "Victory" ? " is-victory" : ""}`} />}
         {tip && <div className={`ff-run-breakdown__tooltip ff-run-breakdown__tooltip--floating${cursor.y < 62 ? " is-below" : ""}${cursor.x < 120 ? " is-left" : cursor.x > cursor.width - 120 ? " is-right" : ""}`} style={{ left: cursor.x, top: cursor.y }}>{tip.icon && <img src={tip.icon} alt="" />}{tip.event.name}<small>{tip.detail ?? formatTicks(tip.event.ticks)}</small></div>}
       </div><div className="ff-run-breakdown__times">{labels.map((event) => <span key={`${event.name}-${event.ticks}`} className={`${event.ticks > duration * .8 ? "is-right" : "is-left"}${event.kind === "result" && event.name === "Victory" ? " is-victory" : ""}`} style={pointStyle(event.ticks, duration)}>{formatTicks(event.ticks)}</span>)}</div></div>
       <div className="ff-run-breakdown__mobile-chart" style={{ "--mobile-duration": `${duration}` } as CSSProperties}>

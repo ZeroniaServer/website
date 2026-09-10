@@ -169,8 +169,8 @@
 
 .ff-run-breakdown__line { top: 0;
  bottom: 0;
- width: min(14px, var(--hit, 14px));
- transform: translateX(-50%);
+ left: calc(var(--at) - min(14px, var(--hit-left, 100%)));
+ width: calc(min(14px, var(--hit-left, 100%)) + min(14px, var(--hit-right, 100%)));
 }
 .ff-run-breakdown__line::after { content: "";
  position: absolute;
@@ -194,6 +194,19 @@
 .ff-run-breakdown__line--day::after { background: currentColor;
 }
 .ff-run-breakdown__line--task::after { opacity: .55;
+}
+.ff-run-breakdown__line.is-orange:hover,
+.ff-run-breakdown__line.is-orange:focus-visible { color: #ffb468;
+ filter: brightness(1.1);
+}
+.ff-run-breakdown__line.is-orange:hover::after,
+.ff-run-breakdown__line.is-orange:focus-visible::after { filter: none;
+}
+.ff-run-breakdown__line--day.is-orange:hover::after,
+.ff-run-breakdown__line--day.is-orange:focus-visible::after { background: #ffb468;
+}
+.ff-run-breakdown__line--task.is-orange:hover::after,
+.ff-run-breakdown__line--task.is-orange:focus-visible::after { background: repeating-linear-gradient(to bottom, #ffb468 0 7px, transparent 7px 13px);
 }
 .ff-run-breakdown__line--result { color: #ef4c4c;
 }
