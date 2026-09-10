@@ -284,12 +284,168 @@
  font-size: 1rem;
 }
 
+.ff-run-breakdown__mobile-chart { display: none;
+}
+.ff-run-breakdown__mobile-result { display: none;
+}
+
 @media (max-width: 40rem) { .ff-run-breakdown__heading { align-items: flex-start;
  flex-direction: column-reverse;
 }
+.ff-run-breakdown,
+.game__section--ff-run-breakdown,
+.game__section--ff-run-breakdown > .section__inner { width: 100%;
+ min-width: 0;
+ max-width: 100%;
+ overflow-x: hidden;
+}
+html, body { overflow-x: hidden;
+}
 .ff-run-breakdown__identity { font-size: 1.25rem;
 }
-.ff-run-breakdown__chart { min-height: 16rem;
+.ff-run-breakdown__history { display: none;
+}
+.ff-run-breakdown__scroll { display: none;
+}
+.ff-run-breakdown__mobile-chart { position: relative;
+ display: block;
+ width: 100%;
+ min-width: 0;
+ max-width: 100%;
+ box-sizing: border-box;
+ min-height: 78rem;
+ overflow: visible;
+ border: 2px solid #26262b;
+ background: #33333a;
+}
+.ff-run-breakdown__mobile-day { position: absolute;
+ left: 0;
+ right: 0;
+ opacity: .16;
+ border-top: 1px solid currentColor;
+}
+.ff-run-breakdown__mobile-hazards { position: absolute;
+ inset: 0;
+ z-index: 14;
+ pointer-events: none;
+}
+.ff-run-breakdown__mobile-hazard { position: absolute;
+ width: 14px;
+ transform: translateX(-50%);
+ opacity: .86;
+}
+.ff-run-breakdown__mobile-coins { position: absolute;
+ inset: 0;
+ z-index: 12;
+ pointer-events: none;
+}
+.ff-run-breakdown__mobile-coin { position: absolute;
+ left: 92%;
+ width: 1.8rem;
+ height: 1.8rem;
+ transform: translate(-50%, -50%);
+ background: var(--coin-texture) center/contain no-repeat;
+ image-rendering: pixelated;
+}
+.ff-run-breakdown__mobile-event { position: absolute;
+ left: 0;
+ right: 0;
+ z-index: 10;
+ height: 2px;
+ background: #cfcfd2;
+}
+.ff-run-breakdown__mobile-labels { position: absolute;
+ inset: 0;
+ z-index: 20;
+ pointer-events: none;
+}
+.ff-run-breakdown__mobile-label { position: absolute;
+ left: 0;
+ right: 0;
+ height: 2px;
+}
+.ff-run-breakdown__mobile-label > span { position: absolute;
+ bottom: 0;
+ left: .65rem;
+ right: auto;
+ width: max-content;
+ max-width: calc(100% - 1.3rem);
+ display: inline-flex;
+ align-items: center;
+ gap: .3rem;
+ height: 1.34rem;
+ box-sizing: border-box;
+ padding: .12rem .3rem;
+ color: #fff;
+ font-size: .74rem;
+ line-height: 1.15;
+ white-space: nowrap;
+ overflow: hidden;
+ text-overflow: ellipsis;
+ background: rgba(29, 29, 33, .62);
+ transform: translateY(var(--label-shift, 0rem));
+}
+.ff-run-breakdown__mobile-label small { color: #d7d7d7;
+ font: inherit;
+}
+.ff-run-breakdown__mobile-label img { width: 1.1rem;
+ height: 1.1rem;
+ image-rendering: pixelated;
+}
+.ff-run-breakdown__mobile-label--day > span { color: #17171c;
+ background: #5ae161;
+}
+.ff-run-breakdown__mobile-label--day.is-yellow > span { background: #ebd25c;
+}
+.ff-run-breakdown__mobile-label--day.is-orange > span { background: #ff9b4d;
+}
+.ff-run-breakdown__mobile-label--day.is-red > span { background: #e55b4c;
+}
+.ff-run-breakdown__mobile-label--day small { color: inherit;
+}
+.ff-run-breakdown__mobile-event--task { background: transparent;
+ border-top: 2px dashed currentColor;
+}
+.ff-run-breakdown__mobile-event--day.is-green { background: #5ae161;
+}
+.ff-run-breakdown__mobile-event--day.is-yellow { background: #ebd25c;
+}
+.ff-run-breakdown__mobile-event--day.is-orange { background: #ff9b4d;
+}
+.ff-run-breakdown__mobile-event--day.is-red { background: #e55b4c;
+}
+.ff-run-breakdown__mobile-event--task.is-green { background: rgba(90, 225, 97, .65);
+ color: #5ae161;
+ background: transparent;
+}
+.ff-run-breakdown__mobile-event--task.is-yellow { background: rgba(235, 210, 92, .65);
+ color: #ebd25c;
+ background: transparent;
+}
+.ff-run-breakdown__mobile-event--task.is-orange { background: rgba(255, 155, 77, .65);
+ color: #ff9b4d;
+ background: transparent;
+}
+.ff-run-breakdown__mobile-event--task.is-red { background: rgba(229, 91, 76, .65);
+ color: #e55b4c;
+ background: transparent;
+}
+.ff-run-breakdown__mobile-event--result { background: #ef4c4c;
+ height: 3px;
+ z-index: 9;
+}
+.ff-run-breakdown__mobile-event--result.is-victory { background: #fff;
+}
+.ff-run-breakdown__mobile-result { display: block;
+ padding: .35rem .65rem 0;
+ color: #fff;
+ font-size: .74rem;
+ line-height: 1.15;
+}
+.ff-run-breakdown__mobile-result.is-victory strong { font-size: 1.48rem;
+ line-height: 1;
+}
+.ff-run-breakdown__mobile-event--hazard,
+.ff-run-breakdown__mobile-event--coin { display: none;
 }
 }
-
