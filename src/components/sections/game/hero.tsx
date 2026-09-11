@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { gameAsset } from "../../../lib/games";
 import CustomMarkdown, { markdownToText } from "../../custom-markdown";
+import McmetaImg from "../../mcmeta-img";
 import { buttonStyle, frameStyle } from "../frame";
 import arrowUrl from "../../../assets/sprites/arrow_down.png";
 import globeUrl from "../../../assets/sprites/globe.png";
@@ -98,9 +99,9 @@ export default function Hero({
               onClick={replay}
             />
           ) : (
-            <img className="hero__bg" src={mediaSrc} alt={markdownToText(gameName)} />
+            <McmetaImg className="hero__bg" src={mediaSrc} alt={markdownToText(gameName)} />
           )}
-          {logoSrc && <img className="hero__logo" src={logoSrc} alt={markdownToText(gameName)} />}
+          {logoSrc && <McmetaImg className="hero__logo" src={logoSrc} alt={markdownToText(gameName)} />}
         </div>
       )}
       <div className="hero__row">

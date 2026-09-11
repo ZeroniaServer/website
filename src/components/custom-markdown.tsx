@@ -1,5 +1,6 @@
 import { Fragment, type ReactNode } from "react";
 import { gameAsset } from "../lib/games";
+import McmetaImg from "./mcmeta-img";
 import "./custom-markdown.css";
 
 // Bold: **text** or __text__
@@ -73,7 +74,7 @@ function tokenNode(
   if (image) {
     const src = imageSource(image[2], slug, resolveAsset);
     return src ? (
-      <img key={key} className="custom-markdown__image" src={src} alt={image[1]} loading="lazy" />
+      <McmetaImg key={key} className="custom-markdown__image" src={src} alt={image[1]} loading="lazy" />
     ) : (
       token
     );
@@ -99,7 +100,7 @@ function tokenNode(
   const icon = token.match(/^\[icon:\s*([^\]]+)\]$/i);
   if (icon) {
     const src = imageSource(icon[1], slug, resolveAsset);
-    return src ? <img key={key} className="custom-markdown__icon" src={src} alt="" /> : token;
+    return src ? <McmetaImg key={key} className="custom-markdown__icon" src={src} alt="" /> : token;
   }
 
   const link = token.match(/^\[([^\]]+)\]\(([^)]+)\)$/);

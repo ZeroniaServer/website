@@ -37,7 +37,7 @@ export default function GamePage({ slug }: { slug: string }) {
       </main>
     );
   }
-  const darkSections = new Set(["hero", "how-to-play", "additional-info"]) // Text based sections will have dark background for visibility
+  const darkSections = new Set(["hero", "how-to-play", "additional-info", "ff-run-breakdown"]) // Dark text sections.
   const pools = game.sections.map( (s, i) => {
     if (darkSections.has(s.type)) {
       console.log(`${s.type} is dark`)
