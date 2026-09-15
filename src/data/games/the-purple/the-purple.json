@@ -212,7 +212,98 @@
     {
       "type": "versions",
       "title": "Versions",
-      "versions": []
+      "versions": [
+        {
+          "version": "1.0.11",
+          "mcVersions": [
+            "26.3"
+          ],
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/the-purple/the-purple-v1.0.11.zip",
+            "resourcepack": "https://downloads.zeronia.org/resourcepacks/the-purple/the-purple-resourcepack-v1.0.11.zip"
+          }
+        },
+        {
+          "version": "1.0.10",
+          "mcVersions": [
+            "26.2"
+          ],
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/the-purple/the-purple-v1.0.10.zip",
+            "resourcepack": "https://downloads.zeronia.org/resourcepacks/the-purple/the-purple-resourcepack-v1.0.10.zip"
+          }
+        },
+        {
+          "version": "1.0.9",
+          "mcVersions": [
+            "26.1"
+          ],
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/the-purple/the-purple-v1.0.9.zip",
+            "resourcepack": "https://downloads.zeronia.org/resourcepacks/the-purple/the-purple-resourcepack-v1.0.9.zip"
+          }
+        },
+        {
+          "version": "1.0.8",
+          "mcVersions": [
+            "1.21.11"
+          ],
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/the-purple/the-purple-v1.0.8.zip",
+            "resourcepack": "https://downloads.zeronia.org/resourcepacks/the-purple/the-purple-resourcepack-v1.0.8.zip"
+          }
+        },
+        {
+          "version": "1.0.6",
+          "mcVersions": [
+            "1.21.9"
+          ],
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/the-purple/the-purple-v1.0.6.zip",
+            "resourcepack": "https://downloads.zeronia.org/resourcepacks/the-purple/the-purple-resourcepack-v1.0.6.zip"
+          }
+        },
+        {
+          "version": "1.0.5",
+          "mcVersions": [
+            "1.21.7"
+          ],
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/the-purple/the-purple-v1.0.5.zip",
+            "resourcepack": "https://downloads.zeronia.org/resourcepacks/the-purple/the-purple-resourcepack-v1.0.5.zip"
+          }
+        },
+        {
+          "version": "1.0.3",
+          "mcVersions": [
+            "1.21.6"
+          ],
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/the-purple/the-purple-v1.0.3.zip",
+            "resourcepack": "https://downloads.zeronia.org/resourcepacks/the-purple/the-purple-resourcepack-v1.0.3.zip"
+          }
+        },
+        {
+          "version": "1.0.2",
+          "mcVersions": [
+            "1.21.5"
+          ],
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/the-purple/the-purple-v1.0.2.zip",
+            "resourcepack": "https://downloads.zeronia.org/resourcepacks/the-purple/the-purple-resourcepack-v1.0.2.zip"
+          }
+        },
+        {
+          "version": "1.0.1",
+          "mcVersions": [
+            "1.21.4"
+          ],
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/the-purple/the-purple-v1.0.1.zip",
+            "resourcepack": "https://downloads.zeronia.org/resourcepacks/the-purple/the-purple-resourcepack-v1.0.1.zip"
+          }
+        }
+      ]
     },
     {
       "type": "faq",
