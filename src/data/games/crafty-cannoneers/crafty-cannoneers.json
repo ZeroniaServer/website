@@ -225,6 +225,18 @@
       "title": "Versions",
       "versions": [
         {
+          "version": "1.1.15",
+          "mcVersions": [
+            "26.3"
+          ],
+          "changelog": "https://github.com/ZeroniaServer/CraftyCannoneers/releases/tag/v1.1.15",
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/crafty-cannoneers/crafty-cannoneers-v1.1.15.zip",
+            "datapack": "https://downloads.zeronia.org/datapacks/crafty-cannoneers/crafty-cannoneers-datapack-v1.1.15.zip",
+            "resourcepack": "https://downloads.zeronia.org/resourcepack/crafty-cannoneers/crafty-cannoneers-resourcepack-v1.1.15.zip"
+          }
+        },
+        {
           "version": "1.1.14",
           "mcVersions": [
             "26.2"
