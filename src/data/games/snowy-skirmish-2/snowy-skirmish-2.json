@@ -208,7 +208,120 @@
     {
       "type": "versions",
       "title": "Versions",
-      "versions": []
+      "versions": [
+        {
+          "version": "1.0.7",
+          "mcVersions": [
+            "26.3"
+          ],
+          "changelog": "https://github.com/ZeroniaServer/Avalanche-Datapack/releases/tag/v1.0.7",
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/avalanche/snowy-skirmish-2-avalanche-v1.0.7.zip",
+            "datapack": "https://downloads.zeronia.org/datapacks/avalanche/snowy-skirmish-2-avalanche-datapack-v1.0.7.zip",
+            "resourcepack": "https://downloads.zeronia.org/resourcepack/avalanche/snowy-skirmish-2-avalanche-resourcepack-v1.0.7.zip"
+          }
+        },
+        {
+          "version": "1.0.6",
+          "mcVersions": [
+            "26.2"
+          ],
+          "changelog": "https://github.com/ZeroniaServer/Avalanche-Datapack/releases/tag/v1.0.6",
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/avalanche/snowy-skirmish-2-avalanche-v1.0.6.zip",
+            "datapack": "https://downloads.zeronia.org/datapacks/avalanche/snowy-skirmish-2-avalanche-datapack-v1.0.6.zip",
+            "resourcepack": "https://downloads.zeronia.org/resourcepack/avalanche/snowy-skirmish-2-avalanche-resourcepack-v1.0.6.zip"
+          }
+        },
+        {
+          "version": "1.0.5",
+          "mcVersions": [
+            "26.1"
+          ],
+          "changelog": "https://github.com/ZeroniaServer/Avalanche-Datapack/releases/tag/v1.0.5",
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/avalanche/snowy-skirmish-2-avalanche-v1.0.5.zip",
+            "datapack": "https://downloads.zeronia.org/datapacks/avalanche/snowy-skirmish-2-avalanche-datapack-v1.0.5.zip",
+            "resourcepack": "https://downloads.zeronia.org/resourcepack/avalanche/snowy-skirmish-2-avalanche-resourcepack-v1.0.5.zip"
+          }
+        },
+        {
+          "version": "1.0.5",
+          "mcVersions": [
+            "1.21.10",
+            "1.21.11"
+          ],
+          "changelog": "https://github.com/ZeroniaServer/Avalanche-Datapack/releases/tag/v1.0.5",
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/avalanche/snowy-skirmish-2-avalanche-v1.0.5-1.21.10-1.21.11.zip",
+            "datapack": "https://downloads.zeronia.org/datapacks/avalanche/snowy-skirmish-2-avalanche-datapack-v1.0.5.zip",
+            "resourcepack": "https://downloads.zeronia.org/resourcepack/avalanche/snowy-skirmish-2-avalanche-resourcepack-v1.0.5.zip"
+          }
+        },
+        {
+          "version": "1.0.4",
+          "mcVersions": [
+            "1.21.10",
+            "1.21.11"
+          ],
+          "changelog": "https://github.com/ZeroniaServer/Avalanche-Datapack/releases/tag/v1.0.4",
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/avalanche/snowy-skirmish-2-avalanche-v1.0.4.zip",
+            "datapack": "https://downloads.zeronia.org/datapacks/avalanche/snowy-skirmish-2-avalanche-datapack-v1.0.4.zip",
+            "resourcepack": "https://downloads.zeronia.org/resourcepack/avalanche/snowy-skirmish-2-avalanche-resourcepack-v1.0.4.zip"
+          }
+        },
+        {
+          "version": "1.0.3",
+          "mcVersions": [
+            "1.21.9"
+          ],
+          "changelog": "https://github.com/ZeroniaServer/Avalanche-Datapack/releases/tag/v1.0.3",
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/avalanche/snowy-skirmish-2-avalanche-v1.0.3.zip",
+            "datapack": "https://downloads.zeronia.org/datapacks/avalanche/snowy-skirmish-2-avalanche-datapack-v1.0.3.zip",
+            "resourcepack": "https://downloads.zeronia.org/resourcepack/avalanche/snowy-skirmish-2-avalanche-resourcepack-v1.0.3.zip"
+          }
+        },
+        {
+          "version": "1.0.2",
+          "mcVersions": [
+            "1.21.6",
+            "1.21.7"
+          ],
+          "changelog": "https://github.com/ZeroniaServer/Avalanche-Datapack/releases/tag/v1.0.2",
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/avalanche/snowy-skirmish-2-avalanche-v1.0.2.zip",
+            "datapack": "https://downloads.zeronia.org/datapacks/avalanche/snowy-skirmish-2-avalanche-datapack-v1.0.2.zip",
+            "resourcepack": "https://downloads.zeronia.org/resourcepack/avalanche/snowy-skirmish-2-avalanche-resourcepack-v1.0.2.zip"
+          }
+        },
+        {
+          "version": "1.0.1",
+          "mcVersions": [
+            "1.21.6",
+            "1.21.7"
+          ],
+          "changelog": "https://github.com/ZeroniaServer/Avalanche-Datapack/releases/tag/v1.0.1",
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/avalanche/snowy-skirmish-2-avalanche-v1.0.1.zip",
+            "datapack": "https://downloads.zeronia.org/datapacks/avalanche/snowy-skirmish-2-avalanche-datapack-v1.0.1.zip",
+            "resourcepack": "https://downloads.zeronia.org/resourcepack/avalanche/snowy-skirmish-2-avalanche-resourcepack-v1.0.1.zip"
+          }
+        },
+        {
+          "version": "1.0.0",
+          "mcVersions": [
+            "1.21.4"
+          ],
+          "changelog": "https://github.com/ZeroniaServer/Avalanche-Datapack/releases/tag/v1.0.0",
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/avalanche/snowy-skirmish-2-avalanche-v1.0.0.zip",
+            "datapack": "https://downloads.zeronia.org/datapacks/avalanche/snowy-skirmish-2-avalanche-datapack-v1.0.0.zip",
+            "resourcepack": "https://downloads.zeronia.org/resourcepack/avalanche/snowy-skirmish-2-avalanche-resourcepack-v1.0.0.zip"
+          }
+        }
+      ]
     },
     {
       "type": "faq",
