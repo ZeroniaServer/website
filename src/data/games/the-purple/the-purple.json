@@ -36,7 +36,8 @@
           "url": "https://www.planetminecraft.com/project/the-purple-6526015/"
         }
       ],
-      "credits": [
+      "credits": {
+        "primary": [
         {
           "player": "Stuffy",
           "roles": [
@@ -59,7 +60,9 @@
           "roles": [
             "Musician"
           ]
-        },
+        }
+        ],
+        "translators": [
         {
           "player": "ZeroIceBear",
           "roles": [
@@ -132,7 +135,8 @@
             "Translator (Norwegian)"
           ]
         }
-      ],
+        ]
+      },
       "creditsLink": "",
       "logo": "hero/logo.png"
     },

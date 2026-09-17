@@ -34,7 +34,8 @@
           "url": "https://www.planetminecraft.com/project/rocket-riders/"
         }
       ],
-      "credits": [
+      "credits": {
+        "primary": [
         {
           "player": "Evtema3",
           "roles": [
@@ -95,7 +96,9 @@
             "Trailer Director"
           ]
         }
-      ],
+        ],
+        "translators": []
+      },
       "creditsLink": "https://zeroniaserver.github.io/RocketRidersWiki/credits/",
       "logo": "hero/logo.png"
     },

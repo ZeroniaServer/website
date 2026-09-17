@@ -34,14 +34,17 @@
           "url": ""
         }
       ],
-      "credits": [
+      "credits": {
+        "primary": [
         {
           "player": "Placeholder",
           "roles": [
             "Placeholder"
           ]
         }
-      ],
+        ],
+        "translators": []
+      },
       "creditsLink": ""
     },
     {

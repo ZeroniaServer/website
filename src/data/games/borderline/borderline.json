@@ -24,7 +24,8 @@
           "url": "https://trial.stickypiston.co/map/borderline"
         }
       ],
-      "credits": [
+      "credits": {
+        "primary": [
         {
           "player": "YZEROgame",
           "roles": [
@@ -37,7 +38,9 @@
             "Developer"
           ]
         }
-      ],
+        ],
+        "translators": []
+      },
       "creditsLink": "",
       "logo": ""
     },

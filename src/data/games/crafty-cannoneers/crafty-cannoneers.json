@@ -38,7 +38,8 @@
           "url": "https://www.planetminecraft.com/project/crafty-cannoneers/"
         }
       ],
-      "credits": [
+      "credits": {
+        "primary": [
         {
           "player": "YZEROgame",
           "roles": [
@@ -79,7 +80,9 @@
           "roles": [
             "Trailer Director"
           ]
-        },
+        }
+        ],
+        "translators": [
         {
           "player": "ZeroIceBear",
           "roles": [
@@ -152,7 +155,8 @@
             "Translator (Norwegian)"
           ]
         }
-      ],
+        ]
+      },
       "creditsLink": "",
       "logo": "hero/logo.png"
     },
