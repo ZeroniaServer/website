@@ -56,8 +56,7 @@
           "player": "Stuffy",
           "roles": [
             "Datapack",
-            "Builder",
-            "Translations"
+            "Builder"
           ]
         },
         {
@@ -70,21 +69,63 @@
           ]
         },
         {
+          "player": "Tomiebeer2",
+          "roles": [
+            "Trailer Director"
+          ]
+        },
+        {
           "player": "Creepanator77",
           "roles": [
             "Builder"
           ]
         },
         {
-          "player": "Mozzie4014",
+          "player": "nightlibra",
           "roles": [
             "Datapack"
           ]
         },
         {
-          "player": "nightlibra",
+          "player": "Stuffy",
           "roles": [
-            "Datapack"
+            "Translator"
+          ]
+        },
+        {
+          "player": "ZeroIceBear",
+          "roles": [
+            "Translator (Chinese Simplified)"
+          ]
+        },
+        {
+          "player": "TheOnlyMann",
+          "roles": [
+            "Translator (Korean)"
+          ]
+        },
+        {
+          "player": "Yatloaf",
+          "roles": [
+            "Translator (German)"
+          ]
+        },
+        {
+          "player": "tainoji_z",
+          "roles": [
+            "Translator (Japanese)"
+          ]
+        },
+        {
+          "player": "Shiro",
+          "roles": [
+            "Translator (Spanish)"
+          ]
+        },
+        {
+          "player": "ZeroniaMC",
+          "roles": [
+            "Translator (Cave Man)"
           ]
         }
       ],
