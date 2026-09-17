@@ -222,11 +222,61 @@
         {
           "question": "How do I play with friends?",
           "answer": "Fossil Frights supports several different ways to play with friends:\n\n1. The invite terminal, or /invite, to invite an online player to a duos game.\n2. Party Mode, which keeps the doors open for players to come and go freely, recommended for experienced players or large groups on call.\n3. Heists mode, a 2 team thief vs guards gamemode!",
-          "pinned": false
+          "pinned": true
         },
         {
           "question": "Why are lights out / water everywhere / lava in the basement?",
           "answer": "You're experiencing a hazard! They can happen randomly during your shift and add an extra layer of challenge. The only way to get rid of them is to find the off switch in the basement.",
+          "pinned": false
+        },
+        {
+          "question": "How do I secure an item in a heist? What does that do?",
+          "answer": "Optionally, guards can hold right-click on a non-keyed loot item, common or heavy, for a few seconds. Once done, stealing this item will take thieves longer and alert guards. If a thief manages to steal a secured item, you'll have to wait before securing it again.",
+          "pinned": false
+        },
+        {
+          "question": "How do I get plushies?",
+          "answer": "By completing one of the final tasks of the game. These plushies persist with your player and can be shown off in the lobby.",
+          "pinned": false
+        },
+        {
+          "question": "How do I get coins in Fossil Heist?",
+          "answer": "If you're a thief, you can punch a guard to get a coin alongside a key. The tough part is escaping with it. If you're a guard, there's a rare chance you'll get a message telling you where a coin has appeared. Both guards and thieves can pick up this coin, so be quick.",
+          "pinned": false
+        },
+        {
+          "question": "Why do hazards activate in heists?",
+          "answer": "In the regular Frights gamemode, you usually only deactivate hazards, but in heists thieves have a reason to activate them. Hazards buff them by giving immunity to lava, fast swimming, or the ability to see traps. Thieves occasionally receive hazard cookies, which they eat to enable a hazard, or they can toggle them on via the basement.",
+          "pinned": false
+        },
+        {
+          "question": "What is invispunch?",
+          "answer": "When a thief punches a guard, they go invisible for 8 seconds, only leaving a subtle trail of particles for guards to spot. This ability takes 20 seconds to cool down before it can be used again.",
+          "pinned": false
+        },
+        {
+          "question": "What is challenge mode?",
+          "answer": "/challenge or /trigger challenge can be used by thieves before a game to raise the bounty. This is meant for experienced players or uneven teams to help improve matches.",
+          "pinned": false
+        },
+        {
+          "question": "What is speedrun mode?",
+          "answer": "Speedrun mode is designed for players who've beaten the game and want to get their best time. Turning on speedrun mode provides a delta after each task and day, telling you how much you've improved or how far behind your previous run you are. It also allows you to set your Day 1 task with /speedruntask, making it less necessary to restart because of bad Day 1 RNG. It also provides a run breakdown that you can click in chat to open the official Zeronia website, where you get a graph of your run to share with friends and analyze your strategies.",
+          "pinned": false
+        },
+        {
+          "question": "I'm struggling to solve the Holy Grail.",
+          "answer": "The Holy Grail has a hidden solution near the ruins tower. Once you have the golden nautilus, the locator bar and particles will point there. You must then locate the proper grail, a decorated pot, with those markings and offer the Holy Grail to it by clicking it.",
+          "pinned": false
+        },
+        {
+          "question": "I'm struggling to solve the lost code.",
+          "answer": "The lost code has a hidden combination in the museum. There are no particles or locator bar showing you where it is. Find it, remember the sequence, and input it into the combination lock in the ruins jungle temple.",
+          "pinned": false
+        },
+        {
+          "question": "Why are there no particles or locator bar for Fertilize Plant?",
+          "answer": "Correct! The location is unknown, but it is on the second floor. You have to find it on your own.",
           "pinned": false
         }
       ]
