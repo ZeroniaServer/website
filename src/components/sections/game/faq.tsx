@@ -1,15 +1,52 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import CustomMarkdown from "../../custom-markdown";
 import { frameStyle } from "../frame";
+import { gameAssetIfExists } from "../../../lib/games";
+import { toSmallCaps } from "../../../lib/text";
+import pinnedIcon from "../../../assets/sprites/pinned.png";
 import "./faq.css";
 
 interface FaqEntry {
   question: string;
   answer: string;
   pinned?: boolean;
+  tags?: string[];
 }
 
 const PAGE_SIZE = 8;
+
+const tagLabel = (tag: string) =>
+  tag
+    .trim()
+    .replace(/[-_]+/g, " ")
+    .replace(/\b\w/g, (letter) => letter.toUpperCase());
+
+function FaqTags({ slug, faq }: { slug: string; faq: FaqEntry }) {
+  const tags = [
+    ...(faq.pinned ? ["pinned"] : []),
+    ...(Array.isArray(faq.tags) ? faq.tags.filter((tag): tag is string => typeof tag === "string") : []),
+  ].filter((tag, index, all) => {
+    const normalized = tag.trim().toLowerCase();
+    return normalized && all.findIndex((candidate) => candidate.trim().toLowerCase() === normalized) === index;
+  });
+
+  return (
+    <span className="faq__tags" aria-label="FAQ tags">
+      {tags.map((tag) => {
+        const normalized = tag.trim();
+        const isPinned = normalized.toLowerCase() === "pinned";
+        const icon = isPinned ? pinnedIcon : gameAssetIfExists(slug, `faq/${normalized}.png`);
+        const label = isPinned ? "Pinned" : tagLabel(normalized);
+        return (
+          <span className="faq__tag" key={normalized.toLowerCase()} title={label}>
+            {icon && <img className="faq__tag-icon" src={icon} alt="" />}
+            <span className="faq__tag-label">{toSmallCaps(label)}</span>
+          </span>
+        );
+      })}
+    </span>
+  );
+}
 
 function AnswerPanel({ open, text, slug }: { open: boolean; text: string; slug: string }) {
   const innerRef = useRef<HTMLDivElement>(null);
@@ -123,14 +160,10 @@ export default function Faq({
                 setOpen((o) => ({ ...o, [f.question]: !o[f.question] }));
               }}
             >
-              {f.pinned && (
-                <span className="faq__pin" title="Pinned">
-                  ★
-                </span>
-              )}
               <span className="faq__question-text">
                 <CustomMarkdown text={f.question} slug={slug} inline />
               </span>
+              <FaqTags slug={slug} faq={f} />
               <span className="faq__toggle" aria-hidden="true" />
             </div>
             <AnswerPanel open={!!open[f.question]} text={f.answer} slug={slug} />

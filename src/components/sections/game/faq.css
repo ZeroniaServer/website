@@ -44,6 +44,7 @@
 }
 
 .faq__question {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 0.6rem;
@@ -63,12 +64,51 @@
   background: rgba(255, 255, 255, 0.06);
 }
 
-.faq__pin {
-  color: #f5c542;
+.faq__tags {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.faq__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.35rem;
+  color: var(--color-muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+}
+
+.faq__tag-label {
+  white-space: nowrap;
+}
+
+.faq__tag-icon {
+  width: 1rem;
+  height: 1rem;
+  object-fit: contain;
+  image-rendering: pixelated;
 }
 
 .faq__question-text {
-  flex: 1;
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+@media (max-width: 36rem) {
+  .faq__question {
+    flex-wrap: wrap;
+  }
+
+  .faq__tags {
+    margin-left: 0;
+  }
 }
 
 /* A "+" made of two bars that rotates 45deg into an "x" when open. */
@@ -76,6 +116,7 @@
   position: relative;
   width: 0.85rem;
   height: 0.85rem;
+  margin-left: auto;
   flex-shrink: 0;
   transition: transform 0.15s ease;
 }

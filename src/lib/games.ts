@@ -65,6 +65,15 @@ export function gameAsset(slug: string, relPath: string): string {
   return "";
 }
 
+// Resolve assets without warn if missing.
+export function gameAssetIfExists(slug: string, relPath: string): string {
+  if (!relPath) return "";
+  const suffix = `/games/${slug}/${relPath}`;
+  for (const [path, url] of Object.entries(ASSETS))
+    if (path.endsWith(suffix)) return url;
+  return "";
+}
+
 // Asset metadata
 export function gameAssetMetadata(url: string): string | undefined {
   const assetPath = Object.entries(ASSETS).find(([, assetUrl]) => assetUrl === url)?.[0];
