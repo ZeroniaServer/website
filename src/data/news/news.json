@@ -6,21 +6,21 @@
   "items": [
     {
       "title": "Fossil Frights Playtest",
-      "date": "2026-07-30",
+      "date": "2026-07-30T09:00",
       "description": "Fossil Frights is coming soon! We're excited to officially announce a new minigame for the Zeronia roster!\n\nIntroducing Fossil Frights, a compressive 10-day challenge where you play as a museum security guard working 5-minute night shifts to complete various tasks around the museum. This game is a ton of fun and we're super excited to help playtest it and collaborate with the dev team! Stay tuned for some future playtests! If you'd like to be notified about these playtests, head over to the [Zeronia Discord server](https://discord.com/invite/X9bZgw7)!",
       "image": "ff-playtest.jpg",
       "button": { "label": "View Fossil Frights", "href": "/fossil-frights" }
     },
     {
       "title": "Rocket Riders 1.3.0",
-      "date": "2026-03-22",
+      "date": "2026-03-22T09:00",
       "description": "This release of Rocket Riders brings long-awaited support for Minecraft versions 1.21.10 and 1.21.11, in addition to a brand new Sandbox Mode, overhauls to Crusade Mode, five new modifiers, improved game visuals, and a bunch more to explore!\n\nNone of this could have been possible without our newest team member, DorkOrc_ [head: DorkOrc_]. Dork has helped lay strong new groundwork for the map that will make our updates more ambitious and more frequent going forward. We truly appreciate your patience and support as we've undergone significant development behind the scenes to bring Rocket Riders back into shape, and we're excited for what's to come!",
       "image": "rr-1.3.0.jpg",
       "button": { "label": "View Rocket Riders", "href": "/rocket-riders" }
     },
     {
       "title": "The Purple Release",
-      "date": "2025-02-01",
+      "date": "2025-02-01T09:00",
       "description": "The Purple is a fresh take on the classic game of tag. Explore alien landscapes, collect unique artifacts, and avoid The Purple infection! In a unique twist, players are never truly eliminated. Spectators can affect the gameplay, and sometimes even rejoin the game. With many maps, settings, advancements, and more, there is always something new to discover.\n\nVersion: 1.21.6\nPlayers: 2+",
       "youtube": "https://youtu.be/CBzQuCIlSoQ",
       "image": "the-purple-release.png",
@@ -28,7 +28,7 @@
     },
     {
       "title": "Snowy Skirmish 2: Avalanche Release",
-      "date": "2024-12-20",
+      "date": "2024-12-20T09:00",
       "description": "Snowy Skirmish 2: Avalanche is the sequel to Snowy Skirmish, featuring a bigger arena, new/remastered items, and a new game objective! To win, players need to collect rockets, launch them at mountains, and cause the most avalanches on the other side!\n\nVersion: 1.21.4\nPlayers: 2-10",
       "youtube": "https://youtu.be/5f-kBMxmfzk",
       "image": "ss2-release.png",

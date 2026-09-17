@@ -8,6 +8,7 @@ import "./news.css";
 
 interface NewsItem {
   title: string;
+  /** EST publish date/time: YYYY-MM-DD or YYYY-MM-DDTHH:mm[:ss]. */
   date: string;
   description: string;
   image: string;
@@ -19,6 +20,35 @@ export const background = newsData.background as Pool;
 
 const INITIAL = 3;
 const STEP = 9;
+const EASTERN_TIME_ZONE = "America/Toronto";
+
+const easternDateTime = (now: number) => {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: EASTERN_TIME_ZONE,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hourCycle: "h23",
+  }).formatToParts(now);
+  const values = Object.fromEntries(
+    parts.filter(({ type }) => type !== "literal").map(({ type, value }) => [type, value]),
+  );
+
+  return `${values.year}-${values.month}-${values.day}T${values.hour}:${values.minute}:${values.second}`;
+};
+
+const isPublished = (item: NewsItem, now: number) => {
+  const schedule = item.date.trim();
+  if (!/^\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}(?::\d{2})?)?$/.test(schedule)) return false;
+
+  const releaseAt = schedule.includes("T")
+    ? schedule.padEnd(19, ":00")
+    : `${schedule}T00:00:00`;
+  return easternDateTime(now) >= releaseAt;
+};
 
 const IMAGES = import.meta.glob("../../assets/news/*", {
   eager: true,
@@ -63,8 +93,8 @@ function NewsMedia({ item, featured = false }: { item: NewsItem; featured?: bool
   );
 }
 
-const formatDate = (iso: string) =>
-  new Date(`${iso}T00:00:00`).toLocaleDateString(undefined, {
+const formatDate = (date: string) =>
+  new Date(`${date.slice(0, 10)}T00:00:00`).toLocaleDateString(undefined, {
     year: "numeric",
     month: "short",
     day: "numeric",
@@ -86,18 +116,25 @@ function NewsDescription({ item }: { item: NewsItem }) {
 }
 
 export default function News() {
+  const [now, setNow] = useState(() => Date.now());
   const items = useMemo(
     () =>
       (newsData.items as NewsItem[])
+        .filter((item) => isPublished(item, now))
         .slice()
         .sort((a, b) => b.date.localeCompare(a.date)),
-    [],
+    [now],
   );
   const [featured, ...rest] = items;
   const [visible, setVisible] = useState(() =>
     window.matchMedia("(max-width: 40rem)").matches ? 2 : INITIAL,
   );
   const [active, setActive] = useState<NewsItem | null>(null);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => setNow(Date.now()), 1_000);
+    return () => window.clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     if (!active) return;
