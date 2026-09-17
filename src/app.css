@@ -66,6 +66,29 @@ a {
   color: inherit;
 }
 
+input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 1rem;
+  margin: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  background: var(--color-gray-dark);
+  border: 2px solid var(--color-gray);
+  border-radius: 0;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+  background: var(--color-green);
+  border-color: var(--color-gray);
+}
+
+input[type="checkbox"]:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
+}
+
 /* --- Default site button: gray Minecraft-style pixel bevel --- */
 .mc-button {
   display: inline-flex;

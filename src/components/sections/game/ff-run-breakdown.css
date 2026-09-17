@@ -13,7 +13,6 @@
 .ff-run-breakdown__view-toggle input { width: 1rem;
  height: 1rem;
  margin: 0;
- accent-color: #5ae161;
  cursor: pointer;
 }
 .ff-run-breakdown__mobile-tooltip { position: absolute;
