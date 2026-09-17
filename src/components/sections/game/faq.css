@@ -14,11 +14,73 @@
   margin-bottom: 0.85rem;
 }
 
+.faq__filter {
+  position: relative;
+}
+
+.faq__filter-toggle {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  box-sizing: border-box;
+  height: 2.2rem;
+  padding: 0.45rem 1.8rem 0.45rem 0.7rem;
+  font-family: "Minecraft", monospace;
+  font-size: 0.9rem;
+  color: var(--color-text);
+  background: var(--color-surface) url("../../../assets/sprites/arrow_down.png") no-repeat right 0.6rem center;
+  background-size: 0.55rem;
+  border: var(--border-width) solid var(--color-gray-dark);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.faq__filter-menu {
+  position: absolute;
+  top: calc(100% + 0.3rem);
+  right: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 100%;
+  padding: 0.5rem 0.7rem;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: var(--border-width) solid var(--color-gray-dark);
+  border-radius: var(--radius);
+}
+
+.faq__filter-option {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.faq__filter-option input {
+  accent-color: var(--color-green);
+  cursor: pointer;
+}
+
 .faq__title {
   margin: 0;
 }
 
+.faq__controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-left: auto;
+}
+
 .faq__search {
+  box-sizing: border-box;
+  height: 2.2rem;
   width: 19rem;
   max-width: 100%;
   padding: 0.45rem 0.7rem 0.45rem 2rem;

@@ -13,6 +13,8 @@
 
 .versions__controls input,
 .versions__filter-toggle {
+  box-sizing: border-box;
+  height: 2.2rem;
   padding: 0.45rem 0.7rem;
   font-family: "Minecraft", monospace;
   font-size: 0.9rem;
@@ -28,6 +30,9 @@
 }
 
 .versions__filter-toggle {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
   padding-right: 1.8rem;
   background-image: url("../../../assets/sprites/arrow_down.png");
   background-repeat: no-repeat;

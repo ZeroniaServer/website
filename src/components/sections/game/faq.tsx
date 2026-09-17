@@ -86,24 +86,68 @@ export default function Faq({
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(0);
   const [open, setOpen] = useState<Record<string, boolean>>({});
+  const [hiddenTags, setHiddenTags] = useState<Set<string>>(new Set());
+  const [filterOpen, setFilterOpen] = useState(false);
+  const filterRef = useRef<HTMLDivElement>(null);
+
+  const tagOptions = useMemo(() => {
+    const found = new Map<string, string>();
+    for (const faq of faqs) {
+      if (!Array.isArray(faq.tags)) continue;
+      for (const tag of faq.tags) {
+        if (typeof tag !== "string") continue;
+        const value = tag.trim();
+        const key = value.toLowerCase();
+        if (value && key !== "pinned" && !found.has(key)) found.set(key, value);
+      }
+    }
+    return [...found.values()].sort((a, b) => tagLabel(a).localeCompare(tagLabel(b)));
+  }, [faqs]);
+
+  useEffect(() => {
+    if (!filterOpen) return;
+    const close = (event: MouseEvent) => {
+      if (!filterRef.current?.contains(event.target as Node)) setFilterOpen(false);
+    };
+    document.addEventListener("mousedown", close);
+    return () => document.removeEventListener("mousedown", close);
+  }, [filterOpen]);
 
   const items = useMemo(() => {
     const q = query.toLowerCase();
-    const match = (f: FaqEntry) => !q || `${f.question} ${f.answer}`.toLowerCase().includes(q);
+    const match = (f: FaqEntry) => {
+      const matchesQuery = !q || `${f.question} ${f.answer}`.toLowerCase().includes(q);
+      const matchesTags = !tagOptions.some(
+        (tag) =>
+          hiddenTags.has(tag.toLowerCase()) &&
+          Array.isArray(f.tags) &&
+          f.tags.some((value) => typeof value === "string" && value.trim().toLowerCase() === tag.toLowerCase()),
+      );
+      return matchesQuery && matchesTags;
+    };
     const pinned = faqs.filter((f) => f.pinned && match(f));
     const rest = faqs
       .filter((f) => !f.pinned && match(f))
       .sort((a, b) => a.question.localeCompare(b.question));
     return [...pinned, ...rest];
-  }, [faqs, query]);
+  }, [faqs, hiddenTags, query, tagOptions]);
 
   const pages = Math.max(1, Math.ceil(items.length / PAGE_SIZE));
   const current = Math.min(page, pages - 1);
   const visible = items.slice(current * PAGE_SIZE, (current + 1) * PAGE_SIZE);
 
-  // A search that narrows to one result found only in the answer (not
-  // visible in the collapsed question) auto-opens that result; leaving
-  // that state auto-closes whichever one we opened.
+  const toggleTag = (tag: string) => {
+    setHiddenTags((previous) => {
+      const next = new Set(previous);
+      const key = tag.toLowerCase();
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      return next;
+    });
+    setPage(0);
+  };
+
+  // auto open if search is one result
   const autoOpened = useRef<string | null>(null);
   useEffect(() => {
     const q = query.toLowerCase();
@@ -130,16 +174,43 @@ export default function Faq({
             <CustomMarkdown text={title} slug={slug} inline />
           </h2>
         )}
-        <input
-          className="faq__search"
-          type="search"
-          placeholder="Search questions"
-          value={query}
-          onChange={(e) => {
-            setQuery(e.target.value);
-            setPage(0);
-          }}
-        />
+        <div className="faq__controls">
+          {tagOptions.length > 0 && (
+            <div className="faq__filter" ref={filterRef}>
+              <button
+                className="faq__filter-toggle"
+                onClick={() => setFilterOpen((isOpen) => !isOpen)}
+                aria-expanded={filterOpen}
+              >
+                {hiddenTags.size === 0 ? "All tags" : `${tagOptions.length - hiddenTags.size}/${tagOptions.length} tags`}
+              </button>
+              {filterOpen && (
+                <div className="faq__filter-menu">
+                  {tagOptions.map((tag) => (
+                    <label key={tag.toLowerCase()} className="faq__filter-option">
+                      <input
+                        type="checkbox"
+                        checked={!hiddenTags.has(tag.toLowerCase())}
+                        onChange={() => toggleTag(tag)}
+                      />
+                      {toSmallCaps(tagLabel(tag))}
+                    </label>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+          <input
+            className="faq__search"
+            type="search"
+            placeholder="Search questions"
+            value={query}
+            onChange={(e) => {
+              setQuery(e.target.value);
+              setPage(0);
+            }}
+          />
+        </div>
       </div>
       <div className="faq__list">
         {visible.map((f) => (
