@@ -26,6 +26,14 @@ export default function GamePage({ slug }: { slug: string }) {
     document.title = game ? `${markdownToText(game.name)} | Zeronia` : "Zeronia";
   }, [game]);
 
+  useEffect(() => {
+    if (!game || !window.location.hash) return;
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    requestAnimationFrame(() =>
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" }),
+    );
+  }, [game]);
+
   if (!game) {
     const name = NAMES[slug] ?? titleize(slug);
     return (
