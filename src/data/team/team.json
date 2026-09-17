@@ -21,6 +21,7 @@
         { "name": "Toul_" },
         { "name": "Adamanti" },
         { "name": "123maarten123" },
+        { "name": "marten213" },
         { "name": "_Prozan_" }
       ]
     },
@@ -37,14 +38,12 @@
         { "name": "Yatloaf", "note": "German" },
         { "name": "CapitaineMinus", "note": "French" },
         { "name": "4953makcim", "note": "Russian" },
-        { "name": "YZEROgame", "note": "Dutch" },
         { "name": "Ostensvig", "note": "Norwegian" }
       ]
     },
     {
       "role": "Builders",
       "members": [
-        { "name": "Stuffy" },
         { "name": "TheAI" },
         { "name": "TheLastOreo" },
         { "name": "Hydrintegral" },
@@ -68,13 +67,12 @@
       "role": "Trailer Directors",
       "members": [
         { "name": "BlockyM_" },
-        { "name": "Polysquarazoid" },
         { "name": "Tomiebeer2" }
       ]
     },
     {
       "role": "Discord Moderators",
-      "members": [{ "name": "Chronos22" }, { "name": "Kurusa" }, { "name": "Louuuise" }]
+      "members": [{ "name": "Chronos22" }, { "name": "Kurusa" }]
     }
   ]
 }
