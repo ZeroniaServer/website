@@ -102,6 +102,21 @@ video.hero__bg {
   image-rendering: pixelated;
 }
 
+.hero__server-button--cubekrowd {
+  --btn-bg: #30323a;
+  --btn-bg-hover: #41444e;
+  --btn-bg-active: #25272d;
+  padding: 0.4rem 0.8rem;
+}
+
+.hero__server-logo {
+  display: block;
+  width: 10.5rem;
+  height: 1.55rem;
+  object-fit: contain;
+  image-rendering: auto;
+}
+
 .hero__credits {
   display: flex;
   flex-wrap: wrap;

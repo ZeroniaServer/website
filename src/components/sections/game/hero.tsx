@@ -6,6 +6,7 @@ import { buttonStyle, frameStyle } from "../frame";
 import arrowUrl from "../../../assets/sprites/arrow_down.png";
 import globeUrl from "../../../assets/sprites/globe.png";
 import hamburgerUrl from "../../../assets/sprites/hamburger.png";
+import cubekrowdLogoUrl from "../../../assets/sprites/cubekrowd_full.png";
 import "./hero.css";
 
 interface Credit {
@@ -181,21 +182,29 @@ export default function Hero({
           s.url ? (
             <a
               key={s.name}
-              className="mc-button"
+              className={`mc-button${s.name.trim().toLowerCase() === "cubekrowd" ? " hero__server-button--cubekrowd" : ""}`}
               style={buttonStyle(s.color)}
               href={s.url}
               target="_blank"
               rel="noreferrer"
             >
-              <CustomMarkdown text={s.name} slug={slug} inline />
+              {s.name.trim().toLowerCase() === "cubekrowd" ? (
+                <img className="hero__server-logo" src={cubekrowdLogoUrl} alt={s.name} />
+              ) : (
+                <CustomMarkdown text={s.name} slug={slug} inline />
+              )}
             </a>
           ) : (
             <span
               key={s.name}
-              className="mc-button mc-button--disabled"
+              className={`mc-button mc-button--disabled${s.name.trim().toLowerCase() === "cubekrowd" ? " hero__server-button--cubekrowd" : ""}`}
               style={buttonStyle(s.color)}
             >
-              <CustomMarkdown text={s.name} slug={slug} inline />
+              {s.name.trim().toLowerCase() === "cubekrowd" ? (
+                <img className="hero__server-logo" src={cubekrowdLogoUrl} alt={s.name} />
+              ) : (
+                <CustomMarkdown text={s.name} slug={slug} inline />
+              )}
             </span>
           ),
         )}
