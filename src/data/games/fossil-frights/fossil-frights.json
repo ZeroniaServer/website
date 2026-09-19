@@ -137,7 +137,19 @@
     {
       "type": "versions",
       "title": "Versions",
-      "versions": []
+      "versions": [
+        {
+          "version": "1.0.0",
+          "mcVersions": [
+            "26.2"
+          ],
+          "changelog": "https://github.com/ZeroniaServer/fossil-frights-dp/releases/tag/v1.0.0",
+          "files": {
+            "world": "https://downloads.zeronia.org/maps/fossil-frights/fossil-frights-v1.0.0.zip",
+            "resourcepack": "https://downloads.zeronia.org/resourcepacks/fossil-frights/fossil-frights-resourcepack-v1.0.0.zip"
+          }
+        }
+      ]
     },
     {
       "type": "faq",
