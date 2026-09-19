@@ -16,7 +16,32 @@
       "download": {
         "color": ""
       },
-      "servers": [],
+      "servers": [
+        {
+          "name": "CubeKrowd",
+          "url": "https://cubekrowd.net/"
+        },
+        {
+          "name": "PlanetMinecraft",
+          "url": "https://www.example.com"
+        },
+        {
+          "name": "MinecraftMaps",
+          "url": "https://www.example.com"
+        },
+        {
+          "name": "MapVerse",
+          "url": "https://www.example.com"
+        },
+        {
+          "name": "StickyPiston",
+          "url": "https://www.example.com"
+        },
+        {
+          "name": "MCCreations",
+          "url": "https://www.example.com"
+        }
+      ],
       "credits": {
         "primary": [
           { "player": "Polysquarazoid", "roles": ["Game Designer", "Datapack", "Plugin Dev", "Art", "Trailer", "Music"] },
@@ -118,6 +143,11 @@
       "type": "faq",
       "title": "FAQ",
       "faqs": [
+        {
+          "question": "How do I join Fossil Frights on the CubeKrowd public server?",
+          "answer": "Join the CubeKrowd server at play.cubekrowd.net, then type /ff1 to join Fossil Frights.",
+          "pinned": true
+        },
         {
           "question": "What is Dino Coin used for?",
           "answer": "Dino Coin has various uses including buying potions at the vending machine, and a few miscellaneous secrets like the wishing well, sculkadillo crane operator, key polishing crab and the talking skulls sarcophagus.",
