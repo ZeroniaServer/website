@@ -248,6 +248,12 @@
           "answer": "Correct! The location is unknown, but it is on the second floor. You have to find it on your own.",
           "pinned": false,
           "tags": ["frights"]
+        },
+        {
+          "question": "How can I capture loot in heists?",
+          "answer": "You can capture loot by throwing it in to the capture point which is located at the entrance of the museum.",
+          "pinned": false,
+          "tags": ["heists"]
         }
       ]
     }
