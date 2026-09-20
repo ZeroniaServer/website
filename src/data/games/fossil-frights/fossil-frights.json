@@ -24,22 +24,6 @@
         {
           "name": "PlanetMinecraft",
           "url": "https://www.planetminecraft.com/project/fossil-frights/"
-        },
-        {
-          "name": "MinecraftMaps",
-          "url": "https://www.example.com"
-        },
-        {
-          "name": "MapVerse",
-          "url": "https://www.example.com"
-        },
-        {
-          "name": "StickyPiston",
-          "url": "https://www.example.com"
-        },
-        {
-          "name": "MCCreations",
-          "url": "https://www.example.com"
         }
       ],
       "credits": {
