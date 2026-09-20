@@ -117,7 +117,11 @@ export default function FfRunBreakdown() {
 
   useEffect(() => {
     if (!activeToken || activeToken === token) return;
-    window.history.replaceState(null, "", `/fossil-frights/run=${encodeURIComponent(activeToken)}`);
+    window.history.replaceState(
+      null,
+      "",
+      `/fossil-frights/run=${encodeURIComponent(activeToken)}${window.location.search}${window.location.hash}`,
+    );
     setToken(activeToken);
   }, [activeToken, token]);
 
@@ -149,7 +153,7 @@ export default function FfRunBreakdown() {
   const mobileEvents = [...days.filter((event) => event.day !== 1), ...tasks, ...(run.result ? [run.result] : [])].sort((a, b) => a.ticks - b.ticks);
   const mobileLabelLayout = mobileLabelOffsets(mobileEvents.filter((event) => event.kind !== "result"), duration);
   const mobileEventTip = (event: RunEvent): Tip => ({ event, icon: event.kind === "task" ? gameAsset("fossil-frights", `icons/${taskIcon(event.id)}`) : event.kind === "coin" ? coinIcon(event.id) : undefined });
-  const chooseRun = (next: string) => { window.history.pushState(null, "", `/fossil-frights/run=${encodeURIComponent(next)}`); setToken(next); if (historyRef.current) historyRef.current.open = false; };
+  const chooseRun = (next: string) => { window.history.pushState(null, "", `/fossil-frights/run=${encodeURIComponent(next)}${window.location.search}${window.location.hash}`); setToken(next); if (historyRef.current) historyRef.current.open = false; };
   const removeRun = (event: MouseEvent, value: string) => { event.preventDefault(); event.stopPropagation(); const next = history.filter((item) => item.token !== value); localStorage.setItem(STORAGE_KEY, JSON.stringify(next)); setHistory(next); };
   return (
     <div className={`ff-run-breakdown${verticalView ? " ff-run-breakdown--vertical" : ""}`}>

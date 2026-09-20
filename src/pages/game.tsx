@@ -28,7 +28,16 @@ export default function GamePage({ slug }: { slug: string }) {
 
   useEffect(() => {
     if (!game || !window.location.hash) return;
-    const id = decodeURIComponent(window.location.hash.slice(1));
+    let hash = window.location.hash.slice(1);
+    try {
+      hash = decodeURIComponent(hash);
+    } catch {
+      return;
+    }
+    const versionsIndex = game.sections.findIndex((section) => section.type === "versions");
+    const versionsId = versionsIndex >= 0 ? `versions-${versionsIndex}` : undefined;
+    const id = hash.toLowerCase() === "downloads" ? versionsId : hash;
+    if (!id) return;
     requestAnimationFrame(() =>
       document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" }),
     );
