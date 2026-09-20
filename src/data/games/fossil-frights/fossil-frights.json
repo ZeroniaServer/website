@@ -202,14 +202,14 @@
           "tags": ["frights"]
         },
         {
-          "question": "How do I get coins in Fossil Heist?",
+          "question": "How do I get coins in Fossil Heists?",
           "answer": "If you're a thief, you can punch a guard to get a coin alongside a key. The tough part is escaping with it. If you're a guard, there's a rare chance you'll get a message telling you where a coin has appeared. Both guards and thieves can pick up this coin, so be quick.",
           "pinned": false,
           "tags": ["heists"]
         },
         {
-          "question": "Why do hazards activate in heists?",
-          "answer": "In the regular Frights gamemode, you usually only deactivate hazards, but in heists thieves have a reason to activate them. Hazards buff them by giving immunity to lava, fast swimming, or the ability to see traps. Thieves occasionally receive hazard cookies, which they eat to enable a hazard, or they can toggle them on via the basement.",
+          "question": "Why do hazards activate in Fossil Heists?",
+          "answer": "In the regular Frights gamemode, you usually only deactivate hazards, but in Fossil Heists, thieves have a reason to activate them. Hazards buff them by giving immunity to lava, fast swimming, or the ability to see traps. Thieves occasionally receive hazard cookies, which they eat to enable a hazard, or they can toggle them on via the basement.",
           "pinned": false,
           "tags": ["frights", "heists"]
         },
