@@ -38,6 +38,10 @@ export function getGame(slug: string): GameData | undefined {
   return GAMES[slug];
 }
 
+export function isKnownSlug(slug: string): boolean {
+  return Boolean(GAMES[slug]);
+}
+
 const ASSETS = import.meta.glob("../assets/games/**/*", {
   eager: true,
   query: "?url",

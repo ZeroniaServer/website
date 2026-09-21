@@ -1,0 +1,20 @@
+.not-found {
+  min-height: 42vh;
+  padding: calc(var(--nav-h, 64px) + 1rem) 1.5rem 2rem;
+}
+
+.not-found__heading { display: flex; align-items: center; gap: 0.75rem; }
+.not-found__code,
+.not-found .game-page__title { margin: 0; font: 2rem "Minecraft Ten", sans-serif; letter-spacing: 0.04em; }
+.not-found__code { color: var(--color-green); }
+.not-found .game-page__soon { color: var(--color-text); }
+.not-found code {
+  color: var(--color-text);
+  font: inherit;
+}
+
+@media (max-width: 30rem) {
+  .not-found__heading { gap: 0.45rem; }
+  .not-found__code,
+  .not-found .game-page__title { font-size: 1.5rem; }
+}
