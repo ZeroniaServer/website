@@ -36,12 +36,12 @@
       ],
       "credits": {
         "primary": [
-          { "player": "Polysquarazoid", "roles": ["Game Designer", "Datapack", "Plugin Dev", "Art", "Trailer", "Music"] },
-          { "player": "RiverTiger76", "roles": ["Lead Builder", "Datapack", "Art"] },
-          { "player": "DorkOrc_", "roles": ["Datapack", "Art"] },
-          { "player": "Evtema3", "roles": ["Datapack", "Shaders", "Music", "Production Manager"] },
-          { "player": "Stuffy", "roles": ["Datapack", "Builder"] },
-          { "player": "Endyblaze201", "roles": ["Builder", "Geologist"] }
+          { "player": "Polysquarazoid", "roles": ["Creator", "Game Designer", "Datapack", "Plugin Dev", "Art", "Trailer", "Builder"] },
+          { "player": "RiverTiger76", "roles": ["Creator", "Lead Builder", "Datapack", "Art"] },
+          { "player": "DorkOrc_", "roles": ["Creator", "Datapack", "Art"] },
+          { "player": "Evtema3", "roles": ["Creator", "Datapack", "Shaders", "Music", "Production Manager"] },
+          { "player": "Stuffy", "roles": ["Creator", "Datapack", "Builder"] },
+          { "player": "Endyblaze201", "roles": ["Creator", "Builder", "Geologist"] }
         ],
         "secondary": [
           { "player": "Tomiebeer2", "roles": ["Trailer Director"] },
@@ -49,7 +49,8 @@
           { "player": "Creepanator77", "roles": ["Builder"] },
           { "player": "nightlibra", "roles": ["Datapack"] },
           { "player": "Cag2", "roles": ["Plugin Dev"] },
-          { "player": "Mozzie4014", "roles": ["Datapack"] },
+          { "player": "Mozzie4014", "roles": ["Quality Assurance"] },
+          { "player": "Ialo01", "roles": ["Quality Assurance"] },
           { "player": "SaffronWizard", "roles": ["Builder"] }
         ],
         "translators": [
