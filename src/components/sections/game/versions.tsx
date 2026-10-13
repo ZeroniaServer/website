@@ -78,6 +78,7 @@ export default function Versions({
   const isMobile = useMediaQuery("(max-width: 40rem)");
   const [sort, setSort] = useState<{ key: string; dir: 1 | -1 } | null>(null);
   const [hiddenTypes, setHiddenTypes] = useState<Set<string>>(new Set());
+  const [showArchived, setShowArchived] = useState(false);
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(0);
   const [filterOpen, setFilterOpen] = useState(false);
@@ -119,14 +120,34 @@ export default function Versions({
     [versions],
   );
 
+  const latestForMinecraft = useMemo(() => {
+    const latest = new Map<string, string>();
+    for (const v of versions) {
+      if (Object.keys(v.files ?? {}).length === 0) continue;
+      for (const mcVersion of v.mcVersions) {
+        const current = latest.get(mcVersion);
+        if (!current || compareVersions(v.version, current) > 0) {
+          latest.set(mcVersion, v.version);
+        }
+      }
+    }
+    return latest;
+  }, [versions]);
+
+  const isLatestForMinecraft = (version: VersionEntry) =>
+    version.mcVersions.some((mcVersion) => latestForMinecraft.get(mcVersion) === version.version);
+
+  const archivedCount = versions.filter((v) => !isLatestForMinecraft(v)).length;
+
   const rows = useMemo(() => {
     const q = query.toLowerCase();
     const out = versions.filter(
       (v) =>
-        !q ||
-        v.version.toLowerCase().includes(q) ||
-        v.mcVersions.some((mc) => mc.toLowerCase().includes(q)) ||
-        mcRange(v.mcVersions).toLowerCase().includes(q),
+        (showArchived || isLatestForMinecraft(v)) &&
+        (!q ||
+          v.version.toLowerCase().includes(q) ||
+          v.mcVersions.some((mc) => mc.toLowerCase().includes(q)) ||
+          mcRange(v.mcVersions).toLowerCase().includes(q)),
     );
     if (!sort) return out;
     const { key, dir } = sort;
@@ -136,7 +157,7 @@ export default function Versions({
       const mb = sortedMc(b.mcVersions).pop() ?? "";
       return dir * compareVersions(ma, mb);
     });
-  }, [versions, sort, query]);
+  }, [versions, sort, query, showArchived, latestForMinecraft]);
 
   const pages = Math.max(1, Math.ceil(rows.length / PAGE_SIZE));
   const current = Math.min(page, pages - 1);
@@ -194,10 +215,10 @@ export default function Versions({
 
   const dlIcon = <img className="versions__dl-icon" src={downloadUrl} alt="" />;
 
-  const dlButton = (url: string | undefined, label = "Download") =>
+  const dlButton = (url: string | undefined, label = "Download", isLatest = true) =>
     url ? (
       <a
-        className="mc-button versions__dl versions__dl--available"
+        className={`mc-button versions__dl ${isLatest ? "versions__dl--available" : "versions__dl--archived"}`}
         href={url}
         target="_blank"
         rel="noreferrer"
@@ -300,6 +321,19 @@ export default function Versions({
               </div>
             )}
           </div>
+          {archivedCount > 0 && (
+            <label className="versions__filter-option versions__archive-option">
+              <input
+                type="checkbox"
+                checked={showArchived}
+                onChange={(event) => {
+                  setShowArchived(event.target.checked);
+                  setPage(0);
+                }}
+              />
+              Show Archives
+            </label>
+          )}
         </div>
         {visibleTypes.length === 0 ? (
           <p className="versions__empty">
@@ -323,8 +357,13 @@ export default function Versions({
             ))}
             <span className="versions__head versions__head--static">All</span>
           </div>
-          {visible.map((v) => (
-            <div key={`${v.version}-${v.mcVersions.join(",")}`} className="versions__row">
+          {visible.map((v) => {
+            const isLatest = isLatestForMinecraft(v);
+            return (
+            <div
+              key={`${v.version}-${v.mcVersions.join(",")}`}
+              className={`versions__row${isLatest ? "" : " versions__row--archived"}`}
+            >
               <span title={sortedMc(v.mcVersions).join(", ")}>{mcRange(v.mcVersions)}</span>
               <span>
                 {v.changelog ? (
@@ -342,13 +381,13 @@ export default function Versions({
               </span>
               {visibleTypes.map((t) => (
                 <span key={t} className="versions__cell">
-                  {dlButton(v.files?.[t])}
+                  {dlButton(v.files?.[t], "Download", isLatest)}
                 </span>
               ))}
               <span className="versions__action">
                 {availableUrls(v).length > 0 ? (
                   <button
-                    className={`mc-button versions__dl versions__dl--available${
+                    className={`mc-button versions__dl ${isLatest ? "versions__dl--available" : "versions__dl--archived"}${
                       bundling.has(v.version) ? " mc-button--disabled" : ""
                     }`}
                     onClick={() => downloadBundle(v)}
@@ -364,7 +403,8 @@ export default function Versions({
                 )}
               </span>
             </div>
-          ))}
+            );
+          })}
           {visible.length === 0 && <p className="versions__empty">No matching versions</p>}
         </div>
         )}
