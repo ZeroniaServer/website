@@ -5,8 +5,8 @@ Basic React site for GitHub Pages.
 ## Development
 
 ```bash
-npm install   # first time only
-npm run dev   # start the dev server
+npm install     # first time only
+npm run dev     # start the dev server
 ```
 
 ## Build
