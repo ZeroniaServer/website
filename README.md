@@ -1,7 +1,5 @@
 # Zeronia Website
 
-Basic React site for GitHub Pages.
-
 ## Development
 
 ```bash
