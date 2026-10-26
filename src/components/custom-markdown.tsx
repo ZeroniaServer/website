@@ -87,7 +87,7 @@ function tokenNode(
       <img
         key={key}
         className="custom-markdown__head"
-        src={`https://mc-heads.net/avatar/${encodeURIComponent(player)}/32`}
+        src={`https://minotar.net/avatar/${encodeURIComponent(player)}/32`}
         alt={player}
         title={player}
         width={24}

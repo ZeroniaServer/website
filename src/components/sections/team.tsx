@@ -28,7 +28,7 @@ const COLUMNS: string[][] = [
 const OPEN_BY_DEFAULT = new Set(["Founders", "Developers"]);
 
 const headUrl = (name: string) =>
-  `https://mc-heads.net/avatar/${encodeURIComponent(name)}/96`;
+  `https://minotar.net/avatar/${encodeURIComponent(name)}/96`;
 
 function Card({ group }: { group: Group }) {
   const [open, setOpen] = useState(OPEN_BY_DEFAULT.has(group.role));
