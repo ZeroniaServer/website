@@ -42,7 +42,7 @@ interface HeroProps {
 }
 
 const headUrl = (name: string) =>
-  `https://minotar.net/avatar/${encodeURIComponent(name)}/96`;
+  `https://minotar.net/helm/${encodeURIComponent(name)}/96`;
 
 export default function Hero({
   slug,
