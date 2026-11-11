@@ -50,7 +50,9 @@
           { "player": "nightlibra", "roles": ["Datapack"] },
           { "player": "Cag2", "roles": ["Plugin Dev"] },
           { "player": "Mozzie4014", "roles": ["Quality Assurance"] },
-          { "player": "Ialo01", "roles": ["Quality Assurance"] },
+          { "player": "Ialo01", "roles": ["Quality Assurance", "Builder"] },
+          { "player": "Hydrintegral", "roles": ["Builder", "Datapack", "Resourcepack"] },
+          { "player": "Snakemaster", "roles": ["Resourcepack"] },
           { "player": "SaffronWizard", "roles": ["Builder"] }
         ],
         "translators": [
