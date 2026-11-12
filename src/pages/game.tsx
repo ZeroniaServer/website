@@ -75,11 +75,11 @@ export default function GamePage({ slug }: { slug: string }) {
         const { type, background, title, ...props } = s;
         void background;
         const Cmp = SECTIONS[type];
-        const ownsHeader = type === "hero" || type === "faq" || type === "versions";
+        const ownsHeader = type === "hero" || type === "faq" || type === "versions" || type === "ff-run-breakdown";
         const extra =
           type === "hero"
             ? { versionsId }
-            : type === "faq" || type === "versions"
+            : type === "faq" || type === "versions" || type === "ff-run-breakdown"
               ? { title }
               : {};
         return (

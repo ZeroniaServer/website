@@ -1,0 +1,241 @@
+{
+  "tasks": {
+    "01": "bathroom_leak",
+    "02": "check_security",
+    "03": "chimney_sweep",
+    "04": "climb_the_tower",
+    "05": "close_clam",
+    "06": "count_shells",
+    "07": "count_toes",
+    "08": "dive_into_outhouse",
+    "09": "fix_cracked_egg",
+    "10": "fix_neptune",
+    "11": "kiss_t_rex",
+    "12": "lock_register",
+    "13": "make_some_noise",
+    "14": "plesio_hat",
+    "15": "polish_bell",
+    "16": "remove_dart",
+    "17": "reset_fountain",
+    "18": "reset_salt_level",
+    "19": "scrape_resin",
+    "20": "sit_on_lap",
+    "21": "smell_gingerbread",
+    "22": "static_buildup",
+    "23": "sweep_popcorn",
+    "24": "sweep_snow",
+    "25": "tnt_test",
+    "26": "toilet_clog",
+    "27": "visit_archean",
+    "28": "visit_neogene",
+    "29": "visit_silurian",
+    "30": "water_temp",
+    "31": "ancient_portal",
+    "32": "build_snowman",
+    "33": "chlorinify",
+    "34": "cocoa_run",
+    "35": "cool_it",
+    "36": "credit_reel",
+    "37": "defrost_village",
+    "38": "drink_with_trike",
+    "39": "feed_bees",
+    "40": "feed_mammoth",
+    "41": "feed_parrot",
+    "42": "feed_the_fish",
+    "43": "feed_the_plants",
+    "44": "fix_sculker",
+    "45": "free_caveman",
+    "46": "freeze_pond",
+    "47": "ice_top_up",
+    "48": "nautilus_guard",
+    "49": "paint_candy_cane",
+    "50": "popcorn_buckets",
+    "51": "refill_ice",
+    "52": "relight_campfire",
+    "53": "replenish_soap",
+    "54": "restock_plushies",
+    "55": "revitalize_coral",
+    "56": "shark_bait",
+    "57": "smelly_toilet",
+    "58": "stuff_stocking",
+    "59": "thaw_icy_sherd",
+    "60": "a_c_reset",
+    "61": "decorate_tree",
+    "62": "defrost_timeline",
+    "63": "evolution",
+    "64": "feed_the_bats",
+    "65": "holy_grail",
+    "66": "hoveraptor",
+    "67": "ice_sculpture",
+    "68": "infestation",
+    "69": "pig_wrangler",
+    "70": "reindeer_counting",
+    "71": "return_lost_egg",
+    "72": "return_the_key",
+    "73": "snowball_fight",
+    "74": "Naughty or Nice"
+  },
+  "coinUses": {
+    "01": "Well",
+    "02": "Sculkadillo crane",
+    "03": "Sarcophagus",
+    "04": "Crab",
+    "05": "Crow",
+    "11": "Veloci-Tea",
+    "12": "Pteranadon Twist",
+    "13": "Raptor Rush",
+    "14": "Bubbly Bat",
+    "15": "Chorus Cola"
+  },
+  "hallucinations": {
+    "1": {
+      "name": "Jolly Curse",
+      "color": "#ED3777",
+      "icon": "jolly_curse"
+    },
+    "2": {
+      "name": "Avalanche",
+      "color": "#B5E7FF",
+      "icon": "avalanche"
+    },
+    "3": {
+      "name": "Darkness",
+      "color": "#4A4742",
+      "icon": "darkness"
+    },
+    "4": {
+      "name": "Freezing Floods",
+      "color": "#3BB4FF",
+      "icon": "freezing_floods"
+    },
+    "5": {
+      "name": "Snowstorm",
+      "color": "#D1ECF0",
+      "icon": "snowstorm"
+    },
+    "6": {
+      "name": "Elf Infestation",
+      "color": "#45D143",
+      "icon": "elf_infestation"
+    },
+    "7": {
+      "name": "Chimney Smoke",
+      "color": "#3D2626",
+      "icon": "chimney_smoke"
+    }
+  },
+  "recipients": {
+    "1": {
+      "name": "Gold Shark",
+      "stocking": "gold_shark"
+    },
+    "2": {
+      "name": "T-rex",
+      "stocking": "fossil"
+    },
+    "3": {
+      "name": "Trike",
+      "stocking": "fossil"
+    },
+    "4": {
+      "name": "Crab",
+      "stocking": "crab"
+    },
+    "5": {
+      "name": "Raptor",
+      "stocking": "fossil"
+    },
+    "6": {
+      "name": "Cavemen",
+      "stocking": "cavemen"
+    },
+    "7": {
+      "name": "Coppy",
+      "stocking": "coppy"
+    },
+    "8": {
+      "name": "Mammoth",
+      "stocking": "ice_age"
+    },
+    "9": {
+      "name": "Polysquarazoid",
+      "stocking": "polysquarazoid"
+    },
+    "10": {
+      "name": "Bronto",
+      "stocking": "fossil"
+    },
+    "11": {
+      "name": "Pterodactyl",
+      "stocking": "fossil"
+    },
+    "12": {
+      "name": "The Bats",
+      "stocking": "bats"
+    },
+    "13": {
+      "name": "Warden",
+      "stocking": "sculk"
+    },
+    "14": {
+      "name": "Penguins",
+      "stocking": "ice_age"
+    },
+    "15": {
+      "name": "Snowmen",
+      "stocking": "snowmen"
+    },
+    "16": {
+      "name": "Hungry Plant",
+      "stocking": "hungry_plant"
+    },
+    "17": {
+      "name": "Plesiosaur",
+      "stocking": "fossil"
+    },
+    "18": {
+      "name": "Polar Bear",
+      "stocking": "ice_age"
+    },
+    "19": {
+      "name": "Ladybug",
+      "stocking": "ladybug"
+    },
+    "20": {
+      "name": "Sculkadillo",
+      "stocking": "sculk"
+    }
+  },
+  "taskBands": {
+    "easyMax": 30,
+    "mediumMax": 59,
+    "finalId": 74
+  },
+  "editionLabel": "Frightmas 2026",
+  "theme": "frightmas",
+  "assetFolder": "frightmas",
+  "eventCodes": {
+    "hallucination": "H",
+    "hallucinationOffId": "0",
+    "deliveries": {
+      "present": "P",
+      "coal": "K"
+    }
+  },
+  "coinIcons": {
+    "01": "icons/dinocoin.png",
+    "02": "run_breakdown/sculkadillo.png",
+    "03": "run_breakdown/sarcophagus.png",
+    "04": "run_breakdown/crab.png",
+    "05": "run_breakdown/frightmas/crow.png",
+    "11": "run_breakdown/veloci_tea.png",
+    "12": "run_breakdown/pteranadon_twist.png",
+    "13": "run_breakdown/raptor_rush.png",
+    "14": "run_breakdown/bubbly_bat.png",
+    "15": "run_breakdown/chorus_cola.png"
+  },
+  "deliveryIcons": {
+    "present": "present.png",
+    "coal": "coal.png"
+  }
+}
