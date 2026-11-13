@@ -9,8 +9,7 @@ import Faq from "./faq";
 import DynamicMap from "./dynamic-map";
 import FfRunBreakdown from "./ff-run-breakdown";
 
-// Maps a section "type" from a game JSON to its component. New custom
-// sections only need a file here plus an entry in this map.
+// Game section components by type.
 export const SECTIONS: Record<string, ComponentType<any>> = {
   hero: Hero,
   trailer: Trailer,

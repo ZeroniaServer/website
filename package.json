@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "prebuild": "node scripts/generate-crawl-files.mjs",
+    "postbuild": "node scripts/generate-social-previews.mjs",
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview"

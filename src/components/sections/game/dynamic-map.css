@@ -12,8 +12,7 @@
   min-width: 0;
 }
 
-/* flex-grow set to each frame's aspect ratio so they share the row width
-   and end up the same height once aspect-ratio resolves each one */
+/* Match panel heights using their aspect ratios. */
 .dmap__panel--map {
   flex: 0.639 1 0;
 }

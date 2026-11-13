@@ -7,9 +7,7 @@
 .hero__media {
   position: relative;
   line-height: 0;
-  /* Also declared here (not just on .hero__bg) so the box has an explicit
-     height: percentage sizes on the absolutely positioned logo below only
-     resolve against a containing block with a definite, declared height. */
+  /* Sets the reference height for the positioned logo. */
   aspect-ratio: 16 / 9;
 }
 
@@ -24,10 +22,7 @@ video.hero__bg {
   cursor: pointer;
 }
 
-/* Logo source files vary wildly in both resolution and aspect ratio (a tiny
-   wide banner vs. a large square badge). width/height here define a fixed
-   bounding box (up to 75% wide, 55% tall of the hero media); object-fit
-   scales the actual logo to fit inside it without distorting its ratio. */
+/* Keep each logo inside the same box without changing its shape. */
 .hero__logo {
   position: absolute;
   top: 0;
@@ -146,8 +141,7 @@ video.hero__bg {
   transition: filter 0.15s ease;
 }
 
-/* Dim every head once the group is hovered/focused, then un-dim the one
-   actually being pointed at, instead of moving heads around. */
+/* Dim the other heads when one is hovered or focused. */
 .hero__credits:hover .hero__credit > img,
 .hero__credits:hover .hero__globe-btn img,
 .hero__credits:hover .hero__more-btn img,
