@@ -90,7 +90,9 @@ export function parseRun(token: string): Run {
     match = part.match(/^T(\d{2})\.(\d+)$/);
     if (match) {
       const taskName = mapping.tasks[match[1]] ?? `Task ${match[1]}`;
-      const displayName = taskName.includes("_") ? taskName.replace(/_/g, " ").replace(/\b\w/g, (letter) => letter.toUpperCase()) : taskName;
+      const displayName = taskName.includes("_")
+        ? taskName.replace(/_/g, " ").replace(/\b\w/g, (letter) => letter.toUpperCase())
+        : taskName.charAt(0).toUpperCase() + taskName.slice(1);
       return [{ kind: "task", id: match[1], name: displayName, ticks: Number(match[2]) }];
     }
 
