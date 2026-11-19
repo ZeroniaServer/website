@@ -138,7 +138,7 @@
           ],
           "changelog": "https://github.com/ZeroniaServer/fossil-frights-dp/releases/tag/v1.0.6-26.3",
           "files": {
-            "world": "https://downloads.zeronia.org/maps/fossil-frights/fossil-frights-v1.0.6-26.3.zip",
+            "world": "https://downloads.zeronia.org/maps/fossil-frights/fossil-frights-v1.0.6.1-26.3.zip",
             "resourcepack": "https://downloads.zeronia.org/resourcepacks/fossil-frights/fossil-frights-resourcepack-v1.0.6-26.3.zip"
           }
         },
